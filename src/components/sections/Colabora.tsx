@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,6 +8,7 @@ import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { supabase } from "@/lib/supabaseClient";
 
 const formSchema = z.object({
   nombre: z.string().trim().min(2, "Por favor ingresa tu nombre completo").max(100),
@@ -47,20 +47,65 @@ const Colabora = () => {
 
   const llamadaSeleccionada = form.watch("llamada");
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log("Formulario enviado:", values);
-    toast({
-      title: "🌿 Gracias por compartir tu energía con nosotras.",
-      description: "En breve te contactaremos para guiarte en el siguiente paso de tu experiencia Wunjo. 💫 Tu viaje de transformación acaba de comenzar.",
-    });
-    form.reset();
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      const dataParaSupabase = {
+        nombre: values.nombre,
+        telefono: values.telefono,
+        marca: values.marca,
+        sitio_web: values.sitioWeb || null,
+        deseo_crear: values.deseoCrear,
+        sentimiento: values.sentimiento,
+        proposito: values.proposito,
+        etapa: values.etapa,
+        acompanamiento: values.acompanamiento,
+        llamada: values.llamada,
+      };
+
+      console.log('📤 Enviando datos a Supabase:', dataParaSupabase);
+
+      const { data, error } = await supabase
+        .from('wunjocreations')
+        .insert(dataParaSupabase)
+        .select();
+
+      console.log('🔍 Respuesta completa de Supabase:', { data, error });
+
+      if (error) {
+        console.error('❌ Error al guardar:', error);
+        console.error('Código de error:', error.code);
+        console.error('Mensaje:', error.message);
+        console.error('Detalles:', error.details);
+        console.error('Hint:', error.hint);
+
+        toast({
+          title: "Error al enviar el formulario",
+          description: `${error.message} (Código: ${error.code})`,
+          variant: "destructive",
+        });
+      } else {
+        console.log('✅ Datos guardados exitosamente:', data);
+        toast({
+          title: "🌿 Gracias por compartir tu energía con nosotras.",
+          description: "En breve te contactaremos para guiarte en el siguiente paso de tu experiencia Wunjo. 💫",
+        });
+        form.reset();
+      }
+    } catch (err) {
+      console.error('❌ Error inesperado completo:', err);
+      toast({
+        title: "Error inesperado",
+        description: "Hubo un problema inesperado. Por favor intenta de nuevo más tarde.",
+        variant: "destructive",
+      });
+    }
   };
 
   const getButtonText = () => {
     if (llamadaSeleccionada === "si-llamada") {
       return "Agenda tu llamada por WhatsApp";
     } else if (llamadaSeleccionada === "mas-info") {
-      return " Solicito información";
+      return "Solicito información";
     }
     return "Enviar formulario";
   };
@@ -130,7 +175,7 @@ const Colabora = () => {
                   <FormItem>
                     <FormLabel>Tu marca o proyecto actual 💫</FormLabel>
                     <FormControl>
-                      <Input placeholder="Tu marca, empresa , proyecto" {...field} />
+                      <Input placeholder="Tu marca, empresa, proyecto" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -317,8 +362,10 @@ const Colabora = () => {
               />
             </div>
 
-            <Button type="submit" size="lg" className="w-full text-lg">
-              {getButtonText()}
+              
+
+            <Button type="submit" size="lg" className="w-full text-lg" disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting ? "Enviando..." : getButtonText()}
             </Button>
           </form>
         </Form>

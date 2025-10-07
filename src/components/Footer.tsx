@@ -28,7 +28,7 @@ const Footer = () => {
           
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="https://www.instagram.com/wunjocreations/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
-            <a href="mailto:wunjocreations@gmail.com" className="hover:text-primary transition-colors">Contacto</a>
+            <a href="#colabora" className="hover:text-primary transition-colors">Contacto</a>
             <button onClick={() => setOpenAviso(true)} className="hover:text-primary transition-colors">Aviso legal</button>
             <button onClick={() => setOpenPolitica(true)} className="hover:text-primary transition-colors">Política de privacidad</button>
           </div>
