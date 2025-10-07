@@ -51,10 +51,15 @@ const Colabora = () => {
   const llamadaSeleccionada = form.watch("llamada");
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    toast({
+      title: "Enviando tu información...",
+      description: "Estamos procesando tu solicitud. Por favor espera un momento.",
+    });
+
     try {
       const dataParaSupabase = {
         nombre: values.nombre,
-        email: values.email, // 🆕 AGREGADO
+        email: values.email,
         telefono: values.telefono,
         marca: values.marca,
         sitio_web: values.sitioWeb || null,
@@ -64,8 +69,8 @@ const Colabora = () => {
         etapa: values.etapa,
         acompanamiento: values.acompanamiento,
         llamada: values.llamada,
-        estado: 'Nuevo', // 🆕 AGREGADO para CRM
-        origen: 'Web', // 🆕 AGREGADO para CRM
+        estado: 'Nuevo',
+        origen: 'Web',
       };
 
       console.log('📤 Enviando datos a Supabase:', dataParaSupabase);
@@ -78,22 +83,37 @@ const Colabora = () => {
       console.log('🔍 Respuesta completa de Supabase:', { data, error });
 
       if (error) {
-        console.error('❌ Error al guardar:', error);
+        // 🔴 IMPROVED ERROR LOGGING
+        console.error('❌ Error completo:', {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code
+        });
+
         toast({
           title: "Error al enviar el formulario",
-          description: `${error.message}`,
+          description: `${error.message}${error.hint ? ' - ' + error.hint : ''}`,
           variant: "destructive",
         });
-      } else {
-        console.log('✅ Datos guardados exitosamente:', data);
-        toast({
-          title: "🌿 Gracias por compartir tu energía con nosotras.",
-          description: "En breve te contactaremos para guiarte en el siguiente paso de tu experiencia Wunjo. 💫",
-        });
-        form.reset();
+        return; // Stop execution if error
       }
+
+      // ✅ SUCCESS
+      console.log('✅ Datos guardados exitosamente:', data);
+      toast({
+        title: "🌿 Gracias por compartir tu energía con nosotras.",
+        description: "En breve te contactaremos para guiarte en el siguiente paso de tu experiencia Wunjo. 💫",
+      });
+      form.reset();
+
     } catch (err) {
-      console.error('❌ Error inesperado completo:', err);
+      console.error('❌ Error inesperado completo:', {
+        error: err,
+        message: err.message,
+        stack: err.stack
+      });
+
       toast({
         title: "Error inesperado",
         description: "Hubo un problema inesperado. Por favor intenta de nuevo más tarde.",
