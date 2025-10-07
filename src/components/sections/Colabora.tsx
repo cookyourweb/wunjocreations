@@ -1,3 +1,4 @@
+// src/components/sections/Colabora.tsx
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,6 +13,7 @@ import { supabase } from "@/lib/supabaseClient";
 
 const formSchema = z.object({
   nombre: z.string().trim().min(2, "Por favor ingresa tu nombre completo").max(100),
+  email: z.string().email("Por favor ingresa un email válido"), // 🆕 AGREGADO
   telefono: z.string().trim().min(9, "Por favor ingresa un teléfono válido").max(20),
   marca: z.string().trim().min(2, "Por favor cuéntanos sobre tu marca o proyecto").max(200),
   sitioWeb: z.string().trim().max(500).optional(),
@@ -36,6 +38,7 @@ const Colabora = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       nombre: "",
+      email: "", // 🆕 AGREGADO
       telefono: "",
       marca: "",
       sitioWeb: "",
@@ -51,6 +54,7 @@ const Colabora = () => {
     try {
       const dataParaSupabase = {
         nombre: values.nombre,
+        email: values.email, // 🆕 AGREGADO
         telefono: values.telefono,
         marca: values.marca,
         sitio_web: values.sitioWeb || null,
@@ -60,6 +64,8 @@ const Colabora = () => {
         etapa: values.etapa,
         acompanamiento: values.acompanamiento,
         llamada: values.llamada,
+        estado: 'Nuevo', // 🆕 AGREGADO para CRM
+        origen: 'Web', // 🆕 AGREGADO para CRM
       };
 
       console.log('📤 Enviando datos a Supabase:', dataParaSupabase);
@@ -73,14 +79,9 @@ const Colabora = () => {
 
       if (error) {
         console.error('❌ Error al guardar:', error);
-        console.error('Código de error:', error.code);
-        console.error('Mensaje:', error.message);
-        console.error('Detalles:', error.details);
-        console.error('Hint:', error.hint);
-
         toast({
           title: "Error al enviar el formulario",
-          description: `${error.message} (Código: ${error.code})`,
+          description: `${error.message}`,
           variant: "destructive",
         });
       } else {
@@ -145,9 +146,24 @@ const Colabora = () => {
                 name="nombre"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu nombre completo 🌸</FormLabel>
+                    <FormLabel>Tu nombre completo 👤</FormLabel>
                     <FormControl>
                       <Input placeholder="Tu nombre" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* 🆕 CAMPO EMAIL AGREGADO AQUÍ */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Tu email 📨</FormLabel>
+                    <FormControl>
+                      <Input type="email" placeholder="tu@email.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -159,7 +175,7 @@ const Colabora = () => {
                 name="telefono"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu teléfono 📱</FormLabel>
+                    <FormLabel>Tu teléfono 📞</FormLabel>
                     <FormControl>
                       <Input placeholder="+34 600 000 000" {...field} />
                     </FormControl>
@@ -197,9 +213,10 @@ const Colabora = () => {
               />
             </div>
 
+            {/* Resto del formulario igual... */}
             {/* Conexión emocional */}
             <div className="space-y-6">
-              <h3 className="font-display text-2xl font-medium text-foreground">🔮 Conexión emocional</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground">🧠 Conexión emocional</h3>
               
               <FormField
                 control={form.control}
@@ -246,7 +263,7 @@ const Colabora = () => {
 
             {/* Nivel de desarrollo */}
             <div className="space-y-6">
-              <h3 className="font-display text-2xl font-medium text-foreground">⚙️ ¿En qué etapa estás?</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground">🔍 ¿En qué etapa estás?</h3>
               
               <FormField
                 control={form.control}
@@ -351,7 +368,7 @@ const Colabora = () => {
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="mas-info" id="mas-info" />
                           <Label htmlFor="mas-info" className="cursor-pointer flex-1">
-                            Prefiero que me envíen más información primero 🌸
+                            Prefiero que me envíen más información primero 
                           </Label>
                         </div>
                       </RadioGroup>
@@ -361,8 +378,6 @@ const Colabora = () => {
                 )}
               />
             </div>
-
-              
 
             <Button type="submit" size="lg" className="w-full text-lg" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? "Enviando..." : getButtonText()}

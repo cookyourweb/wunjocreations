@@ -1,3 +1,5 @@
+// src/components/sections/NuestraEsencia.tsx
+// src/components/sections/NuestraEsencia.tsx
 import logoWunjo1 from "@/assets/logoWunjo1.png";
 
 const Historia = () => {

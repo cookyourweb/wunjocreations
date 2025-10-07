@@ -1,3 +1,5 @@
+// src/components/sections/TuVueltaAlSol.tsx
+// src/components/sections/TuVueltaAlSol.tsx
 import ExperienceCard from "@/components/ExperienceCard";
 
 const TuVueltaAlSol = () => {

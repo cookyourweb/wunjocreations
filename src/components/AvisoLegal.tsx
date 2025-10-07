@@ -1,3 +1,5 @@
+// src/components/AvisoLegal.tsx
+// src/components/AvisoLegal.tsx
 const AvisoLegal = () => {
   return (
     <section id="aviso-legal" className="py-32 px-6 max-w-6xl mx-auto">

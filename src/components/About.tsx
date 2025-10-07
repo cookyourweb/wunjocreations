@@ -1,3 +1,5 @@
+// src/components/About.tsx
+// src/components/About.tsx
 const About = () => {
   return (
     <section className="py-32 px-6 bg-gradient-to-b from-background to-secondary/30">

@@ -1,3 +1,5 @@
+// src/pages/Index.tsx
+// src/pages/Index.tsx
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Historia from "@/components/sections/NuestraEsencia";

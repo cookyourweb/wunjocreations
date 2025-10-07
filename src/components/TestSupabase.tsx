@@ -1,3 +1,5 @@
+// src/components/TestSupabase.tsx
+// src/components/TestSupabase.tsx
 import { useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 

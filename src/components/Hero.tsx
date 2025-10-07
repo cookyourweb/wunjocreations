@@ -1,3 +1,5 @@
+// src/components/Hero.tsx
+// src/components/Hero.tsx
 import logoWunjo1 from "@/assets/logoWunjo1.png";
 import { Button } from "@/components/ui/button";
 

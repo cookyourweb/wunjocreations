@@ -1,3 +1,5 @@
+// src/components/sections/Manifiesto.tsx
+// src/components/sections/Manifiesto.tsx
 const Manifiesto = () => {
   return (
     <section id="manifiesto" className="py-32 px-6">

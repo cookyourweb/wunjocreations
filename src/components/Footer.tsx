@@ -1,3 +1,5 @@
+// src/components/Footer.tsx
+// src/components/Footer.tsx
 import { useState } from "react";
 import {
   Dialog,

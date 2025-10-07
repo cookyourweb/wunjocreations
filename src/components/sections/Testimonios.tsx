@@ -1,3 +1,5 @@
+// src/components/sections/Testimonios.tsx
+// src/components/sections/Testimonios.tsx
 import { Card, CardContent } from "@/components/ui/card";
 
 const Testimonios = () => {

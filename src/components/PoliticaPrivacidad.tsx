@@ -1,3 +1,5 @@
+// src/components/PoliticaPrivacidad.tsx
+// src/components/PoliticaPrivacidad.tsx
 const PoliticaPrivacidad = () => {
   return (
     <section id="politica-privacidad" className="py-32 px-6 max-w-6xl mx-auto">

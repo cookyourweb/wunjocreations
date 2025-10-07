@@ -1,3 +1,5 @@
+// src/components/ExperienceCard.tsx
+// src/components/ExperienceCard.tsx
 import { ArrowRight } from "lucide-react";
 
 interface ExperienceCardProps {

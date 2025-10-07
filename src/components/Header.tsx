@@ -1,7 +1,13 @@
+// src/components/Header.tsx
 import logoWunjo2 from "@/assets/logoWunjo2.png";
 import logoWunjo3 from "@/assets/logoWunjo3.png";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
+// Dentro del nav:
+<Link to="/crm" className="text-sm hover:text-primary">
+  CRM
+</Link>
 const Header = () => {
   const [isDark, setIsDark] = useState(true);
   const [activeSection, setActiveSection] = useState('');

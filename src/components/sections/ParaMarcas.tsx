@@ -1,3 +1,5 @@
+// src/components/sections/ParaMarcas.tsx
+// src/components/sections/ParaMarcas.tsx
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -40,7 +42,7 @@ const ParaMarcas = () => {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="bg-card/50 backdrop-blur">
             <CardContent className="p-8 space-y-4">
-              <div className="text-3xl">🌸</div>
+              <div className="text-3xl">💫</div>
               <h3 className="font-display text-xl text-foreground">Webs con alma</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Diseño consciente, storytelling emocional y coherencia energética.

@@ -1,3 +1,5 @@
+// src/components/sections/Proceso.tsx
+// src/components/sections/Proceso.tsx
 import { Button } from "@/components/ui/button";
 
 const Proceso = () => {
@@ -41,8 +43,8 @@ const Proceso = () => {
         </div>
         
         <div className="text-center">
-          <Button size="lg">
-            Solicita una guía de colaboración
+          <Button size="lg" onClick={() => document.getElementById('colabora')?.scrollIntoView({behavior: 'smooth'})}>
+            Quiero que me cuentes
           </Button>
         </div>
       </div>
