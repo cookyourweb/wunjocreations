@@ -5,6 +5,7 @@
 - [x] Crear página AvisoLegal.tsx
 - [x] Agregar rutas en App.tsx para /politicadeprivacidad y /avisolegal
 - [x] Importar las nuevas páginas en App.tsx
+- [x] Agregar vercel.json para manejar rutas SPA en producción
 
 ## Próximos Pasos
 - [ ] Probar las rutas navegando a wunjocreations.es/politicadeprivacidad y wunjocreations.es/avisolegal
