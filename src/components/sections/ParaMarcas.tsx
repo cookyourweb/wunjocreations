@@ -1,11 +1,8 @@
 // src/components/sections/ParaMarcas.tsx
 // src/components/sections/ParaMarcas.tsx
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-
 const ParaMarcas = () => {
   return (
-    <section id="para-marcas" className="py-32 px-6 bg-gradient-to-b from-muted/30 to-background">
+    <section id="para-marcas" className="py-32 px-6">
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-8">
           <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
@@ -14,83 +11,70 @@ const ParaMarcas = () => {
         </div>
 
         {/* El Problema */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           <h3 className="font-display text-3xl text-foreground text-center">
             El problema que resolvemos
           </h3>
           <p className="text-lg text-muted-foreground font-light leading-relaxed text-center max-w-3xl mx-auto">
             Los creadores e influencers enseñan contenido, pero sus comunidades:
           </p>
-          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6">
-                <p className="text-muted-foreground">❌ Se pierden y abandonan</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6">
-                <p className="text-muted-foreground">❌ No avanzan ni aplican</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6">
-                <p className="text-muted-foreground">❌ No cambian la mentalidad</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6">
-                <p className="text-muted-foreground">❌ No llegan al resultado final</p>
-              </CardContent>
-            </Card>
+
+          <div className="max-w-2xl mx-auto space-y-3">
+            <div className="flex items-center gap-3 text-muted-foreground">
+              <span className="text-accent text-xl">•</span>
+              <p>Se pierden y abandonan</p>
+            </div>
+            <div className="flex items-center gap-3 text-muted-foreground">
+              <span className="text-accent text-xl">•</span>
+              <p>No avanzan ni aplican</p>
+            </div>
+            <div className="flex items-center gap-3 text-muted-foreground">
+              <span className="text-accent text-xl">•</span>
+              <p>No cambian la mentalidad</p>
+            </div>
+            <div className="flex items-center gap-3 text-muted-foreground">
+              <span className="text-accent text-xl">•</span>
+              <p>No llegan al resultado final</p>
+            </div>
           </div>
-          <p className="text-lg text-foreground font-medium text-center pt-4">
+
+          <p className="text-lg text-foreground font-medium text-center pt-6 max-w-2xl mx-auto">
             Además, acompañar a cientos de alumnos es imposible para un creador.<br />
-            Tu solución elimina ese desgaste y aumenta resultados.
+            Nuestra solución elimina ese desgaste y aumenta resultados.
           </p>
         </div>
 
         {/* Qué Consiguen */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           <h3 className="font-display text-3xl text-foreground text-center">
-            Qué consiguen las marcas al trabajar contigo
+            Qué consiguen las marcas al trabajar con Wunjo
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-2xl">✓</div>
-                <p className="text-foreground font-medium">Una experiencia que convierte su contenido en transformación real</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-2xl">✓</div>
-                <p className="text-foreground font-medium">Más resultados → más testimonios → más ventas</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-2xl">✓</div>
-                <p className="text-foreground font-medium">Menos abandono y más engagement</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-2xl">✓</div>
-                <p className="text-foreground font-medium">Alumnos que avanzan con claridad, mentalidad y foco</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-2xl">✓</div>
-                <p className="text-foreground font-medium">Un sistema de acompañamiento automatizado que funciona solo</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-2xl">✓</div>
-                <p className="text-foreground font-medium">Pipeline de profesionales listos para trabajar con ellos (si buscan formar talento)</p>
-              </CardContent>
-            </Card>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            <div className="flex items-start gap-4">
+              <span className="text-primary text-2xl mt-1">✓</span>
+              <p className="text-foreground font-light text-lg">Una experiencia que convierte su contenido en transformación real</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-primary text-2xl mt-1">✓</span>
+              <p className="text-foreground font-light text-lg">Más resultados → más testimonios → más ventas</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-primary text-2xl mt-1">✓</span>
+              <p className="text-foreground font-light text-lg">Menos abandono y más engagement</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-primary text-2xl mt-1">✓</span>
+              <p className="text-foreground font-light text-lg">Alumnos que avanzan con claridad, mentalidad y foco</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-primary text-2xl mt-1">✓</span>
+              <p className="text-foreground font-light text-lg">Un sistema de acompañamiento automatizado que funciona solo</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="text-primary text-2xl mt-1">✓</span>
+              <p className="text-foreground font-light text-lg">Pipeline de profesionales listos para trabajar con ellos (si buscan formar talento)</p>
+            </div>
           </div>
         </div>
 
