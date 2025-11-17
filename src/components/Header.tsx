@@ -31,7 +31,7 @@ const Header = () => {
       { threshold: 0.3 }
     );
 
-    const sections = ['historia', 'manifiesto', 'experiences', 'para-marcas', 'proceso', 'colabora'];
+    const sections = ['manifiesto', 'historia', 'para-marcas', 'proceso', 'experiences', 'colabora'];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -62,6 +62,16 @@ const Header = () => {
 
           <nav className="hidden md:flex items-center gap-8">
             <button
+              onClick={() => scrollToSection('manifiesto')}
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+                activeSection === 'manifiesto'
+                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
+                  : ''
+              }`}
+            >
+              Qué es
+            </button>
+            <button
               onClick={() => scrollToSection('historia')}
               className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
                 activeSection === 'historia'
@@ -70,26 +80,6 @@ const Header = () => {
               }`}
             >
               Nuestra Esencia
-            </button>
-            <button
-              onClick={() => scrollToSection('manifiesto')}
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
-                activeSection === 'manifiesto'
-                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
-                  : ''
-              }`}
-            >
-              Manifiesto Wunjo
-            </button>
-            <button
-              onClick={() => scrollToSection('experiences')}
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
-                activeSection === 'experiences'
-                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
-                  : ''
-              }`}
-            >
-              Experiencias Wunjo
             </button>
             <button
               onClick={() => scrollToSection('para-marcas')}
@@ -110,6 +100,16 @@ const Header = () => {
               }`}
             >
               Proceso
+            </button>
+            <button
+              onClick={() => scrollToSection('experiences')}
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+                activeSection === 'experiences'
+                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
+                  : ''
+              }`}
+            >
+              Experiencias
             </button>
             <button
               onClick={() => scrollToSection('colabora')}
