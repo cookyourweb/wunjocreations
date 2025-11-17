@@ -8,12 +8,25 @@ const Experiences = () => {
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="text-center space-y-4">
           <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
-           La Experiencia Wunjo — Nuestro viaje de creación consciente.
+            Experiencias Wunjo
           </h2>
-          <p className="text-lg text-muted-foreground font-light">
-            Cada proyecto que nace en Wunjo es una experiencia viva.
-Un proceso de transformación donde tu energía se convierte en presencia.
+          <p className="text-lg text-muted-foreground font-light max-w-3xl mx-auto">
+            Diseñamos un acompañamiento personalizado, automatizado y emocional<br />
+            que guía a cada seguidor paso a paso hacia el objetivo del creador.
           </p>
+          <div className="text-left max-w-2xl mx-auto mt-8 space-y-3 text-muted-foreground">
+            <p>Incluye:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Análisis del alumno (fortalezas, debilidades, bloqueos, mentalidad)</li>
+              <li>Ruta personalizada</li>
+              <li>Mensajes de mindset</li>
+              <li>Tareas y pasos concretos</li>
+              <li>Seguimiento en tiempo real</li>
+              <li>Detección automática de talento</li>
+              <li>Motivación continua</li>
+            </ul>
+            <p className="pt-4 italic">Todo con IA + diseño consciente + psicología.</p>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-1 gap-8">

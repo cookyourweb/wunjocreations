@@ -22,29 +22,20 @@ const Hero = () => {
         </div>
         
         <h1 className="font-display text-5xl md:text-7xl font-semibold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
-          Convertimos tu presencia digital en una experiencia con alma.
+          Transformamos la experiencia de tu comunidad.<br />
+          Y liberamos la tuya.
         </h1>
 
         <a href="#inicio" className="block text-center no-underline">
           <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-            Tu proyecto ya vibra con propósito.
-            Nosotras lo transformamos en un universo digital coherente, bello y vivo.
-          </p>
-
-          <p className="text-lg text-foreground font-light max-w-3xl mx-auto leading-relaxed">
-            🌿 Webs, apps y ecosistemas digitales con propósito.
-         
-           
-          </p>
-
-          <p className="mt-6 font-semibold text-primary cursor-pointer">
-             ✨ Tecnología con alma. Diseño con propósito.
+            Acompañamiento personalizado con IA que guía a cada persona de tu comunidad<br />
+            mientras tú recuperas tiempo, energía y foco creativo.
           </p>
         </a>
-        
+
         <div className="pt-8">
           <Button size="lg" onClick={() => scrollToSection('colabora')}>
-          👉 Inicia tu experiencia Wunjo
+            Quiero una experiencia para mi comunidad
           </Button>
         </div>
         

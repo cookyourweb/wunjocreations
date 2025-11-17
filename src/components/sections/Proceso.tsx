@@ -6,18 +6,23 @@ const Proceso = () => {
   const steps = [
     {
       number: "1",
-      title: "Explora las experiencias Wunjo",
-      description: "Descubre nuestras herramientas y vivencias de transformación."
+      title: "Descubrimiento",
+      description: "Análisis profundo de tu marca, valores, promesa y comunidad. Entendemos qué necesita tu audiencia para transformarse."
     },
     {
       number: "2",
-      title: "Elige o co-crea tu experiencia",
-      description: "Personalizamos el contenido, el simbolismo y los elementos visuales para alinearlos con tu propósito."
+      title: "Diseño",
+      description: "Convertimos tu enseñanza en una experiencia viva que combina acción y mentalidad. Diseñamos el viaje personalizado."
     },
     {
       number: "3",
-      title: "Ofrece transformación real",
-      description: "Lleva una experiencia con alma a tus clientes, equipo o comunidad."
+      title: "Creación",
+      description: "Implementación de IA, rutas personalizadas y ecosistema digital. Construimos el sistema que acompaña a cada persona."
+    },
+    {
+      number: "4",
+      title: "Activación",
+      description: "Lanzamiento, seguimiento y medición de resultados. Tu comunidad empieza a transformarse mientras tú recuperas tu tiempo."
     }
   ];
 
@@ -25,9 +30,13 @@ const Proceso = () => {
     <section id="proceso" className="py-32 px-6">
       <div className="max-w-4xl mx-auto space-y-12">
         <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight text-center">
-          El proceso Wunjo: de inspiración a transformación
+          Nuestro Proceso Wunjo
         </h2>
-        
+
+        <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto">
+          Tu proceso se divide en 4 fases para crear experiencias que realmente transforman:
+        </p>
+
         <div className="space-y-8">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-6 items-start">
@@ -41,10 +50,10 @@ const Proceso = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center">
           <Button size="lg" onClick={() => document.getElementById('colabora')?.scrollIntoView({behavior: 'smooth'})}>
-            Quiero que me cuentes
+            Quiero crear una experiencia para mi comunidad
           </Button>
         </div>
       </div>
