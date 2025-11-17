@@ -21,21 +21,40 @@ const Hero = () => {
           />
         </div>
         
-        <h1 className="font-display text-5xl md:text-7xl font-semibold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
-          Transformamos la experiencia de tu comunidad.<br />
-          Y liberamos la tuya.
+        <h1 className="font-display text-4xl md:text-6xl font-semibold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+          La experiencia que hace que tu comunidad avance, se transforme… y se quede contigo.
         </h1>
 
-        <a href="#inicio" className="block text-center no-underline">
-          <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-            Acompañamiento personalizado con IA que guía a cada persona de tu comunidad<br />
-            mientras tú recuperas tiempo, energía y foco creativo.
+        <div className="space-y-6 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
+            Has construido algo valioso: una audiencia que te escucha, aprende de ti y quiere cambiar su vida con tu contenido.
           </p>
-        </a>
+
+          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
+            Pero cada persona es distinta. Unos avanzan. Otros se bloquean. Otros se desmotivan. Y ahí es donde tu negocio pierde fuerza sin que te des cuenta.
+          </p>
+
+          <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
+            Con IA, convertimos tu curso, mentoría o contenido en una experiencia personalizada para cada miembro de tu comunidad: adaptada a su ritmo, su mentalidad, sus fortalezas y sus bloqueos.
+          </p>
+
+          <div className="space-y-3 pt-4">
+            <p className="text-lg text-foreground font-light leading-relaxed">
+              🌿 Así tu comunidad vive tu transformación como si fuera hecha para ellos.
+            </p>
+            <p className="text-lg text-foreground font-light leading-relaxed">
+              ✨ Y tú conviertes más alumnos en casos de éxito, clientes recurrentes y embajadores de tu marca.
+            </p>
+          </div>
+
+          <p className="text-xl text-foreground font-semibold pt-4">
+            No es solo acompañamiento. Es estrategia para escalar tu impacto y tu negocio.
+          </p>
+        </div>
 
         <div className="pt-8">
           <Button size="lg" onClick={() => scrollToSection('colabora')}>
-            Quiero una experiencia para mi comunidad
+            👉 Inicia tu experiencia Wunjo
           </Button>
         </div>
         
