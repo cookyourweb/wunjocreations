@@ -1,14 +1,9 @@
 // src/components/sections/ParaMarcas.tsx
-// src/components/sections/ParaMarcas.tsx
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const ParaMarcas = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="para-marcas" className="py-32 px-6 bg-gradient-to-b from-background to-muted/30">
       <div className="max-w-5xl mx-auto space-y-16">
@@ -205,9 +200,161 @@ const ParaMarcas = () => {
           </div>
 
           <div className="pt-8">
-            <Button size="lg" onClick={() => scrollToSection('colabora')}>
-              👉 Inicia tu experiencia Wunjo
-            </Button>
+            <Link to="/contacto">
+              <Button size="lg">
+                👉 Inicia tu experiencia Wunjo
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Separador visual */}
+        <div className="py-16">
+          <div className="w-32 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto opacity-40" />
+        </div>
+
+        {/* Lo que nadie te cuenta cuando tienes una comunidad */}
+        <div className="space-y-12 max-w-4xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
+              🌑 Lo que nadie te cuenta cuando tienes una comunidad
+            </h2>
+            <p className="text-xl text-muted-foreground font-light leading-relaxed">
+              Construir una comunidad es un logro enorme.
+            </p>
+            <p className="text-xl text-foreground font-medium leading-relaxed">
+              Pero mantenerla viva, comprometida y avanzando… es otro juego completamente distinto.
+            </p>
+          </div>
+
+          {/* Las verdades */}
+          <div className="space-y-8">
+            <p className="text-lg text-muted-foreground text-center">
+              La mayoría de los creadores se dan cuenta tarde de estas verdades:
+            </p>
+
+            <div className="space-y-6">
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-3">
+                  <h4 className="text-lg text-foreground font-medium">❌ No todo el mundo avanza con el mismo ritmo.</h4>
+                  <p className="text-muted-foreground text-sm">Algunas personas necesitan pasos más simples, otras más retos, otras más apoyo emocional.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-3">
+                  <h4 className="text-lg text-foreground font-medium">❌ Muchos se bloquean… y jamás te lo dicen.</h4>
+                  <p className="text-muted-foreground text-sm">Y tú ni siquiera lo sabes.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-3">
+                  <h4 className="text-lg text-foreground font-medium">❌ La mayoría abandona por falta de claridad, no por falta de valor.</h4>
+                  <p className="text-muted-foreground text-sm">No es tu contenido. Es su camino.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-3">
+                  <h4 className="text-lg text-foreground font-medium">❌ La experiencia que viven tus seguidores determina si vuelven a comprarte o no.</h4>
+                  <p className="text-muted-foreground text-sm">Tu negocio depende de esto más de lo que imaginas.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-3">
+                  <h4 className="text-lg text-foreground font-medium">❌ Y tú, por más que quieras, no puedes acompañarlos uno a uno.</h4>
+                  <p className="text-muted-foreground text-sm">No existen suficientes horas en el día.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* La solución */}
+          <Card className="bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur border-primary/40">
+            <CardContent className="p-8 space-y-6">
+              <h3 className="font-display text-2xl text-foreground text-center">
+                💡 Por eso las marcas que crecen no solo enseñan: crean experiencias.
+              </h3>
+              <p className="text-muted-foreground text-center">Experiencias que contienen:</p>
+              <div className="grid md:grid-cols-2 gap-3">
+                {['personalización', 'seguimiento', 'mentalidad', 'estrategia', 'rituales', 'claridad', 'motivación', 'transformación real'].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <span className="text-primary">•</span>
+                    <p className="text-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center pt-4 space-y-3">
+                <p className="text-lg text-foreground">Cuando tu comunidad vive todo esto…</p>
+                <p className="text-xl text-primary font-semibold">tu contenido deja de ser "información" y se convierte en impacto.</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Enseñar vs Transformar */}
+          <div className="space-y-8">
+            <h3 className="font-display text-3xl text-foreground text-center">
+              🌈 La diferencia entre enseñar y transformar
+            </h3>
+
+            <div className="space-y-6 text-center">
+              <p className="text-lg text-muted-foreground">Enseñar es lo que haces ahora.</p>
+              <p className="text-xl text-primary font-semibold">Transformar es lo que podrías hacer a partir de hoy.</p>
+
+              <p className="text-lg text-foreground pt-4">La transformación ocurre cuando cada persona recibe exactamente:</p>
+
+              <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto pt-4">
+                <div className="text-foreground">👉 lo que necesita</div>
+                <div className="text-foreground">👉 en el momento que lo necesita</div>
+                <div className="text-foreground">👉 con el enfoque que necesita</div>
+                <div className="text-foreground">👉 al ritmo que puede integrar</div>
+              </div>
+
+              <p className="text-lg text-muted-foreground pt-6">Eso es lo que crea:</p>
+
+              <div className="space-y-2 text-foreground">
+                <p>✔ alumnos que terminan</p>
+                <p>✔ alumnos que logran resultados</p>
+                <p>✔ alumnos que recomiendan</p>
+                <p>✔ alumnos que vuelven</p>
+                <p>✔ alumnos que te posicionan como referente</p>
+                <p className="font-semibold">✔ alumnos que hacen crecer tu negocio</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Excelencia de marca */}
+          <div className="space-y-8 text-center">
+            <h3 className="font-display text-3xl text-foreground">
+              🔥 La excelencia de tu marca empieza cuando dejas de dar el mismo camino a todos.
+            </h3>
+
+            <div className="space-y-6 text-lg">
+              <p className="text-muted-foreground">Lo que ofrecemos en Wunjo no es una web.</p>
+              <p className="text-muted-foreground">No es una app.</p>
+              <p className="text-muted-foreground">No es un curso.</p>
+
+              <p className="text-xl text-foreground font-semibold pt-4">
+                Es una experiencia estratégica que hace que cada miembro de tu comunidad viva una transformación propia.
+              </p>
+
+              <p className="text-lg text-primary font-medium pt-6">
+                Algo que ningún creador está ofreciendo… y que convierte tu contenido en tu mayor ventaja competitiva.
+              </p>
+            </div>
+
+            <div className="pt-8">
+              <p className="text-xl text-foreground font-medium pb-6">
+                ✨ ¿Listo para llevar tu comunidad a su siguiente nivel?
+              </p>
+              <Link to="/contacto">
+                <Button size="lg">
+                  👉 Inicia tu experiencia Wunjo
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
