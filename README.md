@@ -773,3 +773,190 @@ Al completar todos los pasos tendrás:
 **Dificultad: Media** 🟡
 
 ¡Éxito con la implementación! 🚀
+---
+
+# 🎓 Plan de Formación para Desarrolladores Wunjo
+
+## 🌿 Introducción
+
+Lo que Wunjo crea no es un simple sistema, es un **ecosistema de transformación personalizada**.
+
+Para poder diseñarlo, liderarlo y entenderlo en profundidad, necesitas dominar **7 áreas principales** que combinan tecnología, psicología, negocios y diseño.
+
+---
+
+## 📚 Las 7 Ramas del Conocimiento Wunjo
+
+### 🌿 1. Psicología del Comportamiento Humano
+
+**Para qué:** Entender por qué las personas avanzan, se bloquean o abandonan.
+
+**Temas clave:**
+- Motivación intrínseca y extrínseca
+- Hábitos y cambio de comportamiento
+- Mecanismos de resistencia (procrastinación, autosabotaje)
+- Dopamina y enfoque
+- Sistemas de recompensa
+- Desarrollo de identidad
+
+**Libros recomendados:**
+- **Atomic Habits** — James Clear
+- **The Power of Habit** — Charles Duhigg
+- **Mindset** — Carol Dweck
+- **Thinking, Fast and Slow** — Daniel Kahneman
+
+---
+
+### 🌈 2. Psicología Evolutiva y Crecimiento Personal
+
+**Para qué:** Diseñar experiencias que realmente transformen.
+
+**Temas clave:**
+- Etapas del desarrollo humano
+- Procesos de maduración emocional
+- Mecanismos de trauma, reparación y regulación
+- Arquetipos, sombras, ego
+- Autorrealización
+
+**Libros recomendados:**
+- **El Poder del Ahora** — Eckhart Tolle
+- **Inteligencia Emocional** — Daniel Goleman
+- **Awareness** — Anthony de Mello
+- **The Hero With a Thousand Faces** — Joseph Campbell
+
+---
+
+### 🧠 3. Coaching y Mentalidad (Mindset Coaching)
+
+**Para qué:** Integrar mensajes de mentalidad y acompañamiento emocional.
+
+**Temas clave:**
+- Preguntas poderosas
+- Guía sin dirigir
+- Accountability (responsabilidad)
+- Gestión de emociones
+- Creencias limitantes
+- Acompañamiento desde la compasión y el rigor
+
+**Formaciones útiles:**
+- Coaching profesional (ICF / ASESCO)
+- Coaching ontológico
+- Coaching de identidad
+
+**Libros recomendados:**
+- **The Coaching Habit** — Michael Bungay Stanier
+- **The Inner Game of Tennis** — Timothy Gallwey
+- **Psycho-Cybernetics** — Maxwell Maltz
+
+---
+
+### 💼 4. Negocios, Ventas y Construcción de Ofertas
+
+**Para qué:** Entender mejor cómo piensa un creador, un mentor o un alumno.
+
+**Temas clave:**
+- Propuesta de valor
+- Creación de ofertas
+- Procesos de venta
+- Customer journey
+- Retención y experiencia del cliente
+- Escalabilidad
+
+**Libros base:**
+- **$100M Offers** — Alex Hormozi
+- **$100M Leads** — Alex Hormozi
+- **DotCom Secrets** — Russell Brunson
+- **Expert Secrets** — Russell Brunson
+- **Traffic Secrets** — Russell Brunson
+
+---
+
+### 🌀 5. Diseño Instruccional y Experiencia de Aprendizaje
+
+**Para qué:** Convertir cualquier curso en una experiencia transformadora y personalizada.
+
+**Temas clave:**
+- Cómo estructurar un proceso paso a paso
+- Cómo generar resultados predecibles
+- Cómo medir el progreso
+- Cómo crear hitos de aprendizaje
+- Cómo convertir contenido en práctica
+- Cómo generar engagement a largo plazo
+
+**Libros recomendados:**
+- **Designing for Growth** — Jeanne Liedtka
+- **Ultralearning** — Scott Young
+- **The Art of Explanation** — Lee LeFever
+
+---
+
+### 🤖 6. Inteligencia Artificial Aplicada a Personalización
+
+**Para qué:** Dominar la parte técnica del ecosistema.
+
+**Áreas esenciales:**
+- Prompting avanzado
+- Personalización dinámica
+- Sistemas de recomendación
+- Análisis de datos individuales
+- Automatizaciones (Zapier, Make)
+- Dashboards
+- WhatsApp API / email automation
+
+**Recomendación:**
+Formarte en:
+- Prompt Engineering
+- IA aplicada a eduTech
+- Automatizaciones avanzadas con IA
+- (Cursos cortos → Udemy / Domestika / YouTube)
+
+---
+
+### 🎨 7. Diseño de Experiencias (UX Emocional + Narrativa)
+
+**Para qué:** Hacer que el ecosistema tenga "alma", como Wunjo.
+
+**Temas clave:**
+- Narrativa transformacional
+- Diseño centrado en la emoción
+- Storytelling simbólico
+- Gamificación ligera
+- Rituales digitales
+- Estética y coherencia de marca
+
+**Libros recomendados:**
+- **The Power of Moments** — Chip & Dan Heath
+- **Hooked** — Nir Eyal
+- **Storybrand** — Donald Miller
+- **Creative Confidence** — IDEO / Kelley Brothers
+
+---
+
+## 🧩 Resumen: ¿Qué necesitas aprender?
+
+1. ✅ Psicología humana y cambio de comportamiento
+2. ✅ Crecimiento personal y mentalidad
+3. ✅ Coaching y acompañamiento emocional
+4. ✅ Negocios y ofertas (Hormozi + Brunson)
+5. ✅ Diseño instruccional + UX de aprendizaje
+6. ✅ IA aplicada a personalización
+7. ✅ Storytelling y experiencia emocional
+
+**Si dominas esto, no solo puedes crear un acompañamiento personalizado…**
+**Puedes construir un nuevo tipo de producto digital que nadie más está ofreciendo.**
+
+---
+
+## 🚀 Próximos Pasos
+
+¿Te gustaría un **Plan de Formación Personalizado de 90 días** con:
+- División por semanas
+- Libros específicos
+- Ejercicios prácticos
+- Proyectos reales
+
+Contacta con el equipo Wunjo para más detalles sobre el programa de formación.
+
+---
+
+**¡Bienvenido al ecosistema Wunjo!** 🌿

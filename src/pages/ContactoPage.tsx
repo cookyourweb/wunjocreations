@@ -1,16 +1,16 @@
-// src/pages/Index.tsx
+// src/pages/ContactoPage.tsx
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import Colabora from "@/components/sections/Colabora";
 
-const Index = () => {
+const ContactoPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Hero />
+      <Colabora />
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ContactoPage;

@@ -1,16 +1,16 @@
-// src/pages/Index.tsx
+// src/pages/ParaCreadores.tsx
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import ParaMarcas from "@/components/sections/ParaMarcas";
 
-const Index = () => {
+const ParaCreadores = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Hero />
+      <ParaMarcas />
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ParaCreadores;
