@@ -49,14 +49,14 @@ const Proceso = () => {
   return (
     <section id="proceso" className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
       {/* Menú flotante de navegación de secciones */}
-      <nav className="fixed bottom-4 left-4 right-4 lg:left-auto lg:right-8 z-40">
+      <nav className="fixed bottom-4 left-4 right-4 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 lg:left-auto lg:right-8 z-40">
         <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3">
-          <div className="flex lg:flex-row gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
+          <div className="flex lg:flex-col gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible lg:overflow-y-visible justify-center">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center lg:gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                className={`group relative flex items-center justify-center lg:justify-start lg:gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
                   activeSection === id
                     ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
@@ -64,7 +64,7 @@ const Proceso = () => {
                 title={label}
               >
                 <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
-                <span className="hidden lg:inline text-xs font-medium">{label}</span>
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
               </button>
             ))}
           </div>
