@@ -16,33 +16,33 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.1] animate-slide-up">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2] animate-slide-up">
           La experiencia que hace que tu comunidad avance, se transforme… y se quede contigo.
         </h1>
 
-        <div className="space-y-8 max-w-4xl mx-auto animate-fade-in-delayed">
-          <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
+        <div className="space-y-6 max-w-4xl mx-auto animate-fade-in-delayed">
+          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
             Has construido algo valioso: una audiencia que te escucha, aprende de ti y quiere cambiar su vida con tu contenido.
           </p>
 
-          <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
             Pero cada persona es distinta. Unos avanzan. Otros se bloquean. Otros se desmotivan. Y ahí es donde tu negocio pierde fuerza sin que te des cuenta.
           </p>
 
-          <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed pt-4">
+          <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed pt-4">
             Con IA, convertimos tu curso, mentoría o contenido en una experiencia personalizada para cada miembro de tu comunidad: adaptada a su ritmo, su mentalidad, sus fortalezas y sus bloqueos.
           </p>
 
-          <div className="space-y-4 pt-6">
-            <p className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+          <div className="space-y-3 pt-4">
+            <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
               🌿 Así tu comunidad vive tu transformación como si fuera creada para ellos.
             </p>
-            <p className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
               ✨ Y tú conviertes más alumnos en casos de éxito, clientes recurrentes y embajadores de tu marca.
             </p>
           </div>
 
-          <p className="text-2xl md:text-3xl text-foreground font-bold pt-8">
+          <p className="text-xl md:text-2xl text-foreground font-bold pt-6">
             No es solo acompañamiento. Es estrategia para escalar tu impacto y tu negocio.
           </p>
         </div>

@@ -19,7 +19,7 @@ const Experiences = () => {
               Experiencias Wunjo
             </Badge>
           </div>
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.1]">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Experiencias que transforman.<br />
             Tecnología que acompaña.<br />
             Energía que despierta.
