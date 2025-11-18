@@ -35,7 +35,7 @@ const Hero = () => {
 
           <div className="space-y-3 pt-4">
             <p className="text-lg text-foreground font-light leading-relaxed">
-              🌿 Así tu comunidad vive tu transformación como si fuera hecha para ellos.
+              🌿 Así tu comunidad vive tu transformación como si fuera creada para ellos.
             </p>
             <p className="text-lg text-foreground font-light leading-relaxed">
               ✨ Y tú conviertes más alumnos en casos de éxito, clientes recurrentes y embajadores de tu marca.

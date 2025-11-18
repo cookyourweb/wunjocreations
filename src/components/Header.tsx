@@ -42,7 +42,7 @@ const Header = () => {
                   : ''
               }`}
             >
-              Para Creadores
+              Para Creadores e Influencers
             </Link>
             <Link
               to="/experiencias"
