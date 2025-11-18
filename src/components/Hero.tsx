@@ -9,19 +9,11 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto text-center space-y-12">
         <div className="inline-block mb-12 relative animate-fade-in">
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-20 blur-[100px] scale-150" />
-          <div className="relative z-10 space-y-4">
-            <img
-              src={logoWunjo1}
-              alt="Wunjo Creations Logo"
-              className="w-[1152px] h-auto mx-auto drop-shadow-[0_0_80px_hsl(var(--primary)/0.3)]"
-            />
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/30 via-accent/30 to-secondary/30 backdrop-blur-xl border-2 border-primary/40 shadow-xl">
-                <span className="text-2xl">🤖</span>
-                <span className="text-primary font-bold text-xl">AI-Powered Experiences</span>
-              </div>
-            </div>
-          </div>
+          <img
+            src={logoWunjo1}
+            alt="Wunjo Creations Logo"
+            className="w-[1152px] h-auto mx-auto relative z-10 drop-shadow-[0_0_80px_hsl(var(--primary)/0.3)]"
+          />
         </div>
 
         <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2] animate-slide-up">

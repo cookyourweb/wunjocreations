@@ -23,7 +23,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <Link to="/" className="cursor-pointer">
               <img
                 src={isDark ? logoWunjo2 : logoWunjo3}
@@ -31,6 +31,10 @@ const Header = () => {
                 className="h-20 w-auto"
               />
             </Link>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border-2 border-primary/40 shadow-lg">
+              <span className="text-lg">🤖</span>
+              <span className="text-primary font-bold text-sm">AI-Powered</span>
+            </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
