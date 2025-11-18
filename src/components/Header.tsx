@@ -24,19 +24,17 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link to="/" className="cursor-pointer">
-              <img
-                src={isDark ? logoWunjo2 : logoWunjo3}
-                alt="Wunjo Creations"
-                className="h-20 w-auto"
-              />
-            </Link>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card border-2 border-primary/40 shadow-lg">
+          <Link to="/" className="cursor-pointer relative">
+            <img
+              src={isDark ? logoWunjo2 : logoWunjo3}
+              alt="Wunjo Creations"
+              className="h-20 w-auto"
+            />
+            <div className="absolute bottom-0 right-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card border-2 border-primary/40 shadow-lg">
               <span className="text-sm">🤖</span>
               <span className="text-primary font-bold text-xs">AI-Powered</span>
             </div>
-          </div>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-8">
             <Link
