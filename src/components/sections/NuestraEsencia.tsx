@@ -1,17 +1,76 @@
 // src/components/sections/NuestraEsencia.tsx
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 import {
   Sparkles, Heart, Target,
   Award, Star, Eye
 } from "lucide-react";
 
 const Historia = () => {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "ganas", "diferente", "energia"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navItems = [
+    { id: "hero", label: "Esencia", icon: Sparkles },
+    { id: "ganas", label: "Ganas", icon: Award },
+    { id: "diferente", label: "Diferente", icon: Star },
+    { id: "energia", label: "Energía", icon: Heart },
+  ];
+
   return (
-    <section id="historia" className="py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="historia" className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+      {/* Menú flotante de navegación de secciones */}
+      <nav className="fixed bottom-4 left-4 right-4 lg:left-auto lg:right-8 z-40">
+        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3">
+          <div className="flex lg:flex-row gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center lg:gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium">{label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div className="text-center space-y-10">
+        <div id="hero" className="text-center space-y-10 scroll-mt-24">
           <div className="inline-block">
             <Badge className="px-8 py-3 text-lg font-medium bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 backdrop-blur-xl border-0 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
               <Sparkles className="w-5 h-5 mr-2 inline animate-pulse" />
@@ -67,7 +126,7 @@ const Historia = () => {
         </div>
 
         {/* LO QUE GANAS COMO CREADOR */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="ganas" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Award className="w-5 h-5 text-primary" />
@@ -117,7 +176,7 @@ const Historia = () => {
         </div>
 
         {/* POR QUÉ WUNJO ES DIFERENTE */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="diferente" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
               <Star className="w-5 h-5 text-accent" />
@@ -151,7 +210,7 @@ const Historia = () => {
         </div>
 
         {/* NUESTRA ENERGÍA */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="energia" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
               <Sparkles className="w-5 h-5 text-secondary" />

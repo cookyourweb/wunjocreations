@@ -2,18 +2,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   Sparkles, Users, TrendingUp, Heart, Award, Rocket, Target,
   Check, X, Eye, Brain, Zap, Star, ChevronRight,
   MessageSquare, BarChart3, Shield, Clock, CheckCircle2,
-  Lightbulb, Network, BadgeCheck, InfinityIcon, UserPlus, Trophy, Menu
+  Lightbulb, Network, BadgeCheck, InfinityIcon, UserPlus, Trophy
 } from "lucide-react";
 
 const ParaMarcas = () => {
   const [activeSection, setActiveSection] = useState("hero");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,64 +51,28 @@ const ParaMarcas = () => {
     { id: "logros", label: "Tus Logros", icon: BadgeCheck },
   ];
 
-  const mainNavItems = [
-    { label: "Para Creadores", to: "/para-creadores" },
-    { label: "Experiencias", to: "/experiencias" },
-    { label: "Nuestra Esencia", to: "/nuestra-esencia" },
-    { label: "Proceso", to: "/proceso" },
-    { label: "Contacto", to: "/contacto" },
-  ];
-
   return (
     <section id="para-marcas" className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú flotante - lateral en desktop, desplegable en móvil */}
-      <nav className="fixed lg:right-32 lg:top-1/2 lg:-translate-y-1/2 top-0 bottom-0 right-0 z-50">
-        {/* Desktop menu */}
-        <div className="hidden lg:block bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
-          {navItems.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${
-                activeSection === id
-                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
-                  : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-              }`}
-              title={label}
-            >
-              <Icon className="w-5 h-5 flex-shrink-0" />
-              <span className={`absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
-                activeSection === id ? "text-primary" : ""
-              }`}>
-                {label}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* Mobile menu */}
-        <div className="lg:hidden flex flex-col h-full">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="bg-card/90 backdrop-blur-lg p-3 hover:scale-105 transition-all duration-300"
-          >
-            <Menu className="w-6 h-6 text-foreground" />
-          </button>
-
-          {isMenuOpen && (
-            <div className="flex-1 bg-card/90 backdrop-blur-lg p-3 space-y-2 overflow-y-auto">
-              {mainNavItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          )}
+      {/* Menú flotante de navegación de secciones */}
+      <nav className="fixed bottom-4 left-4 right-4 lg:left-auto lg:right-8 z-40">
+        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3">
+          <div className="flex lg:flex-row gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center lg:gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium">{label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
 
