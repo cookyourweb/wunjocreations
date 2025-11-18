@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ParaMarcas from "@/components/sections/ParaMarcas";
+import AIPoweredBadge from "@/components/AIPoweredBadge";
 
 const ParaCreadores = () => {
   return (
@@ -9,6 +10,7 @@ const ParaCreadores = () => {
       <Header />
       <ParaMarcas />
       <Footer />
+      <AIPoweredBadge />
     </div>
   );
 };

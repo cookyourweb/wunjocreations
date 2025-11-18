@@ -54,9 +54,16 @@ const ParaMarcas = () => {
 
   return (
     <section id="para-marcas" className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú de navegación centrado horizontal */}
-      <nav className="fixed top-24 left-1/2 -translate-x-1/2 z-40 w-full max-w-6xl px-4">
-        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3">
+      <div className="max-w-5xl mx-auto space-y-24">
+        {/* HERO */}
+        <div id="hero" className="text-center space-y-10 scroll-mt-24">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
+            Eleva tu comunidad,<br />tu impacto y tu negocio
+          </h2>
+        </div>
+
+        {/* Menú de navegación */}
+        <nav className="flex justify-center">
           <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
@@ -64,7 +71,7 @@ const ParaMarcas = () => {
                 onClick={() => scrollToSection(id)}
                 className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
                   activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
                 }`}
                 title={label}
@@ -74,23 +81,7 @@ const ParaMarcas = () => {
               </button>
             ))}
           </div>
-        </div>
-      </nav>
-
-      <div className="max-w-5xl mx-auto space-y-24">
-        {/* HERO */}
-        <div id="hero" className="text-center space-y-10 scroll-mt-24 pt-12">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
-            Eleva tu comunidad,<br />tu impacto y tu negocio
-          </h2>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500 to-destructive/50" />
-          <Target className="w-6 h-6 text-orange-500" />
-          <div className="h-px flex-1 bg-gradient-to-r from-destructive/50 via-orange-500 to-transparent" />
-        </div>
+        </nav>
 
         {/* EL PROBLEMA */}
         <div id="problema" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">

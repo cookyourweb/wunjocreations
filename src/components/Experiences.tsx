@@ -46,32 +46,9 @@ const Experiences = () => {
 
   return (
     <section className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú de navegación centrado horizontal */}
-      <nav className="fixed top-24 left-1/2 -translate-x-1/2 z-40 w-full max-w-6xl px-4">
-        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3">
-          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-                }`}
-                title={label}
-              >
-                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
-                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div id="hero" className="text-center space-y-10 scroll-mt-24 pt-12">
+        <div id="hero" className="text-center space-y-10 scroll-mt-24">
           <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Experiencias que transforman.<br />
             Tecnología que acompaña.<br />
@@ -82,12 +59,26 @@ const Experiences = () => {
           </p>
         </div>
 
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary to-accent" />
-          <Sparkles className="w-6 h-6 text-primary" />
-          <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
-        </div>
+        {/* Menú de navegación */}
+        <nav className="flex justify-center">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
 
         {/* LA SOLUCIÓN WUNJO */}
         <div id="solucion" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
@@ -95,11 +86,6 @@ const Experiences = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Target className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">La Solución Wunjo</span>
-            </div>
-
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-2 border-primary/40">
-              <Brain className="w-6 h-6 text-primary" />
-              <span className="text-primary font-bold text-lg">Powered by IA</span>
             </div>
 
             <h2 className="font-display text-3xl md:text-4xl text-primary font-bold pt-2">
