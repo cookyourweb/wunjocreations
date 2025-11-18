@@ -7,10 +7,8 @@ import { useState, useEffect } from "react";
 import {
   Sparkles, Users, TrendingUp, Heart, Award, Rocket, Target,
   Check, X, Eye, Brain, Zap, Star, ChevronRight,
-  MessageSquare, BarChart3, UserCheck, Shield,
-  Clock, CheckCircle2, Lightbulb, Network, ArrowUpCircle,
-  BadgeCheck, Infinity, UserPlus, Trophy, AlertTriangle,
-  Search, Layers
+  MessageSquare, BarChart3, Shield, Clock, CheckCircle2,
+  Lightbulb, Network, BadgeCheck, Infinity, UserPlus, Trophy
 } from "lucide-react";
 
 const ParaMarcas = () => {
@@ -19,8 +17,7 @@ const ParaMarcas = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
-        "hero", "problema", "desgaste", "formar", "wunjo-nace",
-        "solucion", "beneficios", "logros"
+        "hero", "problema", "dolor-oculto", "solucion", "beneficios", "logros"
       ];
 
       const scrollPosition = window.scrollY + 200;
@@ -49,10 +46,8 @@ const ParaMarcas = () => {
   const navItems = [
     { id: "hero", label: "Inicio", icon: Sparkles },
     { id: "problema", label: "El Problema", icon: Target },
-    { id: "desgaste", label: "El Desgaste", icon: AlertTriangle },
-    { id: "formar", label: "Formar Comunidad", icon: UserPlus },
-    { id: "wunjo-nace", label: "Aquí nace Wunjo", icon: Lightbulb },
-    { id: "solucion", label: "La Solución", icon: CheckCircle2 },
+    { id: "dolor-oculto", label: "Dolor Oculto", icon: Eye },
+    { id: "solucion", label: "La Solución", icon: Lightbulb },
     { id: "beneficios", label: "Qué Ganas", icon: Award },
     { id: "logros", label: "Tus Logros", icon: BadgeCheck },
   ];
@@ -94,8 +89,15 @@ const ParaMarcas = () => {
             </Badge>
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
-            Tu página estrella
+            Eleva tu comunidad,<br />tu impacto y tu negocio
           </h2>
+        </div>
+
+        {/* Separador */}
+        <div className="flex items-center gap-4 max-w-xl mx-auto">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-destructive to-destructive/50" />
+          <Target className="w-6 h-6 text-destructive" />
+          <div className="h-px flex-1 bg-gradient-to-r from-destructive/50 via-destructive to-transparent" />
         </div>
 
         {/* EL PROBLEMA */}
@@ -105,125 +107,133 @@ const ParaMarcas = () => {
               <Target className="w-5 h-5 text-destructive" />
               <span className="text-destructive font-semibold">El Problema</span>
             </div>
-            <h3 className="font-display text-3xl md:text-4xl text-foreground">
-              Tú ya tienes lo más difícil
-            </h3>
-            <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              Una comunidad que te escucha, te respeta y quiere transformarse contigo.
-            </p>
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-destructive/20">
-            <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-destructive/10" />
-            <CardContent className="relative p-8 space-y-4">
-              <p className="text-lg text-foreground font-medium text-center">
-                Pero hay algo que todo creador acaba sintiendo, aunque no lo diga:
+          <Card className="relative overflow-hidden border-2 border-primary/20">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+            <CardContent className="relative p-8 space-y-6">
+              <h3 className="font-display text-2xl text-foreground font-semibold text-center">
+                Tú ya tienes lo más difícil:
+              </h3>
+              <p className="text-xl text-primary font-medium text-center">
+                una comunidad que te admira, te escucha y quiere transformarse contigo.
+              </p>
+            </CardContent>
+          </Card>
+
+          <div className="space-y-6 text-center">
+            <p className="text-lg text-foreground">
+              Pero hay algo que nadie te dice cuando empiezas como creador:
+            </p>
+            <Card className="bg-gradient-to-r from-destructive/10 to-destructive/5 border-destructive/30">
+              <CardContent className="p-8">
+                <p className="text-2xl text-foreground font-bold">
+                  Los lanzamientos traen alumnos…
+                </p>
+                <p className="text-xl text-destructive font-semibold pt-2">
+                  pero el verdadero trabajo empieza después.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="space-y-6">
+            <p className="text-lg text-foreground text-center">
+              Inviertes tiempo, energía y dinero en:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                'retos',
+                'webinars',
+                'directos',
+                'ads',
+                'contenidos',
+                'estrategia'
+              ].map((item, idx) => (
+                <Card key={idx} className="group bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                  <CardContent className="p-4 text-center">
+                    <p className="text-foreground font-medium">{item}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4 text-center">
+            <p className="text-lg text-foreground">Consigues leads.</p>
+            <p className="text-lg text-foreground">Consigues ventas.</p>
+            <p className="text-lg text-foreground">Consigues comunidad.</p>
+          </div>
+
+          <Card className="relative overflow-hidden border-2 border-destructive/30 mt-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
+            <CardContent className="relative p-8 space-y-6 text-center">
+              <p className="text-xl text-foreground font-semibold">
+                Pero entonces ocurre lo que nadie te explica:
+              </p>
+              <p className="text-2xl text-destructive font-bold">
+                La parte que más desgasta viene después del lanzamiento.
               </p>
             </CardContent>
           </Card>
 
           <div className="space-y-4">
+            <p className="text-lg text-foreground text-center font-medium">Porque:</p>
             {[
-              { text: "Cada persona avanza distinto." },
-              { text: "Unos progresan." },
-              { text: "Otros se bloquean." },
-              { text: "Otros desaparecen sin explicación." },
-              { text: "Y tú no puedes acompañarlos uno a uno." }
-            ].map((item, idx) => (
+              'cada persona avanza a un ritmo distinto',
+              'muchos se bloquean en silencio',
+              'otros desaparecen sin avisar',
+              'otros necesitan más apoyo',
+              'algunos no integran lo aprendido',
+              'otros se desmotivan antes de la mitad',
+              'y tú no puedes acompañarlos uno a uno'
+            ].map((text, idx) => (
               <Card key={idx} className="group border-l-4 border-l-destructive hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
                 <CardContent className="p-5 flex items-center gap-4">
                   <X className="w-5 h-5 text-destructive flex-shrink-0" />
-                  <p className="text-foreground font-medium">{item.text}</p>
+                  <p className="text-foreground font-medium">{text}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="text-center space-y-4 pt-6">
+          <div className="space-y-6 text-center pt-6">
             <p className="text-xl text-foreground font-semibold">
-              Entonces llega lo inevitable:
+              Y ahí es donde empiezas a sentirlo:
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {[
-              { icon: AlertTriangle, text: "te desgastas" },
-              { icon: MessageSquare, text: "respondes dudas sin fin" },
-              { icon: Heart, text: "motivas sin ver resultados" },
-              { icon: Layers, text: "creas contenido… pero no lo integran" },
-              { icon: Search, text: "no sabes quién avanza y quién no" },
-              { icon: Clock, text: "te preguntas si tu esfuerzo vale el tiempo invertido" }
-            ].map((item, idx) => (
-              <Card key={idx} className="group bg-destructive/5 border-destructive/20 hover:border-destructive/40 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-5 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-destructive/10 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-5 h-5 text-destructive" />
-                  </div>
-                  <p className="text-foreground font-medium">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                'te desgastas dando más de lo que recibes',
+                'respondes una y otra vez las mismas dudas',
+                'intentas motivar sin ver cambios reales',
+                'tu energía baja',
+                'tu visión se ralentiza',
+                'y te preguntas si el esfuerzo vale la pena'
+              ].map((text, idx) => (
+                <Card key={idx} className="group bg-destructive/5 border-destructive/20 hover:border-destructive/40 hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-5">
+                    <p className="text-foreground font-medium">{text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <Card className="relative overflow-hidden border-2 border-primary/20 mt-8">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
             <CardContent className="relative p-8 space-y-4 text-center">
-              <p className="text-lg text-muted-foreground">
-                No es tu culpa.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                No es tu método.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                No es tu contenido.
-              </p>
-              <p className="text-2xl text-primary font-bold pt-4">
-                Es falta de personalización.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-destructive to-destructive/50" />
-          <AlertTriangle className="w-6 h-6 text-destructive" />
-          <div className="h-px flex-1 bg-gradient-to-r from-destructive/50 via-destructive to-transparent" />
-        </div>
-
-        {/* EL DESGASTE MENTAL DEL CREADOR */}
-        <div id="desgaste" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
-              <AlertTriangle className="w-5 h-5 text-destructive" />
-              <span className="text-destructive font-semibold">El desgaste mental del creador</span>
-            </div>
-          </div>
-
-          <Card className="relative overflow-hidden border-2 border-destructive/30">
-            <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
-            <CardContent className="relative p-10 space-y-6">
-              <p className="text-xl text-foreground font-medium text-center leading-relaxed">
-                Lo que agota no es crear contenido.
-              </p>
-              <p className="text-2xl text-destructive font-bold text-center">
-                Es intentar transformar a cientos de personas sin un sistema que sostenga la experiencia.
-              </p>
-              <div className="pt-6 space-y-4">
-                <p className="text-lg text-muted-foreground text-center">
-                  El creador termina preguntándose:
+              <p className="text-lg text-muted-foreground">No es tu culpa.</p>
+              <p className="text-lg text-muted-foreground">No es tu método.</p>
+              <p className="text-lg text-muted-foreground">No es tu contenido.</p>
+              <div className="pt-4 space-y-2">
+                <p className="text-xl text-foreground font-semibold">
+                  Es que estás intentando transformar a cientos de personas con un camino único.
                 </p>
-                <Card className="bg-background/50 border-destructive/30">
-                  <CardContent className="p-6">
-                    <p className="text-xl text-foreground font-semibold text-center italic">
-                      "¿Por qué hago tanto… si no veo los resultados que debería?"
-                    </p>
-                  </CardContent>
-                </Card>
+                <p className="text-2xl text-primary font-bold">
+                  Y la transformación real… es siempre personalizada.
+                </p>
               </div>
-              <p className="text-xl text-primary font-bold text-center pt-6">
-                Wunjo existe para cambiar eso.
-              </p>
             </CardContent>
           </Card>
         </div>
@@ -231,36 +241,33 @@ const ParaMarcas = () => {
         {/* Separador */}
         <div className="flex items-center gap-4 max-w-xl mx-auto">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-secondary" />
-          <UserPlus className="w-6 h-6 text-accent" />
+          <Eye className="w-6 h-6 text-accent" />
           <div className="h-px flex-1 bg-gradient-to-r from-secondary via-primary to-transparent" />
         </div>
 
-        {/* EL DOLOR OCULTO: QUIERES FORMAR A TU COMUNIDAD */}
-        <div id="formar" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
+        {/* EL DOLOR OCULTO DEL CREADOR */}
+        <div id="dolor-oculto" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
-              <UserPlus className="w-5 h-5 text-accent" />
-              <span className="text-accent font-semibold">El dolor oculto</span>
+              <Eye className="w-5 h-5 text-accent" />
+              <span className="text-accent font-semibold">El Dolor Oculto del Creador</span>
             </div>
-            <h3 className="font-display text-3xl md:text-4xl text-foreground">
-              Quieres formar a tu comunidad… pero no tienes cómo hacerlo
-            </h3>
           </div>
 
           <Card className="relative overflow-hidden border-2 border-accent/30">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-secondary/5" />
             <CardContent className="relative p-8 space-y-6">
-              <p className="text-lg text-foreground font-medium text-center">
-                Muchos creadores quieren algo más grande:
+              <p className="text-xl text-foreground font-medium text-center">
+                Muchos creadores quieren algo más grande que enseñar:
               </p>
 
               <div className="space-y-3">
                 {[
-                  "crear implementadores que dominen su método",
-                  "preparar asistentes, mentores o vendedores",
-                  "formar profesionales que apoyen su marca",
-                  "construir un equipo desde su propia comunidad",
-                  "escalar su impacto sin perder calidad"
+                  'Quieren formar a su comunidad en su propio método.',
+                  'Quieren entrenar a futuros implementadores.',
+                  'Quieren desarrollar asistentes, mentores o vendedores propios.',
+                  'Quieren escalar creando equipo desde su audiencia.',
+                  'Quieren profesionalizar su ecosistema.'
                 ].map((text, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-accent flex-shrink-0" />
@@ -273,17 +280,17 @@ const ParaMarcas = () => {
 
           <div className="text-center space-y-4">
             <p className="text-xl text-foreground font-semibold">
-              Pero aquí llega el bloqueo:
+              Pero hay un problema enorme:
             </p>
           </div>
 
           <div className="space-y-3">
             {[
-              "No sabes quién tiene mentalidad",
-              "No sabes quién avanza",
-              "No sabes quién se queda atrás",
-              "No puedes evaluar fortalezas y debilidades",
-              "No puedes medir quién podría trabajar contigo"
+              'No puedes ver quién realmente avanza',
+              'No puedes detectar talento',
+              'No puedes medir compromiso',
+              'No puedes identificar mentalidad',
+              'No puedes saber quién está listo para colaborar contigo'
             ].map((text, idx) => (
               <Card key={idx} className="group border-l-4 border-l-destructive hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
                 <CardContent className="p-5 flex items-center gap-4">
@@ -294,15 +301,24 @@ const ParaMarcas = () => {
             ))}
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-primary/20 mt-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-            <CardContent className="relative p-8 space-y-4 text-center">
-              <p className="text-lg text-muted-foreground">
-                No es falta de intención.
-              </p>
-              <p className="text-2xl text-primary font-bold">
-                Es falta de estructura.
-              </p>
+          <Card className="relative overflow-hidden border-2 border-destructive/30 mt-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
+            <CardContent className="relative p-8 space-y-6 text-center">
+              <p className="text-xl text-foreground font-semibold">Y eso te limita.</p>
+              <div className="space-y-2">
+                <p className="text-lg text-muted-foreground">No puedes delegar.</p>
+                <p className="text-lg text-muted-foreground">No puedes escalar.</p>
+                <p className="text-lg text-muted-foreground">No puedes crear equipo.</p>
+                <p className="text-lg text-muted-foreground">No puedes profesionalizar tu visión.</p>
+              </div>
+              <div className="pt-4 space-y-2">
+                <p className="text-xl text-foreground font-semibold">
+                  Tu comunidad está llena de talento…
+                </p>
+                <p className="text-2xl text-destructive font-bold">
+                  pero no tienes forma de verlo.
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -314,12 +330,12 @@ const ParaMarcas = () => {
           <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
         </div>
 
-        {/* AQUÍ ES DONDE NACE WUNJO */}
-        <div id="wunjo-nace" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
+        {/* LA SOLUCIÓN: WUNJO */}
+        <div id="solucion" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Lightbulb className="w-5 h-5 text-primary" />
-              <span className="text-primary font-semibold">Aquí es donde nace Wunjo</span>
+              <span className="text-primary font-semibold">La Solución: Wunjo</span>
             </div>
           </div>
 
@@ -327,19 +343,19 @@ const ParaMarcas = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
             <CardContent className="relative p-10 space-y-8">
               <p className="text-xl text-foreground font-medium text-center leading-relaxed">
-                Creamos experiencias personalizadas con IA que permiten que cada miembro de tu comunidad viva un camino propio:
+                Creamos experiencias personalizadas con IA para que cada persona de tu comunidad viva su propio camino, adaptado a:
               </p>
 
               <div className="grid md:grid-cols-2 gap-4 pt-4">
                 {[
-                  { icon: BarChart3, text: "según su nivel" },
-                  { icon: Clock, text: "según su ritmo" },
-                  { icon: Brain, text: "según su mentalidad" },
-                  { icon: Rocket, text: "según su motivación" },
-                  { icon: Shield, text: "según sus bloqueos" },
-                  { icon: Target, text: "según su propósito" },
-                  { icon: Zap, text: "según su potencial" },
-                  { icon: Trophy, text: "según su capacidad real de avanzar" }
+                  { icon: BarChart3, text: "su nivel" },
+                  { icon: Clock, text: "su ritmo" },
+                  { icon: Brain, text: "su mentalidad" },
+                  { icon: Shield, text: "sus bloqueos" },
+                  { icon: Rocket, text: "su motivación" },
+                  { icon: TrendingUp, text: "sus fortalezas" },
+                  { icon: Target, text: "su propósito" },
+                  { icon: Trophy, text: "su capacidad real de avanzar" }
                 ].map((item, idx) => (
                   <Card key={idx} className="group/item bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                     <CardContent className="p-5 flex items-center gap-3">
@@ -352,61 +368,36 @@ const ParaMarcas = () => {
                 ))}
               </div>
 
-              <div className="text-center pt-6 space-y-3">
+              <div className="text-center pt-6 space-y-4">
                 <p className="text-xl text-foreground font-semibold">
-                  Así tú sabes EXACTAMENTE quién está listo para más…
+                  Así, tú sabes EXACTAMENTE:
                 </p>
-                <p className="text-2xl text-primary font-bold">
-                  y quién podría convertirse en parte de tu equipo.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-secondary" />
-          <CheckCircle2 className="w-6 h-6 text-accent" />
-          <div className="h-px flex-1 bg-gradient-to-r from-secondary via-primary to-transparent" />
-        </div>
-
-        {/* LA SOLUCIÓN */}
-        <div id="solucion" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
-              <CheckCircle2 className="w-5 h-5 text-accent" />
-              <span className="text-accent font-semibold">La Solución</span>
-            </div>
-            <h3 className="font-display text-3xl md:text-5xl font-bold text-foreground leading-tight">
-              Transformamos tu curso, mentoría o contenido en un acompañamiento vivo que se adapta automáticamente a cada persona.
-            </h3>
-          </div>
-
-          <Card className="relative overflow-hidden border-2 border-primary/30">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-            <CardContent className="relative p-8 space-y-6">
-              <p className="text-lg text-foreground font-medium text-center">
-                Tu comunidad:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { icon: CheckCircle2, text: "avanza" },
-                  { icon: Rocket, text: "se mantiene motivada" },
-                  { icon: Target, text: "no se pierde" },
-                  { icon: Brain, text: "integra lo aprendido" },
-                  { icon: Trophy, text: "logra resultados reales" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-card/50 to-card hover:from-primary/5 hover:to-accent/5 hover:scale-105 transition-all duration-300 cursor-pointer group/item">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover/item:bg-primary/20 transition-colors">
-                      <item.icon className="w-5 h-5 text-primary" />
+                <div className="grid md:grid-cols-2 gap-3">
+                  {[
+                    '✔ quién progresa',
+                    '✔ quién se estanca',
+                    '✔ quién integra',
+                    '✔ quién tiene mentalidad',
+                    '✔ quién podría trabajar contigo',
+                    '✔ quién puede seguir escalando tu método'
+                  ].map((text, idx) => (
+                    <div key={idx} className="flex items-center gap-2 justify-start">
+                      <p className="text-foreground font-medium">{text}</p>
                     </div>
-                    <p className="text-foreground font-medium">{item.text}</p>
-                    <Check className="w-4 h-4 ml-auto text-primary" />
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
+              <Card className="bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-primary/30 mt-8">
+                <CardContent className="p-6 space-y-3 text-center">
+                  <p className="text-lg text-foreground font-semibold">
+                    Tu comunidad deja de ser una audiencia.
+                  </p>
+                  <p className="text-2xl text-primary font-bold">
+                    Se convierte en un ecosistema vivo de talento, transformación y crecimiento.
+                  </p>
+                </CardContent>
+              </Card>
             </CardContent>
           </Card>
         </div>
@@ -427,37 +418,37 @@ const ParaMarcas = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="space-y-8 max-w-4xl mx-auto">
             {[
               {
                 icon: TrendingUp,
                 title: "Más resultados para tu comunidad",
-                desc: "La personalización hace que avancen de verdad."
+                desc: "Cada persona avanza de verdad porque el camino se ajusta a ella."
               },
               {
                 icon: Heart,
                 title: "Más retención",
-                desc: "El abandono cae drásticamente."
+                desc: "Las experiencias personalizadas evitan el abandono."
               },
               {
                 icon: Rocket,
                 title: "Más ventas",
-                desc: "Más transformación = más testimonios = más conversión."
+                desc: "Más transformación → más testimonios → más conversión."
               },
               {
                 icon: Users,
                 title: "Más fidelidad",
-                desc: "Sienten que les hablas a ellos."
+                desc: "Tus alumnos sienten que les hablas a ellos, no a todos."
               },
               {
                 icon: Trophy,
                 title: "Más autoridad",
-                desc: "Tu marca se convierte en referente y en innovación."
+                desc: "Tu marca se percibe innovadora, profesional y con estándares altos."
               },
               {
                 icon: Shield,
                 title: "Más sostenibilidad",
-                desc: "La experiencia acompaña por ti."
+                desc: "La experiencia acompaña por ti. Tú recuperas tu energía."
               }
             ].map((item, idx) => (
               <Card key={idx} className="group relative overflow-hidden bg-gradient-to-br from-card to-card/50 backdrop-blur border-primary/20 hover:border-primary/60 hover:shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer">
@@ -474,7 +465,7 @@ const ParaMarcas = () => {
                           {item.title}
                         </h4>
                       </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                      <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -489,10 +480,21 @@ const ParaMarcas = () => {
                 <Rocket className="w-10 h-10 text-primary" />
               </div>
               <h4 className="font-display text-3xl text-foreground">Más negocio</h4>
-              <div className="space-y-3">
-                <p className="text-lg text-muted-foreground">Tu ecosistema crece.</p>
-                <p className="text-lg text-muted-foreground">Tu comunidad evoluciona.</p>
-                <p className="text-2xl text-primary font-bold pt-4">Y tú puedes escalar sin desgaste.</p>
+              <p className="text-lg text-muted-foreground">Una comunidad transformada genera:</p>
+              <div className="grid md:grid-cols-2 gap-3">
+                {[
+                  'más recomendaciones',
+                  'más ventas recurrentes',
+                  'más comunidad activa',
+                  'más ingresos',
+                  'más estabilidad',
+                  'más largo plazo'
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 justify-center text-foreground font-medium">
+                    <Check className="w-4 h-4 text-primary" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -529,7 +531,7 @@ const ParaMarcas = () => {
                       1. Acompañas sin agotarte
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      La IA adapta cada paso. Tú no tienes que multiplicarte.
+                      La IA detecta lo que cada persona necesita y adapta cada paso.
                     </p>
                   </div>
                 </div>
@@ -550,14 +552,14 @@ const ParaMarcas = () => {
                       2. Tu comunidad deja de abandonar
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      El camino personalizado evita bloqueos.
+                      La personalización evita bloqueos y mantiene la motivación constante.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* 3. Más personas terminan y transforman */}
+            {/* 3. Más alumnos terminan tu programa */}
             <Card className="group relative overflow-hidden border-2 hover:border-primary/50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <CardContent className="relative p-8 space-y-4">
@@ -565,14 +567,14 @@ const ParaMarcas = () => {
                   <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Trophy className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="flex-1 space-y-4">
+                  <div className="flex-1 space-y-3">
                     <h3 className="font-display text-2xl text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
                       <Sparkles className="w-6 h-6" />
-                      3. Más personas terminan y transforman
+                      3. Más alumnos terminan tu programa
                     </h3>
                     <div className="space-y-2">
-                      <p className="text-muted-foreground">Tu contenido deja de ser consumido.</p>
-                      <p className="text-primary font-bold text-xl">Empieza a ser integrado.</p>
+                      <p className="text-muted-foreground">Dejan de consumir.</p>
+                      <p className="text-primary font-bold text-xl">Empiezan a integrar.</p>
                     </div>
                   </div>
                 </div>
@@ -593,7 +595,7 @@ const ParaMarcas = () => {
                       4. Un lead deja de ser un lead
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Se convierte en parte de tu ecosistema.
+                      Se convierte en parte de tu ecosistema vivo.
                     </p>
                   </div>
                 </div>
@@ -614,15 +616,16 @@ const ParaMarcas = () => {
                       5. Puedes formar colaboradores reales desde tu comunidad
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Identificas quién:
+                      Wunjo te muestra quién:
                     </p>
                     <div className="grid md:grid-cols-2 gap-3">
                       {[
                         'destaca',
                         'tiene mentalidad',
                         'cumple estándares',
-                        'puede trabajar contigo',
-                        'puede escalar con tu método'
+                        'puede apoyarte',
+                        'puede crecer contigo',
+                        'puede formar parte de tu marca'
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-foreground">
                           <BadgeCheck className="w-4 h-4 text-accent" />
@@ -646,15 +649,14 @@ const ParaMarcas = () => {
                   <Sparkles className="w-8 h-8 text-primary" />
                   6. Todos ganan
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
                   {[
-                    'Tu comunidad avanza',
-                    'Tu negocio crece',
-                    'Tu impacto se expande'
+                    'Tus alumnos avanzan.',
+                    'Tu negocio crece.',
+                    'Tu impacto se multiplica.'
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2 justify-center text-foreground font-medium">
-                      <Check className="w-5 h-5 text-primary" />
-                      <span>{item}</span>
+                    <div key={idx} className="text-foreground font-medium">
+                      {item}
                     </div>
                   ))}
                 </div>
@@ -669,12 +671,12 @@ const ParaMarcas = () => {
             <Sparkles className="w-12 h-12 text-primary" />
           </div>
           <h3 className="font-display text-3xl md:text-5xl text-foreground font-bold max-w-3xl mx-auto leading-tight">
-            ¿Listo para transformar tu comunidad?
+            ¿Listo para transformar tu comunidad, tu negocio y tu energía?
           </h3>
           <Link to="/contacto">
             <Button size="lg" className="group bg-gradient-to-r from-primary via-accent to-secondary hover:scale-110 transition-all duration-300 shadow-2xl text-lg px-8 py-6">
               <Rocket className="w-6 h-6 mr-2 group-hover:translate-y-[-4px] transition-transform" />
-              Inicia tu experiencia Wunjo
+              👉 Inicia tu experiencia Wunjo
               <ChevronRight className="w-6 h-6 ml-2 group-hover:translate-x-2 transition-transform" />
             </Button>
           </Link>
