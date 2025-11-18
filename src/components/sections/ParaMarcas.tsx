@@ -67,27 +67,25 @@ const ParaMarcas = () => {
       <nav className="fixed lg:right-32 lg:top-1/2 lg:-translate-y-1/2 top-0 bottom-0 right-0 z-50">
         {/* Desktop menu */}
         <div className="hidden lg:block bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
-          <div className="flex flex-col gap-2">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${
-                  activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-                }`}
-                title={label}
-              >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className={`absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
-                  activeSection === id ? "text-primary" : ""
-                }`}>
-                  {label}
-                </span>
-              </button>
-            ))}
-          </div>
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${
+                activeSection === id
+                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+              }`}
+              title={label}
+            >
+              <Icon className="w-5 h-5 flex-shrink-0" />
+              <span className={`absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
+                activeSection === id ? "text-primary" : ""
+              }`}>
+                {label}
+              </span>
+            </button>
+          ))}
         </div>
 
         {/* Mobile menu */}

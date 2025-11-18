@@ -46,30 +46,28 @@ const Experiences = () => {
 
   return (
     <section className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú flotante - lateral en desktop, inferior en móvil */}
-      <nav className="fixed lg:right-32 lg:top-1/2 lg:-translate-y-1/2 bottom-4 left-4 right-4 lg:left-auto lg:bottom-auto z-50">
-        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3 lg:space-y-2">
-          <div className="flex lg:flex-col gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center lg:gap-3 px-3 lg:px-4 py-2 lg:py-2.5 rounded-xl transition-all duration-300 flex-shrink-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-                }`}
-                title={label}
-              >
-                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
-                <span className={`hidden lg:block absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
-                  activeSection === id ? "text-primary" : ""
-                }`}>
-                  {label}
-                </span>
-              </button>
-            ))}
-          </div>
+      {/* Menú flotante de navegación de secciones */}
+      <nav className="fixed right-2 lg:right-32 top-1/2 -translate-y-1/2 z-40">
+        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-1.5 lg:p-3 space-y-1 lg:space-y-2">
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`group relative flex items-center justify-center lg:gap-3 px-2 lg:px-4 py-2 lg:py-2.5 rounded-xl transition-all duration-300 ${
+                activeSection === id
+                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+              }`}
+              title={label}
+            >
+              <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+              <span className={`hidden lg:block absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
+                activeSection === id ? "text-primary" : ""
+              }`}>
+                {label}
+              </span>
+            </button>
+          ))}
         </div>
       </nav>
 
