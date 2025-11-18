@@ -2,17 +2,78 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 import {
   Sparkles, Target, Heart, Check,
   Globe, Brain, Rocket, Shield, BarChart3, Clock, TrendingUp
 } from "lucide-react";
 
 const Experiences = () => {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "solucion", "resultados", "disponible"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navItems = [
+    { id: "hero", label: "Inicio", icon: Sparkles },
+    { id: "solucion", label: "La Solución", icon: Target },
+    { id: "resultados", label: "Resultados", icon: Heart },
+    { id: "disponible", label: "Disponible", icon: Globe },
+  ];
+
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+      {/* Menú flotante lateral */}
+      <nav className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
+        <div className="bg-card/80 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${
+                activeSection === id
+                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+              }`}
+              title={label}
+            >
+              <Icon className="w-5 h-5 flex-shrink-0" />
+              <span className={`absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
+                activeSection === id ? "text-primary" : ""
+              }`}>
+                {label}
+              </span>
+            </button>
+          ))}
+        </div>
+      </nav>
+
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div className="text-center space-y-10">
+        <div id="hero" className="text-center space-y-10 scroll-mt-24">
           <div className="inline-block">
             <Badge className="px-8 py-3 text-lg font-medium bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 backdrop-blur-xl border-0 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
               <Sparkles className="w-5 h-5 mr-2 inline animate-pulse" />
@@ -37,7 +98,7 @@ const Experiences = () => {
         </div>
 
         {/* LA SOLUCIÓN WUNJO */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="solucion" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Target className="w-5 h-5 text-primary" />
@@ -88,7 +149,7 @@ const Experiences = () => {
         </div>
 
         {/* RESULTADOS PARA TU COMUNIDAD */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="resultados" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
               <Heart className="w-5 h-5 text-accent" />
@@ -137,7 +198,7 @@ const Experiences = () => {
         </div>
 
         {/* EXPERIENCIA DISPONIBLE */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="disponible" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
               <Globe className="w-5 h-5 text-secondary" />
