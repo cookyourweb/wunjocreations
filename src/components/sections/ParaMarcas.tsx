@@ -82,15 +82,15 @@ const ParaMarcas = () => {
       <div className="max-w-5xl mx-auto space-y-24">
         {/* HERO */}
         <div id="hero" className="text-center space-y-8 scroll-mt-24">
-          <h2 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
-            Eleva tu comunidad,<br />tu impacto y tu negocio
-          </h2>
           <div className="inline-block">
             <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
               <Sparkles className="w-4 h-4 mr-2 inline" />
               Para Creadores e Influencers
             </Badge>
           </div>
+          <h2 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+            Eleva tu comunidad,<br />tu impacto y tu negocio
+          </h2>
         </div>
 
         {/* Separador */}
