@@ -3,6 +3,7 @@ import logoWunjo2 from "@/assets/logoWunjo2.png";
 import logoWunjo3 from "@/assets/logoWunjo3.png";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Brain } from "lucide-react";
 
 const Header = () => {
   const [isDark, setIsDark] = useState(true);
@@ -23,7 +24,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1">
             <Link to="/" className="cursor-pointer">
               <img
                 src={isDark ? logoWunjo2 : logoWunjo3}
@@ -31,9 +32,8 @@ const Header = () => {
                 className="h-20 w-auto"
               />
             </Link>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border-2 border-primary/40 shadow-lg">
-              <span className="text-lg">🤖</span>
-              <span className="text-primary font-bold text-sm">AI-Powered</span>
+            <div className="inline-flex items-center px-2 py-1 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-2 border-primary/40">
+              <Brain className="w-4 h-4 text-primary" />
             </div>
           </div>
 
