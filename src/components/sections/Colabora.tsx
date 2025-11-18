@@ -1,5 +1,6 @@
 // src/components/sections/Colabora.tsx
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -10,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { supabase } from "@/lib/supabaseClient";
+import { Sparkles } from "lucide-react";
 
 const formSchema = z.object({
   nombre: z.string().trim().min(2, "Por favor ingresa tu nombre completo").max(100),
@@ -135,6 +137,12 @@ const Colabora = () => {
     <section id="colabora" className="py-32 px-6 bg-gradient-to-b from-muted/30 to-background">
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="text-center space-y-6">
+          <div className="inline-block">
+            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
+              <Sparkles className="w-4 h-4 mr-2 inline" />
+              Contacto
+            </Badge>
+          </div>
           <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
             Inicia tu experiencia Wunjo.
           </h2>
