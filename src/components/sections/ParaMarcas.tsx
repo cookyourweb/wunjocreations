@@ -8,7 +8,8 @@ import {
   Sparkles, Users, TrendingUp, Heart, Award, Rocket, Target,
   Check, X, Eye, Brain, Zap, Star, ChevronRight, Globe,
   MessageSquare, BarChart3, UserCheck, Compass, Shield,
-  Clock, CheckCircle2, HelpCircle, Lightbulb, Moon, Sun
+  Clock, CheckCircle2, HelpCircle, Lightbulb, Moon, Sun,
+  Network, ArrowUpCircle, BadgeCheck, Infinity
 } from "lucide-react";
 
 const ParaMarcas = () => {
@@ -17,7 +18,7 @@ const ParaMarcas = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
-        "hero", "problema", "solucion", "beneficios",
+        "hero", "problema", "solucion", "beneficios", "logros",
         "verdades", "antes-despues", "diferencia", "faq"
       ];
 
@@ -49,6 +50,7 @@ const ParaMarcas = () => {
     { id: "problema", label: "El Problema", icon: Target },
     { id: "solucion", label: "La Solución", icon: Lightbulb },
     { id: "beneficios", label: "Beneficios", icon: Award },
+    { id: "logros", label: "Qué consigues", icon: BadgeCheck },
     { id: "verdades", label: "Lo que nadie dice", icon: Eye },
     { id: "antes-despues", label: "Antes/Después", icon: TrendingUp },
     { id: "diferencia", label: "Diferenciación", icon: Star },
@@ -245,7 +247,272 @@ const ParaMarcas = () => {
         {/* Separador */}
         <div className="flex items-center gap-4 max-w-xl mx-auto">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary to-accent" />
-          <Sparkles className="w-6 h-6 text-primary" />
+          <Rocket className="w-6 h-6 text-primary" />
+          <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
+        </div>
+
+        {/* LO QUE CONSIGUE TU MARCA */}
+        <div id="logros" className="space-y-12 max-w-4xl mx-auto scroll-mt-24">
+          <div className="text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/30">
+              <BadgeCheck className="w-5 h-5 text-primary" />
+              <span className="text-primary font-semibold">Tus logros con Wunjo</span>
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+              Lo que consigue tu marca cuando personaliza su experiencia
+            </h2>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground font-light">
+                Tu contenido ya transforma.
+              </p>
+              <p className="text-xl text-foreground font-medium">
+                Pero cuando conviertes tu curso, mentoría o programa en una experiencia personalizada para cada persona de tu comunidad, todo cambia:
+              </p>
+              <div className="flex items-center justify-center gap-4 text-xl text-primary font-semibold pt-4">
+                <span>tu impacto</span>
+                <span>·</span>
+                <span>sus resultados</span>
+                <span>·</span>
+                <span>tu negocio</span>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-2xl text-foreground font-semibold text-center">
+            Esto es lo que logras con Wunjo:
+          </p>
+
+          <div className="space-y-8">
+            {/* 1. Acompañas sin desgastarte */}
+            <Card className="group relative overflow-hidden border-2 hover:border-primary/50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="relative p-8 space-y-4">
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Shield className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
+                      <Sparkles className="w-6 h-6" />
+                      1. Acompañas a cada alumno sin desgastarte
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      La IA detecta lo que cada persona necesita y entrega mensajes, mentalidad y pasos adaptados a su proceso.
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-3 pt-2">
+                      <div className="flex items-center gap-2 text-foreground">
+                        <Check className="w-4 h-4 text-primary" />
+                        <span>No tienes que multiplicarte</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-foreground">
+                        <Check className="w-4 h-4 text-primary" />
+                        <span>Sin estar pendiente de cientos</span>
+                      </div>
+                    </div>
+                    <p className="text-primary font-semibold pt-2">
+                      Acompañamiento real, sin agotarte.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 2. Tu comunidad deja de abandonar */}
+            <Card className="group relative overflow-hidden border-2 hover:border-accent/50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="relative p-8 space-y-4">
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-secondary/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Heart className="w-8 h-8 text-accent" />
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl text-foreground group-hover:text-accent transition-colors flex items-center gap-2">
+                      <Sparkles className="w-6 h-6" />
+                      2. Tu comunidad deja de abandonar
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Cuando cada persona recibe un camino hecho para ella:
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {['no se pierde', 'no se bloquea', 'no se desmotiva', 'no desaparece'].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-foreground">
+                          <Check className="w-4 h-4 text-accent" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="bg-accent/10 rounded-xl p-4 mt-4 space-y-2">
+                      <p className="text-foreground font-medium">✓ La retención sube</p>
+                      <p className="text-foreground font-medium">✓ El abandono desaparece</p>
+                      <p className="text-accent font-semibold">✓ Tu mensaje llega hasta el final</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 3. Más alumnos terminan */}
+            <Card className="group relative overflow-hidden border-2 hover:border-primary/50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="relative p-8 space-y-4">
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <TrendingUp className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
+                      <Sparkles className="w-6 h-6" />
+                      3. Más alumnos terminan tu programa y logran resultados
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Cuando el camino es claro, personalizado y emocionalmente sostenido, las personas avanzan.
+                    </p>
+                    <div className="flex items-center justify-center gap-3 py-4 text-lg font-medium">
+                      <span className="text-primary">Más finalización</span>
+                      <ChevronRight className="w-5 h-5 text-primary" />
+                      <span className="text-accent">más casos de éxito</span>
+                      <ChevronRight className="w-5 h-5 text-accent" />
+                      <span className="text-secondary">más fuerza para tu marca</span>
+                    </div>
+                    <div className="text-center space-y-2 pt-2">
+                      <p className="text-muted-foreground">Tu contenido deja de ser consumido.</p>
+                      <p className="text-primary font-bold text-xl">Empieza a ser integrado.</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 4. Lead se convierte en ecosistema */}
+            <Card className="group relative overflow-hidden border-2 hover:border-secondary/50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="relative p-8 space-y-4">
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Network className="w-8 h-8 text-secondary" />
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl text-foreground group-hover:text-secondary transition-colors flex items-center gap-2">
+                      <Sparkles className="w-6 h-6" />
+                      4. Un lead deja de ser solo un lead: se convierte en parte de tu ecosistema
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      La mayoría de creadores pierden a sus leads en la mitad del camino.
+                    </p>
+                    <p className="text-foreground font-medium">Con Wunjo, ese lead:</p>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {['se siente acompañado', 'se siente visto', 'progresa', 'crece contigo', 'desarrolla habilidades', 'se fideliza', 'avanza por tus productos', 'quiere volver'].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-foreground">
+                          <ArrowUpCircle className="w-4 h-4 text-secondary" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="bg-gradient-to-r from-secondary/10 to-primary/10 rounded-xl p-4 mt-4 text-center space-y-2">
+                      <p className="text-muted-foreground">Tu comunidad deja de ser una audiencia.</p>
+                      <p className="text-secondary font-bold text-xl">Se convierte en una red viva de crecimiento.</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 5. Formar colaboradores */}
+            <Card className="group relative overflow-hidden border-2 hover:border-accent/50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="relative p-8 space-y-4">
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <UserCheck className="w-8 h-8 text-accent" />
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl text-foreground group-hover:text-accent transition-colors flex items-center gap-2">
+                      <Sparkles className="w-6 h-6" />
+                      5. Puedes formar colaboradores reales desde tu propia comunidad
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Si tu visión incluye formar implementadores, entrenar vendedores, preparar expertos, o crear un equipo desde tu comunidad…
+                    </p>
+                    <p className="text-foreground font-medium">Wunjo te permite identificar:</p>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {['quién destaca', 'quién tiene mentalidad', 'quién cumple tus estándares', 'quién podría trabajar contigo', 'quién está listo para más'].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-foreground">
+                          <BadgeCheck className="w-4 h-4 text-accent" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="bg-accent/10 rounded-xl p-4 mt-4 space-y-2">
+                      <p className="text-foreground">La personalización no solo transforma al alumno:</p>
+                      <p className="text-accent font-bold text-xl">te revela talento.</p>
+                      <p className="text-sm text-muted-foreground pt-2">Esto multiplica tu impacto y crea un modelo de negocio sostenible y escalable.</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 6. Todos ganan */}
+            <Card className="group relative overflow-hidden border-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
+              <CardContent className="relative p-10 space-y-6 text-center">
+                <div className="inline-block p-4 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 group-hover:scale-110 transition-transform">
+                  <Infinity className="w-12 h-12 text-primary" />
+                </div>
+                <h3 className="font-display text-3xl text-foreground flex items-center justify-center gap-2">
+                  <Sparkles className="w-8 h-8 text-primary" />
+                  6. Todos ganan
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                  {[
+                    'Tus alumnos avanzan',
+                    'Tu comunidad se mantiene motivada',
+                    'Tus resultados aumentan',
+                    'Tu negocio crece',
+                    'Tu autoridad se fortalece',
+                    'Tu marca evoluciona',
+                    'Tu ecosistema se expande'
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2 justify-center text-foreground font-medium">
+                      <Check className="w-5 h-5 text-primary" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="pt-6 space-y-3">
+                  <p className="text-xl text-foreground">
+                    Cuando personalizas la experiencia, tú no solo enseñas.
+                  </p>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                    Transformas.
+                  </p>
+                  <p className="text-xl text-muted-foreground">
+                    Y cuando transformas, tu negocio escala naturalmente.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center space-y-6 pt-8">
+            <p className="text-xl text-foreground font-medium">
+              ¿Listo para convertir tu contenido en una experiencia que eleva a tu comunidad y expande tu negocio?
+            </p>
+            <Link to="/contacto">
+              <Button size="lg" className="group bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-all duration-300 shadow-xl">
+                <Rocket className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                Inicia tu experiencia Wunjo
+                <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Separador */}
+        <div className="flex items-center gap-4 max-w-xl mx-auto">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary to-accent" />
+          <Eye className="w-6 h-6 text-primary" />
           <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
         </div>
 
