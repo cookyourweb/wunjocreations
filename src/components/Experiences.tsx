@@ -47,7 +47,7 @@ const Experiences = () => {
   return (
     <section className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
       {/* Menú flotante lateral */}
-      <nav className="hidden lg:block fixed right-20 top-1/2 -translate-y-1/2 z-50">
+      <nav className="hidden lg:block fixed right-32 top-1/2 -translate-y-1/2 z-50">
         <div className="bg-card/80 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
           {navItems.map(({ id, label, icon: Icon }) => (
             <button
