@@ -8,11 +8,12 @@ import {
   Sparkles, Users, TrendingUp, Heart, Award, Rocket, Target,
   Check, X, Eye, Brain, Zap, Star, ChevronRight,
   MessageSquare, BarChart3, Shield, Clock, CheckCircle2,
-  Lightbulb, Network, BadgeCheck, Infinity, UserPlus, Trophy
+  Lightbulb, Network, BadgeCheck, InfinityIcon, UserPlus, Trophy, Menu
 } from "lucide-react";
 
 const ParaMarcas = () => {
   const [activeSection, setActiveSection] = useState("hero");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,25 +53,34 @@ const ParaMarcas = () => {
     { id: "logros", label: "Tus Logros", icon: BadgeCheck },
   ];
 
+  const mainNavItems = [
+    { label: "Para Creadores", to: "/para-creadores" },
+    { label: "Experiencias", to: "/experiencias" },
+    { label: "Nuestra Esencia", to: "/nuestra-esencia" },
+    { label: "Proceso", to: "/proceso" },
+    { label: "Contacto", to: "/contacto" },
+  ];
+
   return (
     <section id="para-marcas" className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú flotante - lateral en desktop, inferior en móvil */}
-      <nav className="fixed lg:right-32 lg:top-1/2 lg:-translate-y-1/2 bottom-4 left-4 right-4 lg:left-auto lg:bottom-auto z-50">
-        <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3 lg:space-y-2">
-          <div className="flex lg:flex-col gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible">
+      {/* Menú flotante - lateral en desktop, desplegable en móvil */}
+      <nav className="fixed lg:right-32 lg:top-1/2 lg:-translate-y-1/2 top-0 bottom-0 right-0 z-50">
+        {/* Desktop menu */}
+        <div className="hidden lg:block bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
+          <div className="flex flex-col gap-2">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center lg:gap-3 px-3 lg:px-4 py-2 lg:py-2.5 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${
                   activeSection === id
                     ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
                 }`}
                 title={label}
               >
-                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
-                <span className={`hidden lg:block absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
+                <Icon className="w-5 h-5 flex-shrink-0" />
+                <span className={`absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
                   activeSection === id ? "text-primary" : ""
                 }`}>
                   {label}
@@ -78,6 +88,31 @@ const ParaMarcas = () => {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Mobile menu */}
+        <div className="lg:hidden flex flex-col h-full">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="bg-card/90 backdrop-blur-lg p-3 hover:scale-105 transition-all duration-300"
+          >
+            <Menu className="w-6 h-6 text-foreground" />
+          </button>
+
+          {isMenuOpen && (
+            <div className="flex-1 bg-card/90 backdrop-blur-lg p-3 space-y-2 overflow-y-auto">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </nav>
 
@@ -659,7 +694,7 @@ const ParaMarcas = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
               <CardContent className="relative p-10 space-y-6 text-center">
                 <div className="inline-block p-4 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 group-hover:scale-110 transition-transform">
-                  <Infinity className="w-12 h-12 text-primary" />
+                  <InfinityIcon className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="font-display text-3xl text-foreground flex items-center justify-center gap-2">
                   <Sparkles className="w-8 h-8 text-primary" />

@@ -1,12 +1,12 @@
-// src/components/Header.tsx
 import logoWunjo2 from "@/assets/logoWunjo2.png";
 import logoWunjo3 from "@/assets/logoWunjo3.png";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Brain } from "lucide-react";
+import { Brain, Menu } from "lucide-react";
 
 const Header = () => {
   const [isDark, setIsDark] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,27 +30,27 @@ const Header = () => {
               alt="Wunjo Creations"
               className="h-20 w-auto"
             />
-            <div className="absolute bottom-0 right-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card border-2 border-primary/40 shadow-lg">
-              <span className="text-sm">🤖</span>
-              <span className="text-primary font-bold text-xs">AI-Powered</span>
+            <div className="absolute bottom-0 -right-5 mb-1 inline-flex items-center gap-1.5 px-2.5 py-0 rounded-full bg-card/80 border-2 border-primary/40 shadow-lg">
+              <Brain className="w-4 h-4 text-[hsl(314.27deg_65%_55%)]" />
+              <span className="text-[hsl(314.27deg_65%_55%)] font-bold text-xs">AI-Powered</span>
             </div>
           </Link>
 
-          <nav className="flex flex-col md:flex-row items-center gap-3 md:gap-8 w-full md:w-auto">
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex items-center gap-8">
             <Link
               to="/para-creadores"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-base ${
                 isActive('/para-creadores')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
               }`}
             >
-              <span className="hidden md:inline">Para Creadores e Influencers</span>
-              <span className="md:hidden">Para Creadores</span>
+              Para Creadores e Influencers
             </Link>
             <Link
               to="/experiencias"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-base ${
                 isActive('/experiencias')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -60,7 +60,7 @@ const Header = () => {
             </Link>
             <Link
               to="/nuestra-esencia"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-base ${
                 isActive('/nuestra-esencia')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -70,7 +70,7 @@ const Header = () => {
             </Link>
             <Link
               to="/proceso"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-base ${
                 isActive('/proceso')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -80,7 +80,7 @@ const Header = () => {
             </Link>
             <Link
               to="/contacto"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-base ${
                 isActive('/contacto')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -89,6 +89,56 @@ const Header = () => {
               Contacto
             </Link>
           </nav>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden fixed top-4 right-4 z-50">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="bg-card/90 backdrop-blur-lg p-3 hover:scale-105 transition-all duration-300"
+            >
+              <Menu className="w-6 h-6 text-foreground" />
+            </button>
+
+            {isMenuOpen && (
+              <div className="absolute top-full mt-2 right-0 bg-card/90 backdrop-blur-lg border border-border/50 shadow-2xl p-3 space-y-2 min-w-[200px]">
+                <Link
+                  to="/para-creadores"
+                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Para Creadores
+                </Link>
+                <Link
+                  to="/experiencias"
+                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Experiencias
+                </Link>
+                <Link
+                  to="/nuestra-esencia"
+                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Nuestra Esencia
+                </Link>
+                <Link
+                  to="/proceso"
+                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Proceso
+                </Link>
+                <Link
+                  to="/contacto"
+                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contacto
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
