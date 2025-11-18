@@ -31,7 +31,7 @@ const Header = () => {
       { threshold: 0.3 }
     );
 
-    const sections = ['manifiesto', 'historia', 'para-marcas', 'proceso', 'experiences', 'colabora'];
+    const sections = ['para-marcas', 'experiences', 'historia', 'proceso', 'colabora'];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -62,14 +62,24 @@ const Header = () => {
 
           <nav className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection('manifiesto')}
+              onClick={() => scrollToSection('para-marcas')}
               className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
-                activeSection === 'manifiesto'
+                activeSection === 'para-marcas'
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
               }`}
             >
-              Qué es
+              Para Creadores
+            </button>
+            <button
+              onClick={() => scrollToSection('experiences')}
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+                activeSection === 'experiences'
+                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
+                  : ''
+              }`}
+            >
+              Experiencias
             </button>
             <button
               onClick={() => scrollToSection('historia')}
@@ -82,16 +92,6 @@ const Header = () => {
               Nuestra Esencia
             </button>
             <button
-              onClick={() => scrollToSection('para-marcas')}
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
-                activeSection === 'para-marcas'
-                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
-                  : ''
-              }`}
-            >
-              Para Marcas
-            </button>
-            <button
               onClick={() => scrollToSection('proceso')}
               className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
                 activeSection === 'proceso'
@@ -100,16 +100,6 @@ const Header = () => {
               }`}
             >
               Proceso
-            </button>
-            <button
-              onClick={() => scrollToSection('experiences')}
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
-                activeSection === 'experiences'
-                  ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
-                  : ''
-              }`}
-            >
-              Experiencias
             </button>
             <button
               onClick={() => scrollToSection('colabora')}

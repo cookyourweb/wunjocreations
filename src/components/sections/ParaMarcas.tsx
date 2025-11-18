@@ -8,10 +8,10 @@ const ParaMarcas = () => {
       <div className="max-w-5xl mx-auto space-y-16">
         <div className="text-center space-y-6">
           <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
-            Para Marcas Conscientes
+            Para Creadores e Influencers
           </h2>
           <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
-            Tu comunidad es increíble. Tienes un método probado y quieres transmitir tu conocimiento. Pero...
+            Eres coach, creadora de contenido o influencer. Has construido una comunidad que confía en ti. Tienes un método que funciona y quieres que realmente transformen su vida. Pero...
           </p>
         </div>
 
