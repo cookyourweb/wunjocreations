@@ -357,6 +357,382 @@ const ParaMarcas = () => {
             </div>
           </div>
         </div>
+
+        {/* Separador visual */}
+        <div className="py-16">
+          <div className="w-32 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto opacity-40" />
+        </div>
+
+        {/* SECCIÓN 4: ANTES Y DESPUÉS DE TRABAJAR CON WUNJO */}
+        <div className="space-y-12 max-w-4xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
+              El Antes y el Después de trabajar con Wunjo
+            </h2>
+            <p className="text-xl text-muted-foreground font-light leading-relaxed">
+              No todas las experiencias digitales son iguales. Y no todos los creadores logran que su comunidad avance.
+            </p>
+            <p className="text-lg text-foreground font-medium leading-relaxed">
+              Esto es lo que ocurre en la mayoría de los casos… y cómo cambia todo cuando Wunjo entra en tu universo.
+            </p>
+          </div>
+
+          {/* ANTES DE WUNJO */}
+          <div className="space-y-6">
+            <h3 className="font-display text-3xl text-foreground text-center">🌑 Antes de Wunjo</h3>
+
+            <div className="space-y-4">
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ Cada alumno avanza a su ritmo… pero sin dirección</h4>
+                  <p className="text-muted-foreground text-sm">Unos van rápido, otros se estancan, otros desaparecen.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ Muchos abandonan en silencio</h4>
+                  <p className="text-muted-foreground text-sm">Y tú ni siquiera sabes por qué.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ Tu contenido se consume… pero no se integra</h4>
+                  <p className="text-muted-foreground text-sm">La transformación es irregular, impredecible y difícil de medir.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ No tienes visibilidad real de tu comunidad</h4>
+                  <p className="text-muted-foreground text-sm">No sabes quién progresa, quién destaca o quién necesita ayuda.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ Pierdes alumnos que podrían haber sido casos de éxito</h4>
+                  <p className="text-muted-foreground text-sm">Y eso afecta tus ventas, tu autoridad y tu impacto.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ Tu comunidad depende de tu tiempo (y tú no puedes con todos)</h4>
+                  <p className="text-muted-foreground text-sm">Tu energía se dispersa intentando sostener a demasiadas personas a la vez.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-destructive/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-foreground font-medium">❌ Tu negocio crece… pero con límites</h4>
+                  <p className="text-muted-foreground text-sm">Falta estructura, experiencia y personalización.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* DESPUÉS DE WUNJO */}
+          <div className="space-y-6">
+            <h3 className="font-display text-3xl text-foreground text-center">🌕 Después de Wunjo</h3>
+
+            <div className="space-y-4">
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Cada miembro de tu comunidad recibe un camino personalizado</h4>
+                  <p className="text-muted-foreground text-sm">La experiencia se adapta a su nivel, su ritmo y su mentalidad.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Nadie se queda atrás</h4>
+                  <p className="text-muted-foreground text-sm">Los bloqueos se detectan y se corrigen antes de que abandonen.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Tu contenido se convierte en transformación real</h4>
+                  <p className="text-muted-foreground text-sm">Lo que enseñas se integra, se vive, se asimila.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Tú ves todo desde arriba con claridad estratégica</h4>
+                  <p className="text-muted-foreground text-sm">Sabes quién destaca, quién se estanca, quién tiene potencial… y por qué.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Multiplicas tus casos de éxito</h4>
+                  <p className="text-muted-foreground text-sm">Más resultados = más ventas = más autoridad.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Tu comunidad se siente acompañada</h4>
+                  <p className="text-muted-foreground text-sm">Avanzan contigo, no solo te escuchan.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-primary/30">
+                <CardContent className="p-6 space-y-2">
+                  <h4 className="text-lg text-primary font-medium">✔ Tu negocio crece de forma estable y sostenible</h4>
+                  <p className="text-muted-foreground text-sm">Mejor retención, más fidelidad, más ventas recurrentes y una marca sólida.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Conclusión */}
+          <div className="text-center space-y-6 pt-8">
+            <p className="text-xl text-foreground font-semibold">✨ El cambio es simple:</p>
+            <p className="text-lg text-muted-foreground">Antes compartías contenido.</p>
+            <p className="text-xl text-primary font-medium">Ahora generas experiencias que transforman vidas… y negocios.</p>
+
+            <div className="pt-6">
+              <p className="text-lg text-foreground pb-4">¿Listo para ver este cambio en tu propia comunidad?</p>
+              <Link to="/contacto">
+                <Button size="lg">
+                  👉 Inicia tu experiencia Wunjo
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Separador visual */}
+        <div className="py-16">
+          <div className="w-32 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto opacity-40" />
+        </div>
+
+        {/* SECCIÓN 5: POR QUÉ WUNJO ES DIFERENTE */}
+        <div className="space-y-12 max-w-4xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
+              Por qué Wunjo es diferente a cualquier "agencia digital"
+            </h2>
+            <p className="text-xl text-muted-foreground font-light leading-relaxed">
+              La mayoría de las agencias crean webs, automatizaciones o diseños. Nosotras no hacemos "eso".
+            </p>
+            <p className="text-lg text-foreground font-medium">
+              Lo que hacemos en Wunjo es algo totalmente distinto:
+            </p>
+
+            <div className="space-y-2 text-foreground pt-4">
+              <p>👉 Creamos experiencias vivas.</p>
+              <p>👉 Diseñamos transformación.</p>
+              <p>👉 Convertimos contenido en acompañamiento real.</p>
+              <p>👉 Aplicamos IA para personalizar el camino de cada persona.</p>
+              <p>👉 Unimos estrategia, alma y evolución humana.</p>
+            </div>
+          </div>
+
+          <h3 className="font-display text-3xl text-foreground text-center">Esto es lo que nos diferencia:</h3>
+
+          {/* 6 Diferenciadores */}
+          <div className="space-y-8">
+            <Card className="bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur border-primary/30">
+              <CardContent className="p-8 space-y-4">
+                <h4 className="font-display text-2xl text-primary">🔮 1. No diseñamos webs. Diseñamos experiencias que cambian personas.</h4>
+                <p className="text-muted-foreground">Una agencia te entrega una web. Wunjo te entrega un universo digital que guía, acompaña y transforma.</p>
+                <p className="text-foreground font-medium">Tus seguidores no navegan una página: viven un camino.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-accent/10 to-secondary/10 backdrop-blur border-accent/30">
+              <CardContent className="p-8 space-y-4">
+                <h4 className="font-display text-2xl text-accent">🧬 2. No hacemos "automatizaciones": creamos acompañamientos personalizados con IA</h4>
+                <p className="text-muted-foreground">Tu comunidad no recibe correos genéricos. Recibe mensajes, tareas y apoyo adaptados a su energía, ritmo y mentalidad.</p>
+                <p className="text-foreground font-medium">Lo que entregas ya no es un curso. Es una experiencia única para cada alumno.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur border-primary/30">
+              <CardContent className="p-8 space-y-4">
+                <h4 className="font-display text-2xl text-primary">🌈 3. No trabajamos en diseño: trabajamos en consciencia y estrategia</h4>
+                <p className="text-muted-foreground">Cada decisión tiene un propósito:</p>
+                <div className="grid md:grid-cols-2 gap-2 text-foreground text-sm">
+                  <p>• cómo se sienten tus seguidores</p>
+                  <p>• cómo avanzan</p>
+                  <p>• cómo reciben tu mensaje</p>
+                  <p>• cómo se transforman</p>
+                  <p>• cómo vuelven</p>
+                </div>
+                <p className="text-foreground font-medium pt-2">Esto no es estética. Es estrategia emocional.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-accent/10 to-secondary/10 backdrop-blur border-accent/30">
+              <CardContent className="p-8 space-y-4">
+                <h4 className="font-display text-2xl text-accent">🧠 4. No entregamos "herramientas digitales": entregamos impacto medible</h4>
+                <p className="text-muted-foreground">Wunjo te permite ver:</p>
+                <div className="grid md:grid-cols-2 gap-2 text-foreground text-sm">
+                  <p>• quién avanza</p>
+                  <p>• quién se estanca</p>
+                  <p>• quién se pierde</p>
+                  <p>• quién tiene potencial</p>
+                  <p>• quién está listo para siguientes niveles</p>
+                  <p>• quién podría trabajar contigo</p>
+                </div>
+                <p className="text-foreground font-medium pt-2">Es una visión que ninguna agencia te da.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur border-primary/30">
+              <CardContent className="p-8 space-y-4">
+                <h4 className="font-display text-2xl text-primary">🤍 5. No trabajamos contigo. Co-creamos contigo.</h4>
+                <p className="text-muted-foreground">Nos sumergimos en tu:</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-foreground text-sm">
+                  <p>• energía</p>
+                  <p>• propósito</p>
+                  <p>• comunidad</p>
+                  <p>• visión</p>
+                  <p>• mensaje</p>
+                  <p>• valor real</p>
+                </div>
+                <p className="text-foreground font-medium pt-2">Para convertir tu conocimiento en una experiencia única, consciente y estratégica.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-accent/10 to-secondary/10 backdrop-blur border-accent/30">
+              <CardContent className="p-8 space-y-4">
+                <h4 className="font-display text-2xl text-accent">✨ 6. No hacemos "proyectos": hacemos transformaciones</h4>
+                <p className="text-muted-foreground">Un proyecto termina. Una transformación crea un antes y un después en tu comunidad.</p>
+                <p className="text-foreground font-medium">Eso es Wunjo.</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Resultado */}
+          <div className="text-center space-y-6 pt-8">
+            <h3 className="font-display text-2xl text-foreground">🌟 El resultado de esta diferencia:</h3>
+            <div className="space-y-3 text-lg text-foreground">
+              <p>Tu comunidad vive algo único.</p>
+              <p>Tu marca se convierte en referencia.</p>
+              <p>Tu negocio crece de forma sostenible.</p>
+              <p className="text-xl text-primary font-semibold">Y tú alcanzas un nivel de excelencia que casi ningún creador tiene hoy.</p>
+            </div>
+
+            <div className="pt-6">
+              <p className="text-lg text-foreground pb-4">¿Listo para ofrecer algo que nadie más está ofreciendo?</p>
+              <Link to="/contacto">
+                <Button size="lg">
+                  👉 Inicia tu experiencia Wunjo
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Separador visual */}
+        <div className="py-16">
+          <div className="w-32 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto opacity-40" />
+        </div>
+
+        {/* SECCIÓN 6: FAQ */}
+        <div className="space-y-12 max-w-4xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
+              Preguntas Frecuentes
+            </h2>
+            <p className="text-xl text-muted-foreground font-light">
+              Todo lo que necesitas saber antes de empezar
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">1. ¿Esto sustituye mi curso o mentoría?</h4>
+                <p className="text-muted-foreground">No. Wunjo no reemplaza tu contenido: lo amplifica. Tu curso sigue siendo el núcleo, pero cada persona recibe un camino personalizado según su nivel, ritmo y mentalidad.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">2. ¿Necesito saber de tecnología para implementar esto?</h4>
+                <p className="text-muted-foreground">Para nada. Tú aportas tu contenido y tu visión. Nosotras creamos toda la estructura experiencial con IA y te guiamos paso a paso.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">3. ¿Cómo sé si esto funcionará con mi comunidad?</h4>
+                <p className="text-muted-foreground">Si tu comunidad quiere avanzar, aprender o transformarse: esto funciona. La personalización ayuda exacto donde la mayoría se estanca.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">4. ¿Qué tipo de creadores pueden usar Wunjo?</h4>
+                <div className="text-muted-foreground space-y-1">
+                  <p>• Influencers</p>
+                  <p>• Coaches</p>
+                  <p>• Formadores</p>
+                  <p>• Marcas personales</p>
+                  <p>• Negocios con comunidad activa</p>
+                  <p>• Educadores</p>
+                  <p>• Cualquier creador que entregue aprendizaje o transformación</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">5. ¿Cuánto trabajo tengo que hacer yo?</h4>
+                <p className="text-muted-foreground">Muy poco. Revisar contenido, aprobar estructura y grabar (si hace falta) ciertas piezas. Nosotras hacemos el 90%.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">6. ¿Esto ayuda a que mi comunidad compre más?</h4>
+                <p className="text-muted-foreground">Sí. Cuando la experiencia mejora:</p>
+                <div className="text-muted-foreground space-y-1 pl-4">
+                  <p>• más alumnos terminan</p>
+                  <p>• más consiguen resultados</p>
+                  <p>• más recomiendan</p>
+                  <p>• más vuelven a comprar</p>
+                </div>
+                <p className="text-foreground font-medium">Es la forma más rentable de hacer crecer tu negocio.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">7. ¿Puedo usarlo para seleccionar talento?</h4>
+                <p className="text-muted-foreground">Sí. Nuestra IA detecta quién progresa, quién destaca, quién tiene mentalidad y quién encaja contigo. Ideal para formar equipo desde tu propia comunidad.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">8. ¿La experiencia es igual para todos?</h4>
+                <p className="text-muted-foreground">No. Cada persona recibe mensajes, tareas y apoyo adaptados a su proceso.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">9. ¿Cuánto tarda en implementarse?</h4>
+                <p className="text-muted-foreground">Normalmente 3 a 6 semanas, dependiendo del contenido.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/50 backdrop-blur border-primary/20">
+              <CardContent className="p-6 space-y-3">
+                <h4 className="font-display text-lg text-primary font-medium">10. ¿Qué necesito para empezar?</h4>
+                <p className="text-muted-foreground">Tu visión, tu contenido actual y el deseo real de ofrecer excelencia.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </section>
   );
