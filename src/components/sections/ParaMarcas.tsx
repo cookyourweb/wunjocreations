@@ -88,7 +88,7 @@ const ParaMarcas = () => {
               Para Creadores e Influencers
             </Badge>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Eleva tu comunidad,<br />tu impacto y tu negocio
           </h2>
         </div>
@@ -112,26 +112,26 @@ const ParaMarcas = () => {
           <Card className="relative overflow-hidden border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
             <CardContent className="relative p-8 md:p-10 space-y-6">
-              <h3 className="font-display text-2xl md:text-3xl text-foreground font-bold text-center leading-tight">
+              <h3 className="font-display text-lg md:text-xl text-foreground font-bold text-center leading-tight">
                 Tú ya tienes lo más difícil:
               </h3>
-              <p className="text-xl md:text-2xl text-primary font-bold text-center leading-tight">
+              <p className="text-lg md:text-xl text-primary font-bold text-center leading-tight">
                 una comunidad que te admira, te escucha y quiere transformarse contigo.
               </p>
             </CardContent>
           </Card>
 
           <div className="space-y-6 text-center pt-8">
-            <p className="text-xl md:text-2xl text-foreground font-medium">
+            <p className="text-lg md:text-xl text-foreground font-medium">
               Pero hay algo que nadie te dice cuando empiezas como creador:
             </p>
             <Card className="relative overflow-hidden bg-gradient-to-br from-destructive/20 to-destructive/10 border-2 border-destructive/40 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
               <div className="absolute top-0 right-0 w-64 h-64 bg-destructive/10 blur-3xl" />
               <CardContent className="relative p-8 md:p-10 space-y-4">
-                <p className="text-2xl md:text-3xl text-foreground font-bold leading-tight">
+                <p className="text-lg md:text-xl text-foreground font-bold leading-tight">
                   Los lanzamientos traen alumnos…
                 </p>
-                <p className="text-xl md:text-2xl text-destructive font-bold leading-tight">
+                <p className="text-lg md:text-xl text-destructive font-bold leading-tight">
                   pero el verdadero trabajo empieza después.
                 </p>
               </CardContent>
@@ -139,7 +139,7 @@ const ParaMarcas = () => {
           </div>
 
           <div className="space-y-8 pt-8">
-            <p className="text-xl md:text-2xl text-foreground text-center font-medium">
+            <p className="text-lg md:text-xl text-foreground text-center font-medium">
               Inviertes tiempo, energía y dinero en:
             </p>
             <div className="grid md:grid-cols-3 gap-6">
@@ -161,26 +161,26 @@ const ParaMarcas = () => {
           </div>
 
           <div className="space-y-4 text-center pt-8">
-            <p className="text-xl md:text-2xl text-primary font-bold">✓ Consigues leads.</p>
-            <p className="text-xl md:text-2xl text-primary font-bold">✓ Consigues ventas.</p>
-            <p className="text-xl md:text-2xl text-primary font-bold">✓ Consigues comunidad.</p>
+            <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues leads.</p>
+            <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues ventas.</p>
+            <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues comunidad.</p>
           </div>
 
           <Card className="relative overflow-hidden border-2 border-destructive/40 mt-12 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-destructive/15 to-destructive/5" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-destructive/10 blur-3xl" />
             <CardContent className="relative p-8 md:p-10 space-y-6 text-center">
-              <p className="text-xl md:text-2xl text-foreground font-semibold">
+              <p className="text-lg md:text-xl text-foreground font-semibold">
                 Pero entonces ocurre lo que nadie te explica:
               </p>
-              <p className="text-2xl md:text-3xl text-destructive font-bold leading-tight">
+              <p className="text-lg md:text-xl text-destructive font-bold leading-tight">
                 La parte que más desgasta viene después del lanzamiento.
               </p>
             </CardContent>
           </Card>
 
           <div className="space-y-8 pt-12">
-            <p className="text-2xl md:text-3xl text-foreground text-center font-bold">Porque:</p>
+            <p className="text-lg md:text-xl text-foreground text-center font-bold">Porque:</p>
             <div className="space-y-4">
               {[
                 'cada persona avanza a un ritmo distinto',
@@ -202,7 +202,7 @@ const ParaMarcas = () => {
           </div>
 
           <div className="space-y-8 text-center pt-12">
-            <p className="text-2xl md:text-3xl text-foreground font-bold">
+            <p className="text-lg md:text-xl text-foreground font-bold">
               Y ahí es donde empiezas a sentirlo:
             </p>
 
@@ -231,10 +231,10 @@ const ParaMarcas = () => {
               <p className="text-lg text-muted-foreground">No es tu método.</p>
               <p className="text-lg text-muted-foreground">No es tu contenido.</p>
               <div className="pt-4 space-y-2">
-                <p className="text-xl text-foreground font-semibold">
+                <p className="text-lg text-foreground font-semibold">
                   Es que estás intentando transformar a cientos de personas con un camino único.
                 </p>
-                <p className="text-2xl text-primary font-bold">
+                <p className="text-xl text-primary font-bold">
                   Y la transformación real… es siempre personalizada.
                 </p>
               </div>

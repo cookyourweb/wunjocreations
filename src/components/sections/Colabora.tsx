@@ -143,7 +143,7 @@ const Colabora = () => {
               Contacto
             </Badge>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-[1.2]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.2]">
             Inicia tu experiencia Wunjo.
           </h2>
           
