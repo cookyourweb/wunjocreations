@@ -29,9 +29,14 @@ const Hero = () => {
             Pero cada persona es distinta. Unos avanzan. Otros se bloquean. Otros se desmotivan. Y ahí es donde tu negocio pierde fuerza sin que te des cuenta.
           </p>
 
-          <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed pt-4">
-            Con IA, convertimos tu curso, mentoría o contenido en una experiencia personalizada para cada miembro de tu comunidad: adaptada a su ritmo, su mentalidad, sus fortalezas y sus bloqueos.
-          </p>
+          <div className="pt-4 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border border-primary/30">
+              <span className="text-primary font-bold">🤖 Powered by IA</span>
+            </div>
+            <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
+              Con Inteligencia Artificial, convertimos tu curso, mentoría o contenido en una experiencia personalizada para cada miembro de tu comunidad: adaptada a su ritmo, su mentalidad, sus fortalezas y sus bloqueos.
+            </p>
+          </div>
 
           <div className="space-y-3 pt-4">
             <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">

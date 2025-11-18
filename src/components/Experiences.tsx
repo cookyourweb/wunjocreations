@@ -104,8 +104,14 @@ const Experiences = () => {
               <Target className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">La Solución Wunjo</span>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground">
-              Convertimos tu contenido en una experiencia personalizada con IA.
+
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-2 border-primary/40">
+              <Brain className="w-6 h-6 text-primary" />
+              <span className="text-primary font-bold text-lg">Powered by IA</span>
+            </div>
+
+            <h2 className="font-display text-3xl md:text-4xl text-primary font-bold pt-2">
+              Inteligencia Artificial que personaliza tu contenido
             </h2>
           </div>
 

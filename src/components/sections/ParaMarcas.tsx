@@ -95,17 +95,17 @@ const ParaMarcas = () => {
 
         {/* Separador */}
         <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-destructive to-destructive/50" />
-          <Target className="w-6 h-6 text-destructive" />
-          <div className="h-px flex-1 bg-gradient-to-r from-destructive/50 via-destructive to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500 to-destructive/50" />
+          <Target className="w-6 h-6 text-orange-500" />
+          <div className="h-px flex-1 bg-gradient-to-r from-destructive/50 via-orange-500 to-transparent" />
         </div>
 
         {/* EL PROBLEMA */}
         <div id="problema" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
-              <Target className="w-5 h-5 text-destructive" />
-              <span className="text-destructive font-semibold">El Problema</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30">
+              <Target className="w-5 h-5 text-orange-500" />
+              <span className="text-orange-500 font-semibold">El Problema</span>
             </div>
           </div>
 
@@ -125,13 +125,13 @@ const ParaMarcas = () => {
             <p className="text-lg md:text-xl text-foreground font-medium">
               Pero hay algo que nadie te dice cuando empiezas como creador:
             </p>
-            <Card className="relative overflow-hidden bg-gradient-to-br from-destructive/20 to-destructive/10 border-2 border-destructive/40 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-destructive/10 blur-3xl" />
+            <Card className="relative overflow-hidden bg-gradient-to-br from-destructive/20 to-destructive/10 border-2 border-orange-500/40 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 blur-3xl" />
               <CardContent className="relative p-8 md:p-10 space-y-4">
                 <p className="text-lg md:text-xl text-foreground font-bold leading-tight">
                   Los lanzamientos traen alumnos…
                 </p>
-                <p className="text-lg md:text-xl text-destructive font-bold leading-tight">
+                <p className="text-lg md:text-xl text-orange-500 font-bold leading-tight">
                   pero el verdadero trabajo empieza después.
                 </p>
               </CardContent>
@@ -166,14 +166,14 @@ const ParaMarcas = () => {
             <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues comunidad.</p>
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-destructive/40 mt-12 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+          <Card className="relative overflow-hidden border-2 border-orange-500/40 mt-12 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-destructive/15 to-destructive/5" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-destructive/10 blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 blur-3xl" />
             <CardContent className="relative p-8 md:p-10 space-y-6 text-center">
               <p className="text-lg md:text-xl text-foreground font-semibold">
                 Pero entonces ocurre lo que nadie te explica:
               </p>
-              <p className="text-lg md:text-xl text-destructive font-bold leading-tight">
+              <p className="text-lg md:text-xl text-orange-500 font-bold leading-tight">
                 La parte que más desgasta viene después del lanzamiento.
               </p>
             </CardContent>
@@ -191,9 +191,9 @@ const ParaMarcas = () => {
                 'otros se desmotivan antes de la mitad',
                 'y tú no puedes acompañarlos uno a uno'
               ].map((text, idx) => (
-                <Card key={idx} className="group border-l-[6px] border-l-destructive bg-gradient-to-r from-destructive/10 to-transparent hover:from-destructive/20 hover:shadow-2xl hover:-translate-x-2 hover:scale-[1.02] transition-all duration-300">
+                <Card key={idx} className="group border-l-[6px] border-l-orange-500 bg-gradient-to-r from-destructive/10 to-transparent hover:from-destructive/20 hover:shadow-2xl hover:-translate-x-2 hover:scale-[1.02] transition-all duration-300">
                   <CardContent className="p-5 md:p-6 flex items-center gap-4">
-                    <X className="w-6 h-6 md:w-7 md:h-7 text-destructive flex-shrink-0 group-hover:rotate-90 transition-transform duration-300" />
+                    <X className="w-6 h-6 md:w-7 md:h-7 text-orange-500 flex-shrink-0 group-hover:rotate-90 transition-transform duration-300" />
                     <p className="text-base md:text-lg text-foreground font-semibold">{text}</p>
                   </CardContent>
                 </Card>
@@ -215,7 +215,7 @@ const ParaMarcas = () => {
                 'tu visión se ralentiza',
                 'y te preguntas si el esfuerzo vale la pena'
               ].map((text, idx) => (
-                <Card key={idx} className="group bg-gradient-to-br from-destructive/10 to-destructive/5 border-2 border-destructive/30 hover:border-destructive/60 hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300">
+                <Card key={idx} className="group bg-gradient-to-br from-destructive/10 to-destructive/5 border-2 border-orange-500/30 hover:border-orange-500/60 hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300">
                   <CardContent className="p-6 md:p-8">
                     <p className="text-lg md:text-xl text-foreground font-bold leading-relaxed">{text}</p>
                   </CardContent>
@@ -296,16 +296,16 @@ const ParaMarcas = () => {
               'No puedes identificar mentalidad',
               'No puedes saber quién está listo para colaborar contigo'
             ].map((text, idx) => (
-              <Card key={idx} className="group border-l-4 border-l-destructive hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
+              <Card key={idx} className="group border-l-4 border-l-orange-500 hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
                 <CardContent className="p-5 flex items-center gap-4">
-                  <X className="w-5 h-5 text-destructive flex-shrink-0" />
+                  <X className="w-5 h-5 text-orange-500 flex-shrink-0" />
                   <p className="text-foreground font-medium">{text}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-destructive/30 mt-8">
+          <Card className="relative overflow-hidden border-2 border-orange-500/30 mt-8">
             <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
             <CardContent className="relative p-8 space-y-6 text-center">
               <p className="text-xl text-foreground font-semibold">Y eso te limita.</p>
@@ -319,7 +319,7 @@ const ParaMarcas = () => {
                 <p className="text-xl text-foreground font-semibold">
                   Tu comunidad está llena de talento…
                 </p>
-                <p className="text-2xl text-destructive font-bold">
+                <p className="text-2xl text-orange-500 font-bold">
                   pero no tienes forma de verlo.
                 </p>
               </div>
@@ -341,14 +341,24 @@ const ParaMarcas = () => {
               <Lightbulb className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">La Solución: Wunjo</span>
             </div>
+
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-2 border-primary/40">
+              <Brain className="w-6 h-6 text-primary" />
+              <span className="text-primary font-bold text-lg">Powered by IA</span>
+            </div>
           </div>
 
           <Card className="relative overflow-hidden border-2 border-primary/30 group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
             <CardContent className="relative p-10 space-y-8">
-              <p className="text-xl text-foreground font-medium text-center leading-relaxed">
-                Creamos experiencias personalizadas con IA para que cada persona de tu comunidad viva su propio camino, adaptado a:
-              </p>
+              <div className="text-center space-y-3">
+                <p className="text-2xl text-primary font-bold">
+                  Inteligencia Artificial que personaliza la experiencia
+                </p>
+                <p className="text-xl text-foreground font-medium leading-relaxed">
+                  Cada persona de tu comunidad vive su propio camino, adaptado a:
+                </p>
+              </div>
 
               <div className="grid md:grid-cols-2 gap-4 pt-4">
                 {[
