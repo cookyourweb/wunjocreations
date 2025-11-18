@@ -136,14 +136,14 @@ const Colabora = () => {
   return (
     <section id="colabora" className="py-32 px-6 bg-gradient-to-b from-muted/30 to-background">
       <div className="max-w-4xl mx-auto space-y-12">
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-8">
           <div className="inline-block">
-            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
+            <Badge className="px-8 py-3 text-lg font-medium bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 backdrop-blur-xl border-0 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
+              <Sparkles className="w-5 h-5 mr-2 inline animate-pulse" />
               Contacto
             </Badge>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
+          <h2 className="font-display text-5xl md:text-7xl font-bold text-foreground tracking-tight leading-[1.1]">
             Inicia tu experiencia Wunjo.
           </h2>
           

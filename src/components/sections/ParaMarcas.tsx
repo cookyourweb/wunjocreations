@@ -81,14 +81,14 @@ const ParaMarcas = () => {
 
       <div className="max-w-5xl mx-auto space-y-24">
         {/* HERO */}
-        <div id="hero" className="text-center space-y-8 scroll-mt-24">
+        <div id="hero" className="text-center space-y-10 scroll-mt-24">
           <div className="inline-block">
-            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
+            <Badge className="px-8 py-3 text-lg font-medium bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 backdrop-blur-xl border-0 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
+              <Sparkles className="w-5 h-5 mr-2 inline animate-pulse" />
               Para Creadores e Influencers
             </Badge>
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.1]">
             Eleva tu comunidad,<br />tu impacto y tu negocio
           </h2>
         </div>
@@ -109,39 +109,40 @@ const ParaMarcas = () => {
             </div>
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-primary/20">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-            <CardContent className="relative p-8 space-y-6">
-              <h3 className="font-display text-2xl text-foreground font-semibold text-center">
+          <Card className="relative overflow-hidden border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+            <CardContent className="relative p-12 md:p-16 space-y-8">
+              <h3 className="font-display text-3xl md:text-5xl text-foreground font-bold text-center leading-tight">
                 Tú ya tienes lo más difícil:
               </h3>
-              <p className="text-xl text-primary font-medium text-center">
+              <p className="text-2xl md:text-4xl text-primary font-bold text-center leading-tight">
                 una comunidad que te admira, te escucha y quiere transformarse contigo.
               </p>
             </CardContent>
           </Card>
 
-          <div className="space-y-6 text-center">
-            <p className="text-lg text-foreground">
+          <div className="space-y-8 text-center pt-8">
+            <p className="text-2xl md:text-3xl text-foreground font-medium">
               Pero hay algo que nadie te dice cuando empiezas como creador:
             </p>
-            <Card className="bg-gradient-to-r from-destructive/10 to-destructive/5 border-destructive/30">
-              <CardContent className="p-8">
-                <p className="text-2xl text-foreground font-bold">
+            <Card className="relative overflow-hidden bg-gradient-to-br from-destructive/20 to-destructive/10 border-2 border-destructive/40 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-destructive/10 blur-3xl" />
+              <CardContent className="relative p-12 md:p-16 space-y-6">
+                <p className="text-3xl md:text-5xl text-foreground font-bold leading-tight">
                   Los lanzamientos traen alumnos…
                 </p>
-                <p className="text-xl text-destructive font-semibold pt-2">
+                <p className="text-2xl md:text-4xl text-destructive font-bold leading-tight">
                   pero el verdadero trabajo empieza después.
                 </p>
               </CardContent>
             </Card>
           </div>
 
-          <div className="space-y-6">
-            <p className="text-lg text-foreground text-center">
+          <div className="space-y-10 pt-8">
+            <p className="text-2xl md:text-3xl text-foreground text-center font-medium">
               Inviertes tiempo, energía y dinero en:
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-6">
               {[
                 'retos',
                 'webinars',
@@ -150,59 +151,62 @@ const ParaMarcas = () => {
                 'contenidos',
                 'estrategia'
               ].map((item, idx) => (
-                <Card key={idx} className="group bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    <p className="text-foreground font-medium">{item}</p>
+                <Card key={idx} className="group bg-gradient-to-br from-primary/5 to-accent/5 border-primary/30 hover:border-primary/60 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300">
+                  <CardContent className="p-8 text-center">
+                    <p className="text-xl md:text-2xl text-foreground font-bold">{item}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
 
-          <div className="space-y-4 text-center">
-            <p className="text-lg text-foreground">Consigues leads.</p>
-            <p className="text-lg text-foreground">Consigues ventas.</p>
-            <p className="text-lg text-foreground">Consigues comunidad.</p>
+          <div className="space-y-6 text-center pt-8">
+            <p className="text-2xl md:text-3xl text-primary font-bold">✓ Consigues leads.</p>
+            <p className="text-2xl md:text-3xl text-primary font-bold">✓ Consigues ventas.</p>
+            <p className="text-2xl md:text-3xl text-primary font-bold">✓ Consigues comunidad.</p>
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-destructive/30 mt-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
-            <CardContent className="relative p-8 space-y-6 text-center">
-              <p className="text-xl text-foreground font-semibold">
+          <Card className="relative overflow-hidden border-2 border-destructive/40 mt-12 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-destructive/15 to-destructive/5" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-destructive/10 blur-3xl" />
+            <CardContent className="relative p-12 md:p-16 space-y-8 text-center">
+              <p className="text-2xl md:text-3xl text-foreground font-semibold">
                 Pero entonces ocurre lo que nadie te explica:
               </p>
-              <p className="text-2xl text-destructive font-bold">
+              <p className="text-3xl md:text-5xl text-destructive font-bold leading-tight">
                 La parte que más desgasta viene después del lanzamiento.
               </p>
             </CardContent>
           </Card>
 
-          <div className="space-y-4">
-            <p className="text-lg text-foreground text-center font-medium">Porque:</p>
-            {[
-              'cada persona avanza a un ritmo distinto',
-              'muchos se bloquean en silencio',
-              'otros desaparecen sin avisar',
-              'otros necesitan más apoyo',
-              'algunos no integran lo aprendido',
-              'otros se desmotivan antes de la mitad',
-              'y tú no puedes acompañarlos uno a uno'
-            ].map((text, idx) => (
-              <Card key={idx} className="group border-l-4 border-l-destructive hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
-                <CardContent className="p-5 flex items-center gap-4">
-                  <X className="w-5 h-5 text-destructive flex-shrink-0" />
-                  <p className="text-foreground font-medium">{text}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="space-y-8 pt-12">
+            <p className="text-3xl md:text-4xl text-foreground text-center font-bold">Porque:</p>
+            <div className="space-y-4">
+              {[
+                'cada persona avanza a un ritmo distinto',
+                'muchos se bloquean en silencio',
+                'otros desaparecen sin avisar',
+                'otros necesitan más apoyo',
+                'algunos no integran lo aprendido',
+                'otros se desmotivan antes de la mitad',
+                'y tú no puedes acompañarlos uno a uno'
+              ].map((text, idx) => (
+                <Card key={idx} className="group border-l-[6px] border-l-destructive bg-gradient-to-r from-destructive/10 to-transparent hover:from-destructive/20 hover:shadow-2xl hover:-translate-x-2 hover:scale-[1.02] transition-all duration-300">
+                  <CardContent className="p-6 md:p-8 flex items-center gap-6">
+                    <X className="w-8 h-8 md:w-10 md:h-10 text-destructive flex-shrink-0 group-hover:rotate-90 transition-transform duration-300" />
+                    <p className="text-lg md:text-2xl text-foreground font-semibold">{text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-6 text-center pt-6">
-            <p className="text-xl text-foreground font-semibold">
+          <div className="space-y-10 text-center pt-12">
+            <p className="text-3xl md:text-4xl text-foreground font-bold">
               Y ahí es donde empiezas a sentirlo:
             </p>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
                 'te desgastas dando más de lo que recibes',
                 'respondes una y otra vez las mismas dudas',
@@ -211,9 +215,9 @@ const ParaMarcas = () => {
                 'tu visión se ralentiza',
                 'y te preguntas si el esfuerzo vale la pena'
               ].map((text, idx) => (
-                <Card key={idx} className="group bg-destructive/5 border-destructive/20 hover:border-destructive/40 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-5">
-                    <p className="text-foreground font-medium">{text}</p>
+                <Card key={idx} className="group bg-gradient-to-br from-destructive/10 to-destructive/5 border-2 border-destructive/30 hover:border-destructive/60 hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300">
+                  <CardContent className="p-8 md:p-10">
+                    <p className="text-xl md:text-2xl text-foreground font-bold leading-relaxed">{text}</p>
                   </CardContent>
                 </Card>
               ))}
