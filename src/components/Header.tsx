@@ -30,9 +30,9 @@ const Header = () => {
               alt="Wunjo Creations"
               className="h-20 w-auto"
             />
-            <div className="absolute bottom-0 -right-5 mb-1 inline-flex items-center gap-1.5 px-2.5 py-0 rounded-full bg-card/80 border-2 border-primary/40 shadow-lg">
-              <Brain className="w-4 h-4 text-[hsl(314.27deg_65%_55%)]" />
-              <span className="text-[hsl(314.27deg_65%_55%)] font-bold text-xs">AI-Powered</span>
+            <div className="absolute bottom-0 -right-5 mb-1 inline-flex items-center gap-1.5 px-2.5 py-0 rounded-full bg-card/40 border-2 border-primary/20 shadow-lg">
+              <Brain className="w-4 h-4 text-primary/70" />
+              <span className="text-primary/70 font-bold text-xs">AI-Powered</span>
             </div>
           </Link>
 
