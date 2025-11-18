@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <Link to="/" className="cursor-pointer relative">
             <img
               src={isDark ? logoWunjo2 : logoWunjo3}
@@ -36,20 +36,21 @@ const Header = () => {
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="flex flex-col md:flex-row items-center gap-3 md:gap-8 w-full md:w-auto">
             <Link
               to="/para-creadores"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
                 isActive('/para-creadores')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
               }`}
             >
-              Para Creadores e Influencers
+              <span className="hidden md:inline">Para Creadores e Influencers</span>
+              <span className="md:hidden">Para Creadores</span>
             </Link>
             <Link
               to="/experiencias"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
                 isActive('/experiencias')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -59,7 +60,7 @@ const Header = () => {
             </Link>
             <Link
               to="/nuestra-esencia"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
                 isActive('/nuestra-esencia')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -69,7 +70,7 @@ const Header = () => {
             </Link>
             <Link
               to="/proceso"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
                 isActive('/proceso')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
@@ -79,7 +80,7 @@ const Header = () => {
             </Link>
             <Link
               to="/contacto"
-              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 ${
+              className={`text-foreground hover:text-primary transition-all duration-300 relative pb-1 text-sm md:text-base text-center ${
                 isActive('/contacto')
                   ? 'text-primary font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary'
                   : ''
