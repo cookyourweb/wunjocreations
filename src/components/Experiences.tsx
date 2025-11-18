@@ -38,7 +38,7 @@ const Experiences = () => {
   };
 
   const navItems = [
-    { id: "hero", label: "Inicio", icon: Sparkles },
+    { id: "hero", label: "Experiencias", icon: Sparkles },
     { id: "solucion", label: "La Solución", icon: Target },
     { id: "resultados", label: "Resultados", icon: Heart },
     { id: "disponible", label: "Disponible", icon: Globe },
@@ -46,15 +46,15 @@ const Experiences = () => {
 
   return (
     <section className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú flotante de navegación de secciones */}
-      <nav className="fixed bottom-4 left-4 right-4 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 lg:left-auto lg:right-8 z-40">
+      {/* Menú de navegación centrado horizontal */}
+      <nav className="fixed top-24 left-1/2 -translate-x-1/2 z-40 w-full max-w-6xl px-4">
         <div className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-2 lg:p-3">
-          <div className="flex lg:flex-col gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible lg:overflow-y-visible justify-center">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center lg:justify-start lg:gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
                   activeSection === id
                     ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
@@ -71,13 +71,7 @@ const Experiences = () => {
 
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div id="hero" className="text-center space-y-10 scroll-mt-24">
-          <div className="inline-block">
-            <Badge className="px-8 py-3 text-lg font-medium bg-gradient-to-r from-primary/90 via-accent/90 to-secondary/90 backdrop-blur-xl border-0 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
-              <Sparkles className="w-5 h-5 mr-2 inline animate-pulse" />
-              Experiencias Wunjo
-            </Badge>
-          </div>
+        <div id="hero" className="text-center space-y-10 scroll-mt-24 pt-12">
           <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Experiencias que transforman.<br />
             Tecnología que acompaña.<br />
