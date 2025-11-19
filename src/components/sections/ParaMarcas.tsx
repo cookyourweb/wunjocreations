@@ -53,8 +53,8 @@ const ParaMarcas = () => {
   ];
 
   return (
-    <section id="para-marcas" className="relative py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú flotante lateral */}
+    <section id="para-marcas" className="relative py-32 px-6 pb-32 lg:pb-32 bg-gradient-to-b from-background via-muted/20 to-background">
+      {/* Menú flotante lateral - Desktop */}
       <nav className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
         <div className="bg-card/80 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
           {navItems.map(({ id, label, icon: Icon }) => (
@@ -76,6 +76,33 @@ const ParaMarcas = () => {
               </span>
             </button>
           ))}
+        </div>
+      </nav>
+
+      {/* Menú inferior - Mobile */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pb-safe">
+        <div className="bg-card/95 backdrop-blur-lg border-t border-border/50 shadow-2xl">
+          <div className="flex items-center justify-around px-2 py-3">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-all duration-300 min-w-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-b from-primary to-accent text-primary-foreground scale-110"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+                title={label}
+              >
+                <Icon className="w-5 h-5 flex-shrink-0" />
+                <span className={`text-[10px] font-medium truncate max-w-[60px] ${
+                  activeSection === id ? "text-primary-foreground" : ""
+                }`}>
+                  {label}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
 
