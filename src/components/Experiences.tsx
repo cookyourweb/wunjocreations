@@ -2,24 +2,54 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 import {
   Sparkles, Target, Heart, Check,
   Globe, Brain, Rocket, Shield, BarChart3, Clock, TrendingUp
 } from "lucide-react";
 
 const Experiences = () => {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "solucion", "resultados", "disponible"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navItems = [
+    { id: "hero", label: "Experiencias", icon: Sparkles },
+    { id: "solucion", label: "La Solución", icon: Target },
+    { id: "resultados", label: "Resultados", icon: Heart },
+    { id: "disponible", label: "Disponible", icon: Globe },
+  ];
+
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="relative py-32 px-6 pb-24 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div className="text-center space-y-8">
-          <div className="inline-block">
-            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
-              Experiencias Wunjo
-            </Badge>
-          </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+        <div id="hero" className="text-center space-y-10 scroll-mt-32">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Experiencias que transforman.<br />
             Tecnología que acompaña.<br />
             Energía que despierta.
@@ -29,22 +59,37 @@ const Experiences = () => {
           </p>
         </div>
 
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary to-accent" />
-          <Sparkles className="w-6 h-6 text-primary" />
-          <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
-        </div>
+        {/* Menú de navegación sticky */}
+        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/50">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-5xl mx-auto">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
 
         {/* LA SOLUCIÓN WUNJO */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="solucion" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Target className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">La Solución Wunjo</span>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground">
-              Convertimos tu contenido en una experiencia personalizada con IA.
+
+            <h2 className="font-display text-3xl md:text-4xl text-primary font-bold pt-2">
+              Inteligencia Artificial que personaliza tu contenido
             </h2>
           </div>
 
@@ -88,7 +133,7 @@ const Experiences = () => {
         </div>
 
         {/* RESULTADOS PARA TU COMUNIDAD */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="resultados" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
               <Heart className="w-5 h-5 text-accent" />
@@ -137,7 +182,7 @@ const Experiences = () => {
         </div>
 
         {/* EXPERIENCIA DISPONIBLE */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="disponible" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
               <Globe className="w-5 h-5 text-secondary" />

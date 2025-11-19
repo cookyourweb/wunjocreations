@@ -2,13 +2,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Sparkles, Users, TrendingUp, Heart, Award, Rocket, Target,
   Check, X, Eye, Brain, Zap, Star, ChevronRight,
   MessageSquare, BarChart3, Shield, Clock, CheckCircle2,
-  Lightbulb, Network, BadgeCheck, Infinity, UserPlus, Trophy
+  Lightbulb, Network, BadgeCheck, InfinityIcon, UserPlus, Trophy
 } from "lucide-react";
 
 const ParaMarcas = () => {
@@ -44,7 +44,7 @@ const ParaMarcas = () => {
   };
 
   const navItems = [
-    { id: "hero", label: "Inicio", icon: Sparkles },
+    { id: "hero", label: "Para Creadores Influencers", icon: Sparkles },
     { id: "problema", label: "El Problema", icon: Target },
     { id: "dolor-oculto", label: "Dolor Oculto", icon: Eye },
     { id: "solucion", label: "La Solución", icon: Lightbulb },
@@ -53,122 +53,79 @@ const ParaMarcas = () => {
   ];
 
   return (
-    <section id="para-marcas" className="relative py-32 px-6 pb-32 lg:pb-32 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Menú flotante lateral - Desktop */}
-      <nav className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
-        <div className="bg-card/80 backdrop-blur-lg rounded-2xl border border-border/50 shadow-2xl p-3 space-y-2">
-          {navItems.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${
-                activeSection === id
-                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg scale-105"
-                  : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-              }`}
-              title={label}
-            >
-              <Icon className="w-5 h-5 flex-shrink-0" />
-              <span className={`absolute left-full ml-4 whitespace-nowrap bg-card px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
-                activeSection === id ? "text-primary" : ""
-              }`}>
-                {label}
-              </span>
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      {/* Menú inferior - Mobile */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pb-safe">
-        <div className="bg-card/95 backdrop-blur-lg border-t border-border/50 shadow-2xl">
-          <div className="flex items-center justify-around px-2 py-3">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-all duration-300 min-w-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-b from-primary to-accent text-primary-foreground scale-110"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                }`}
-                title={label}
-              >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className={`text-[10px] font-medium truncate max-w-[60px] ${
-                  activeSection === id ? "text-primary-foreground" : ""
-                }`}>
-                  {label}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
+    <section id="para-marcas" className="relative py-32 px-6 pb-24 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="max-w-5xl mx-auto space-y-24">
         {/* HERO */}
-        <div id="hero" className="text-center space-y-8 scroll-mt-24">
-          <div className="inline-block">
-            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
-              Para Creadores e Influencers
-            </Badge>
-          </div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+        <div id="hero" className="text-center space-y-10 scroll-mt-32">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Eleva tu comunidad,<br />tu impacto y tu negocio
           </h2>
         </div>
 
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-destructive to-destructive/50" />
-          <Target className="w-6 h-6 text-destructive" />
-          <div className="h-px flex-1 bg-gradient-to-r from-destructive/50 via-destructive to-transparent" />
-        </div>
+        {/* Menú de navegación sticky */}
+        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/50">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-5xl mx-auto">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
 
         {/* EL PROBLEMA */}
         <div id="problema" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
-              <Target className="w-5 h-5 text-destructive" />
-              <span className="text-destructive font-semibold">El Problema</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30">
+              <Target className="w-5 h-5 text-orange-500" />
+              <span className="text-orange-500 font-semibold">El Problema</span>
             </div>
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-primary/20">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-            <CardContent className="relative p-8 space-y-6">
-              <h3 className="font-display text-2xl text-foreground font-semibold text-center">
+          <Card className="relative overflow-hidden border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+            <CardContent className="relative p-8 md:p-10 space-y-6">
+              <h3 className="font-display text-lg md:text-xl text-foreground font-bold text-center leading-tight">
                 Tú ya tienes lo más difícil:
               </h3>
-              <p className="text-xl text-primary font-medium text-center">
+              <p className="text-lg md:text-xl text-primary font-bold text-center leading-tight">
                 una comunidad que te admira, te escucha y quiere transformarse contigo.
               </p>
             </CardContent>
           </Card>
 
-          <div className="space-y-6 text-center">
-            <p className="text-lg text-foreground">
+          <div className="space-y-6 text-center pt-8">
+            <p className="text-lg md:text-xl text-foreground font-medium">
               Pero hay algo que nadie te dice cuando empiezas como creador:
             </p>
-            <Card className="bg-gradient-to-r from-destructive/10 to-destructive/5 border-destructive/30">
-              <CardContent className="p-8">
-                <p className="text-2xl text-foreground font-bold">
+            <Card className="relative overflow-hidden bg-gradient-to-br from-destructive/20 to-destructive/10 border-2 border-orange-500/40 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 blur-3xl" />
+              <CardContent className="relative p-8 md:p-10 space-y-4">
+                <p className="text-lg md:text-xl text-foreground font-bold leading-tight">
                   Los lanzamientos traen alumnos…
                 </p>
-                <p className="text-xl text-destructive font-semibold pt-2">
+                <p className="text-lg md:text-xl text-orange-500 font-bold leading-tight">
                   pero el verdadero trabajo empieza después.
                 </p>
               </CardContent>
             </Card>
           </div>
 
-          <div className="space-y-6">
-            <p className="text-lg text-foreground text-center">
+          <div className="space-y-8 pt-8">
+            <p className="text-lg md:text-xl text-foreground text-center font-medium">
               Inviertes tiempo, energía y dinero en:
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-6">
               {[
                 'retos',
                 'webinars',
@@ -177,59 +134,62 @@ const ParaMarcas = () => {
                 'contenidos',
                 'estrategia'
               ].map((item, idx) => (
-                <Card key={idx} className="group bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    <p className="text-foreground font-medium">{item}</p>
+                <Card key={idx} className="group bg-gradient-to-br from-primary/5 to-accent/5 border-primary/30 hover:border-primary/60 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300">
+                  <CardContent className="p-6 text-center">
+                    <p className="text-lg md:text-xl text-foreground font-bold">{item}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
 
-          <div className="space-y-4 text-center">
-            <p className="text-lg text-foreground">Consigues leads.</p>
-            <p className="text-lg text-foreground">Consigues ventas.</p>
-            <p className="text-lg text-foreground">Consigues comunidad.</p>
+          <div className="space-y-4 text-center pt-8">
+            <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues leads.</p>
+            <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues ventas.</p>
+            <p className="text-lg md:text-xl text-primary font-bold">✓ Consigues comunidad.</p>
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-destructive/30 mt-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
-            <CardContent className="relative p-8 space-y-6 text-center">
-              <p className="text-xl text-foreground font-semibold">
+          <Card className="relative overflow-hidden border-2 border-orange-500/40 mt-12 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-destructive/15 to-destructive/5" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 blur-3xl" />
+            <CardContent className="relative p-8 md:p-10 space-y-6 text-center">
+              <p className="text-lg md:text-xl text-foreground font-semibold">
                 Pero entonces ocurre lo que nadie te explica:
               </p>
-              <p className="text-2xl text-destructive font-bold">
+              <p className="text-lg md:text-xl text-orange-500 font-bold leading-tight">
                 La parte que más desgasta viene después del lanzamiento.
               </p>
             </CardContent>
           </Card>
 
-          <div className="space-y-4">
-            <p className="text-lg text-foreground text-center font-medium">Porque:</p>
-            {[
-              'cada persona avanza a un ritmo distinto',
-              'muchos se bloquean en silencio',
-              'otros desaparecen sin avisar',
-              'otros necesitan más apoyo',
-              'algunos no integran lo aprendido',
-              'otros se desmotivan antes de la mitad',
-              'y tú no puedes acompañarlos uno a uno'
-            ].map((text, idx) => (
-              <Card key={idx} className="group border-l-4 border-l-destructive hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
-                <CardContent className="p-5 flex items-center gap-4">
-                  <X className="w-5 h-5 text-destructive flex-shrink-0" />
-                  <p className="text-foreground font-medium">{text}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="space-y-8 pt-12">
+            <p className="text-lg md:text-xl text-foreground text-center font-bold">Porque:</p>
+            <div className="space-y-4">
+              {[
+                'cada persona avanza a un ritmo distinto',
+                'muchos se bloquean en silencio',
+                'otros desaparecen sin avisar',
+                'otros necesitan más apoyo',
+                'algunos no integran lo aprendido',
+                'otros se desmotivan antes de la mitad',
+                'y tú no puedes acompañarlos uno a uno'
+              ].map((text, idx) => (
+                <Card key={idx} className="group border-l-[6px] border-l-orange-500 bg-gradient-to-r from-destructive/10 to-transparent hover:from-destructive/20 hover:shadow-2xl hover:-translate-x-2 hover:scale-[1.02] transition-all duration-300">
+                  <CardContent className="p-5 md:p-6 flex items-center gap-4">
+                    <X className="w-6 h-6 md:w-7 md:h-7 text-orange-500 flex-shrink-0 group-hover:rotate-90 transition-transform duration-300" />
+                    <p className="text-base md:text-lg text-foreground font-semibold">{text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-6 text-center pt-6">
-            <p className="text-xl text-foreground font-semibold">
+          <div className="space-y-8 text-center pt-12">
+            <p className="text-lg md:text-xl text-foreground font-bold">
               Y ahí es donde empiezas a sentirlo:
             </p>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
                 'te desgastas dando más de lo que recibes',
                 'respondes una y otra vez las mismas dudas',
@@ -238,9 +198,9 @@ const ParaMarcas = () => {
                 'tu visión se ralentiza',
                 'y te preguntas si el esfuerzo vale la pena'
               ].map((text, idx) => (
-                <Card key={idx} className="group bg-destructive/5 border-destructive/20 hover:border-destructive/40 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-5">
-                    <p className="text-foreground font-medium">{text}</p>
+                <Card key={idx} className="group bg-gradient-to-br from-destructive/10 to-destructive/5 border-2 border-orange-500/30 hover:border-orange-500/60 hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300">
+                  <CardContent className="p-6 md:p-8">
+                    <p className="text-lg md:text-xl text-foreground font-bold leading-relaxed">{text}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -254,10 +214,10 @@ const ParaMarcas = () => {
               <p className="text-lg text-muted-foreground">No es tu método.</p>
               <p className="text-lg text-muted-foreground">No es tu contenido.</p>
               <div className="pt-4 space-y-2">
-                <p className="text-xl text-foreground font-semibold">
+                <p className="text-lg text-foreground font-semibold">
                   Es que estás intentando transformar a cientos de personas con un camino único.
                 </p>
-                <p className="text-2xl text-primary font-bold">
+                <p className="text-xl text-primary font-bold">
                   Y la transformación real… es siempre personalizada.
                 </p>
               </div>
@@ -319,16 +279,16 @@ const ParaMarcas = () => {
               'No puedes identificar mentalidad',
               'No puedes saber quién está listo para colaborar contigo'
             ].map((text, idx) => (
-              <Card key={idx} className="group border-l-4 border-l-destructive hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
+              <Card key={idx} className="group border-l-4 border-l-orange-500 hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
                 <CardContent className="p-5 flex items-center gap-4">
-                  <X className="w-5 h-5 text-destructive flex-shrink-0" />
+                  <X className="w-5 h-5 text-orange-500 flex-shrink-0" />
                   <p className="text-foreground font-medium">{text}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <Card className="relative overflow-hidden border-2 border-destructive/30 mt-8">
+          <Card className="relative overflow-hidden border-2 border-orange-500/30 mt-8">
             <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-destructive/5" />
             <CardContent className="relative p-8 space-y-6 text-center">
               <p className="text-xl text-foreground font-semibold">Y eso te limita.</p>
@@ -342,7 +302,7 @@ const ParaMarcas = () => {
                 <p className="text-xl text-foreground font-semibold">
                   Tu comunidad está llena de talento…
                 </p>
-                <p className="text-2xl text-destructive font-bold">
+                <p className="text-2xl text-orange-500 font-bold">
                   pero no tienes forma de verlo.
                 </p>
               </div>
@@ -364,14 +324,24 @@ const ParaMarcas = () => {
               <Lightbulb className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">La Solución: Wunjo</span>
             </div>
+
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-2 border-primary/40">
+              <Brain className="w-6 h-6 text-primary" />
+              <span className="text-primary font-bold text-lg">Powered by IA</span>
+            </div>
           </div>
 
           <Card className="relative overflow-hidden border-2 border-primary/30 group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
             <CardContent className="relative p-10 space-y-8">
-              <p className="text-xl text-foreground font-medium text-center leading-relaxed">
-                Creamos experiencias personalizadas con IA para que cada persona de tu comunidad viva su propio camino, adaptado a:
-              </p>
+              <div className="text-center space-y-3">
+                <p className="text-2xl text-primary font-bold">
+                  Inteligencia Artificial que personaliza la experiencia
+                </p>
+                <p className="text-xl text-foreground font-medium leading-relaxed">
+                  Cada persona de tu comunidad vive su propio camino, adaptado a:
+                </p>
+              </div>
 
               <div className="grid md:grid-cols-2 gap-4 pt-4">
                 {[
@@ -670,7 +640,7 @@ const ParaMarcas = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
               <CardContent className="relative p-10 space-y-6 text-center">
                 <div className="inline-block p-4 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 group-hover:scale-110 transition-transform">
-                  <Infinity className="w-12 h-12 text-primary" />
+                  <InfinityIcon className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="font-display text-3xl text-foreground flex items-center justify-center gap-2">
                   <Sparkles className="w-8 h-8 text-primary" />

@@ -1,27 +1,81 @@
 // src/components/sections/NuestraEsencia.tsx
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 import {
   Sparkles, Heart, Target,
   Award, Star, Eye
 } from "lucide-react";
 
 const Historia = () => {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "ganas", "diferente", "energia"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navItems = [
+    { id: "hero", label: "Nuestra Esencia", icon: Sparkles },
+    { id: "ganas", label: "Ganas", icon: Award },
+    { id: "diferente", label: "Diferente", icon: Star },
+    { id: "energia", label: "Energía", icon: Heart },
+  ];
+
   return (
-    <section id="historia" className="py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="historia" className="relative py-32 px-6 pb-24 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div className="text-center space-y-8">
-          <div className="inline-block">
-            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
-              Nuestra Esencia
-            </Badge>
-          </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+        <div id="hero" className="text-center space-y-10 scroll-mt-32">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             Tecnología con alma.<br />
             Transformación con propósito.
           </h1>
+        </div>
+
+        {/* Menú de navegación sticky */}
+        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/50">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-5xl mx-auto">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        <div className="text-center space-y-10 scroll-mt-24">
 
           <div className="space-y-6 max-w-3xl mx-auto">
             <p className="text-xl text-muted-foreground font-light leading-relaxed">
@@ -67,7 +121,7 @@ const Historia = () => {
         </div>
 
         {/* LO QUE GANAS COMO CREADOR */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="ganas" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Award className="w-5 h-5 text-primary" />
@@ -117,7 +171,7 @@ const Historia = () => {
         </div>
 
         {/* POR QUÉ WUNJO ES DIFERENTE */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="diferente" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
               <Star className="w-5 h-5 text-accent" />
@@ -151,7 +205,7 @@ const Historia = () => {
         </div>
 
         {/* NUESTRA ENERGÍA */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="energia" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
               <Sparkles className="w-5 h-5 text-secondary" />

@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Historia from "@/components/sections/NuestraEsencia";
+import AIPoweredBadge from "@/components/AIPoweredBadge";
 
 const NuestraEsenciaPage = () => {
   return (
@@ -9,6 +10,7 @@ const NuestraEsenciaPage = () => {
       <Header />
       <Historia />
       <Footer />
+      <AIPoweredBadge />
     </div>
   );
 };

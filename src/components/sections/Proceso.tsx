@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   Sparkles, Target, Lightbulb, TrendingUp,
   X, Check, Moon, Sun, Compass, Rocket,
@@ -10,32 +11,75 @@ import {
 } from "lucide-react";
 
 const Proceso = () => {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "antes", "despues", "como"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navItems = [
+    { id: "hero", label: "Proceso", icon: Sparkles },
+    { id: "antes", label: "Antes", icon: Moon },
+    { id: "despues", label: "Después", icon: Sun },
+    { id: "como", label: "Cómo", icon: Compass },
+  ];
+
   return (
-    <section id="proceso" className="py-32 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="proceso" className="relative py-32 px-6 pb-24 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
-        <div className="text-center space-y-8">
-          <div className="inline-block">
-            <Badge className="px-6 py-2 text-lg bg-gradient-to-r from-primary via-accent to-secondary hover:scale-105 transition-transform">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
-              Proceso Wunjo
-            </Badge>
-          </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-tight">
+        <div id="hero" className="text-center space-y-10 scroll-mt-32">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
             El Proceso Wunjo:<br />
             de inspiración a impacto real.
           </h1>
         </div>
 
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary to-accent" />
-          <Moon className="w-6 h-6 text-primary" />
-          <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
-        </div>
+        {/* Menú de navegación sticky */}
+        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/50">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-5xl mx-auto">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
 
         {/* ANTES DE WUNJO */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="antes" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
               <Moon className="w-5 h-5 text-destructive" />
@@ -70,7 +114,7 @@ const Proceso = () => {
         </div>
 
         {/* DESPUÉS DE WUNJO */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="despues" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
               <Sun className="w-5 h-5 text-primary" />
@@ -122,7 +166,7 @@ const Proceso = () => {
         </div>
 
         {/* CÓMO LO HACEMOS */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div id="como" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
               <Compass className="w-5 h-5 text-secondary" />

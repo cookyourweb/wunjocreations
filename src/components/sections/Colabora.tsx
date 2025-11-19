@@ -1,5 +1,6 @@
 // src/components/sections/Colabora.tsx
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -10,6 +11,8 @@ import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { supabase } from "@/lib/supabaseClient";
+import { useState, useEffect } from "react";
+import { Sparkles, User, Heart, TrendingUp, Users, Calendar } from "lucide-react";
 
 const formSchema = z.object({
   nombre: z.string().trim().min(2, "Por favor ingresa tu nombre completo").max(100),
@@ -33,7 +36,8 @@ const formSchema = z.object({
 
 const Colabora = () => {
   const { toast } = useToast();
-  
+  const [activeSection, setActiveSection] = useState("hero");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,6 +53,41 @@ const Colabora = () => {
   });
 
   const llamadaSeleccionada = form.watch("llamada");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "datos", "conexion", "etapa", "acompanamiento", "llamada"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navItems = [
+    { id: "hero", label: "Contacto", icon: Sparkles },
+    { id: "datos", label: "Datos", icon: User },
+    { id: "conexion", label: "Conexión", icon: Heart },
+    { id: "etapa", label: "Etapa", icon: TrendingUp },
+    { id: "acompanamiento", label: "Acompañamiento", icon: Users },
+    { id: "llamada", label: "Llamada", icon: Calendar },
+  ];
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     toast({
@@ -132,12 +171,36 @@ const Colabora = () => {
   };
 
   return (
-    <section id="colabora" className="py-32 px-6 bg-gradient-to-b from-muted/30 to-background">
+    <section id="colabora" className="relative py-32 px-6 pb-24 bg-gradient-to-b from-muted/30 to-background">
       <div className="max-w-4xl mx-auto space-y-12">
-        <div className="text-center space-y-6">
-          <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground tracking-tight">
+        <div id="hero" className="text-center space-y-8 scroll-mt-32">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.2]">
             Inicia tu experiencia Wunjo.
           </h2>
+        </div>
+
+        {/* Menú de navegación sticky */}
+        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/50">
+          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-4xl mx-auto">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        <div className="text-center space-y-8 scroll-mt-24">
           
           <div className="space-y-4 text-lg text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
             <p>
@@ -158,7 +221,7 @@ const Colabora = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12 bg-card/30 p-8 md:p-12 rounded-2xl border border-border">
             
             {/* Datos básicos */}
-            <div className="space-y-6">
+            <div id="datos" className="space-y-6 scroll-mt-24">
               <h3 className="font-display text-2xl font-medium text-foreground">Datos básicos</h3>
               
               <FormField
@@ -235,7 +298,7 @@ const Colabora = () => {
 
             {/* Resto del formulario igual... */}
             {/* Conexión emocional */}
-            <div className="space-y-6">
+            <div id="conexion" className="space-y-6 scroll-mt-24">
               <h3 className="font-display text-2xl font-medium text-foreground">🧠 Conexión emocional</h3>
               
               <FormField
@@ -282,7 +345,7 @@ const Colabora = () => {
             </div>
 
             {/* Nivel de desarrollo */}
-            <div className="space-y-6">
+            <div id="etapa" className="space-y-6 scroll-mt-24">
               <h3 className="font-display text-2xl font-medium text-foreground">🔍 ¿En qué etapa estás?</h3>
               
               <FormField
@@ -323,7 +386,7 @@ const Colabora = () => {
             </div>
 
             {/* Nivel de acompañamiento */}
-            <div className="space-y-6">
+            <div id="acompanamiento" className="space-y-6 scroll-mt-24">
               <h3 className="font-display text-2xl font-medium text-foreground">🤝 Nivel de acompañamiento</h3>
               
               <FormField
@@ -364,7 +427,7 @@ const Colabora = () => {
             </div>
 
             {/* Llamada a la acción */}
-            <div className="space-y-6">
+            <div id="llamada" className="space-y-6 scroll-mt-24">
               <h3 className="font-display text-2xl font-medium text-foreground">📅 ¿Te gustaría agendar una llamada?</h3>
               <p className="text-muted-foreground">Para conocernos y sentir si Wunjo resuena contigo</p>
               
