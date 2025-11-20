@@ -171,7 +171,7 @@ const Colabora = () => {
   };
 
   return (
-    <section id="colabora" className="relative pt-40 pb-24 px-6 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
+    <section id="colabora" className="relative pt-40 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
       {/* Fondo decorativo */}
       <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
       <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
@@ -183,29 +183,52 @@ const Colabora = () => {
           </h2>
         </div>
 
-        {/* Separador decorativo */}
-        <div className="flex items-center gap-4 max-w-3xl mx-auto py-4">
+        {/* Separador decorativo - solo desktop */}
+        <div className="hidden lg:flex items-center gap-4 max-w-3xl mx-auto py-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
           <Star className="w-6 h-6 text-primary animate-pulse" />
           <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
         </div>
 
-        {/* Menú de navegación sticky */}
-        <nav className="sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
-          <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-4xl mx-auto">
+        {/* Menú de navegación sticky - Desktop */}
+        <nav className="hidden lg:block sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
+          <div className="flex gap-2 justify-center max-w-4xl mx-auto">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center gap-2 px-2 lg:px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                className={`group relative flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
                   activeSection === id
                     ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
                 }`}
                 title={label}
               >
-                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
-                <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">{label}</span>
+                <Icon className="w-5 h-5 flex-shrink-0" />
+                <span className="text-xs font-medium whitespace-nowrap">{label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        {/* Menú de navegación fijo inferior - Móvil */}
+        <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-t border-border/50 safe-area-inset-bottom">
+          <div className="flex items-center justify-around px-2 py-3 max-w-full overflow-x-auto">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all duration-300 min-w-0 flex-shrink-0 ${
+                  activeSection === id
+                    ? "bg-gradient-to-b from-primary to-accent text-primary-foreground scale-110"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+                title={label}
+              >
+                <Icon className="w-5 h-5 flex-shrink-0" />
+                <span className="text-[10px] font-medium truncate max-w-[60px]">
+                  {label}
+                </span>
               </button>
             ))}
           </div>
