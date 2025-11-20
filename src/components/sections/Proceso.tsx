@@ -47,7 +47,7 @@ const Proceso = () => {
   ];
 
   return (
-    <section id="proceso" className="relative py-32 px-6 pb-24 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="proceso" className="relative pt-40 pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="max-w-5xl mx-auto space-y-20">
         {/* HERO */}
         <div id="hero" className="text-center space-y-10 scroll-mt-32">
@@ -58,7 +58,7 @@ const Proceso = () => {
         </div>
 
         {/* Menú de navegación sticky */}
-        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/50">
+        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg">
           <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-5xl mx-auto">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
