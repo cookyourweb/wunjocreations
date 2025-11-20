@@ -44,8 +44,12 @@ const Historia = () => {
   ];
 
   return (
-    <section id="historia" className="relative pt-40 pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      <div className="max-w-5xl mx-auto space-y-20">
+    <section id="historia" className="relative pt-40 pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
+      {/* Fondo decorativo */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
+
+      <div className="max-w-5xl mx-auto space-y-20 relative z-10">
         {/* HERO */}
         <div id="hero" className="text-center space-y-10 scroll-mt-32">
           <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
@@ -54,8 +58,15 @@ const Historia = () => {
           </h1>
         </div>
 
+        {/* Separador decorativo */}
+        <div className="flex items-center gap-4 max-w-3xl mx-auto py-4">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
+          <Star className="w-6 h-6 text-primary animate-pulse" />
+          <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+        </div>
+
         {/* Menú de navegación sticky */}
-        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg">
+        <nav className="sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
           <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-5xl mx-auto">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button

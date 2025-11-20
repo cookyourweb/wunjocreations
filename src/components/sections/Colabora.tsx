@@ -171,16 +171,27 @@ const Colabora = () => {
   };
 
   return (
-    <section id="colabora" className="relative pt-40 pb-24 px-6 bg-gradient-to-b from-muted/30 to-background">
-      <div className="max-w-4xl mx-auto space-y-12">
+    <section id="colabora" className="relative pt-40 pb-24 px-6 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
+      {/* Fondo decorativo */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
+
+      <div className="max-w-4xl mx-auto space-y-12 relative z-10">
         <div id="hero" className="text-center space-y-8 scroll-mt-32">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.2]">
             Inicia tu experiencia Wunjo.
           </h2>
         </div>
 
+        {/* Separador decorativo */}
+        <div className="flex items-center gap-4 max-w-3xl mx-auto py-4">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
+          <Star className="w-6 h-6 text-primary animate-pulse" />
+          <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+        </div>
+
         {/* Menú de navegación sticky */}
-        <nav className="sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg">
+        <nav className="sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
           <div className="flex gap-1 lg:gap-2 overflow-x-auto lg:overflow-x-visible justify-center max-w-4xl mx-auto">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
