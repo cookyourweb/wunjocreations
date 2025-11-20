@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AvisoLegal from "@/components/AvisoLegal";
+import AIPoweredBadge from "@/components/AIPoweredBadge";
 
 const AvisoLegalPage = () => {
   return (
@@ -9,6 +10,7 @@ const AvisoLegalPage = () => {
       <Header />
       <AvisoLegal />
       <Footer />
+      <AIPoweredBadge />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PoliticaPrivacidad from "@/components/PoliticaPrivacidad";
+import AIPoweredBadge from "@/components/AIPoweredBadge";
 
 const PoliticaPrivacidadPage = () => {
   return (
@@ -9,6 +10,7 @@ const PoliticaPrivacidadPage = () => {
       <Header />
       <PoliticaPrivacidad />
       <Footer />
+      <AIPoweredBadge />
     </div>
   );
 };

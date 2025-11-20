@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import AIPoweredBadge from "@/components/AIPoweredBadge";
+import MobileHomeNav from "@/components/MobileHomeNav";
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <Hero />
       <Footer />
       <AIPoweredBadge />
+      <MobileHomeNav />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 // src/pages/NotFound.tsx
-// src/pages/NotFound.tsx
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import AIPoweredBadge from "@/components/AIPoweredBadge";
 
 const NotFound = () => {
   const location = useLocation();
@@ -19,6 +19,7 @@ const NotFound = () => {
           Return to Home
         </a>
       </div>
+      <AIPoweredBadge />
     </div>
   );
 };

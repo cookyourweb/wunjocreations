@@ -53,12 +53,12 @@ const ParaMarcas = () => {
   ];
 
   return (
-    <section id="para-marcas" className="relative pt-40 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
+    <section id="para-marcas" className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
       {/* Fondo decorativo */}
       <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
       <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
 
-      <div className="max-w-5xl mx-auto space-y-24 relative z-10">
+      <div className="max-w-5xl mx-auto space-y-12 relative z-10">
         {/* HERO */}
         <div id="hero" className="text-center space-y-10 scroll-mt-32">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
@@ -67,7 +67,7 @@ const ParaMarcas = () => {
         </div>
 
         {/* Separador decorativo - solo desktop */}
-        <div className="hidden lg:flex items-center gap-4 max-w-3xl mx-auto py-4">
+        <div className="hidden lg:flex items-center gap-4 max-w-3xl mx-auto py-2">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
           <Star className="w-6 h-6 text-primary animate-pulse" />
           <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />

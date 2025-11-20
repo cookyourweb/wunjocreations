@@ -147,4 +147,13 @@ All colors MUST be HSL.
   .animate-slide-up {
     animation: slide-up 0.9s ease-out 0.2s both;
   }
+
+  @keyframes scale {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
 }
