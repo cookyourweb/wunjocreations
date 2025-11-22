@@ -171,10 +171,12 @@ const Colabora = () => {
   };
 
   return (
-    <section id="colabora" className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
-      {/* Fondo decorativo */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
+    <section id="colabora" className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-muted/30 to-background">
+      {/* Fondo decorativo - contenedor separado para no afectar sticky */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
+      </div>
 
       <div className="max-w-4xl mx-auto space-y-12 relative z-10">
         <div id="hero" className="text-center space-y-8 scroll-mt-32">
