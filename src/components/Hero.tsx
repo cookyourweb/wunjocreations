@@ -22,33 +22,33 @@ const Hero = () => {
 
         <div className="space-y-6 max-w-4xl mx-auto animate-fade-in-delayed">
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Has construido algo valioso: una audiencia que te escucha, aprende de ti y quiere cambiar su vida con tu contenido.
+            Has construido algo valioso: una audiencia que te escucha, aprende de ti y confía en tu transformación.
           </p>
 
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Pero cada persona es distinta. Unos avanzan. Otros se bloquean. Otros se desmotivan. Y ahí es donde tu negocio pierde fuerza sin que te des cuenta.
+            Tus embudos han funcionado. Has conseguido leads, alumnos, seguidores. Pero sin darte cuenta, los estás perdiendo poco a poco. Unos no tienen tiempo. Otros se desmotivan. Otros se bloquean y abandonan en silencio.
           </p>
 
-          <div className="pt-4 space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border border-primary/30">
-              <span className="text-primary font-bold">🤖 Powered by IA</span>
-            </div>
+          <div className="pt-6 space-y-4">
+            <h2 className="font-display text-xl md:text-2xl font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Con la Inteligencia Artificial, la experiencia de usuario alcanza un nuevo nivel de excelencia.
+            </h2>
             <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
-              Con Inteligencia Artificial, convertimos tu curso, mentoría o contenido en una experiencia personalizada para cada miembro de tu comunidad: adaptada a su ritmo, su mentalidad, sus fortalezas y sus bloqueos.
+              Analizamos a cada alumno: sus fortalezas, sus debilidades, sus bloqueos, su ritmo. Y le entregamos TU conocimiento, a SU medida, en el momento exacto que lo necesita.
             </p>
           </div>
 
           <div className="space-y-3 pt-4">
             <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
-              🌿 Así tu comunidad vive tu transformación como si fuera creada para ellos.
+              🌿 Tu comunidad vive tu transformación como si fuera creada solo para ellos.
             </p>
             <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
-              ✨ Y tú conviertes más alumnos en casos de éxito, clientes recurrentes y embajadores de tu marca.
+              ✨ Más alumnos completan. Más transformaciones reales. Más casos de éxito que atraen nuevos clientes.
             </p>
           </div>
 
           <p className="text-lg md:text-xl text-foreground font-bold pt-6">
-            No es solo acompañamiento. Es estrategia para escalar tu impacto y tu negocio.
+            No es solo tecnología. Es tu conocimiento, personalizado para cada persona.
           </p>
         </div>
 
