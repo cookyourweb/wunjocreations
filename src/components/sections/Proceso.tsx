@@ -214,38 +214,45 @@ const Proceso = () => {
             {[
               {
                 number: '1',
-                title: 'Exploración',
+                title: 'Tu método',
+                desc: 'Analizamos tu curso, tu promesa, los puntos donde los alumnos se atascan o abandonan.',
                 icon: Eye,
                 gradient: 'from-primary/10 to-accent/10'
               },
               {
                 number: '2',
-                title: 'Diseño personalizado',
-                icon: Lightbulb,
+                title: 'Tu alumno',
+                desc: 'Con psicología e IA creamos un perfil de cada persona: motivaciones, miedos, estilo de aprendizaje, objetivos reales.',
+                icon: Target,
                 gradient: 'from-accent/10 to-secondary/10'
               },
               {
                 number: '3',
-                title: 'Integración completa',
-                icon: Code,
+                title: 'La conexión',
+                desc: 'Diseñamos cómo tu contenido llega a cada tipo de alumno: cuándo, cómo, con qué refuerzo.',
+                icon: Lightbulb,
                 gradient: 'from-secondary/10 to-primary/10'
               },
               {
                 number: '4',
-                title: 'Activación guiada',
+                title: 'La transformación',
+                desc: 'El alumno siente que el curso fue creado para él. Completa, transforma, recomienda.',
                 icon: Rocket,
                 gradient: 'from-primary/10 to-accent/10'
               }
             ].map((step) => (
               <Card key={step.number} className={`group relative overflow-hidden border-2 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 cursor-pointer`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-50`} />
-                <CardContent className="relative p-8 flex items-center gap-6">
+                <CardContent className="relative p-8 flex items-start gap-6">
                   <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                     <span className="text-primary font-display text-2xl font-bold">{step.number}</span>
                   </div>
-                  <div className="flex-1 flex items-center gap-3">
-                    <step.icon className="w-6 h-6 text-primary" />
-                    <h4 className="font-display text-2xl text-foreground group-hover:text-primary transition-colors">{step.title}</h4>
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center gap-3">
+                      <step.icon className="w-6 h-6 text-primary" />
+                      <h4 className="font-display text-2xl text-foreground group-hover:text-primary transition-colors">{step.title}</h4>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
                 </CardContent>
               </Card>

@@ -361,34 +361,36 @@ const ParaMarcas = () => {
               <span className="text-primary font-semibold">La Solución: Wunjo</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 border-2 border-primary/40">
-              <Brain className="w-6 h-6 text-primary" />
-              <span className="text-primary font-bold text-lg">Powered by IA</span>
-            </div>
+            <h3 className="font-display text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Psicología + Inteligencia Artificial
+            </h3>
           </div>
 
           <Card className="relative overflow-hidden border-2 border-primary/30 group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10" />
             <CardContent className="relative p-10 space-y-8">
-              <div className="text-center space-y-3">
-                <p className="text-2xl text-primary font-bold">
-                  Inteligencia Artificial que personaliza la experiencia
+              <div className="text-center space-y-4">
+                <p className="text-xl text-foreground font-semibold">
+                  Analizamos tu método, tu promesa y a cada alumno.
                 </p>
-                <p className="text-xl text-foreground font-medium leading-relaxed">
-                  Cada persona de tu comunidad vive su propio camino, adaptado a:
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Entendemos quién es, qué le motiva, qué quiere conseguir, cuáles son sus miedos y bloqueos.
+                </p>
+                <p className="text-xl text-primary font-bold">
+                  Y personalizamos la experiencia para que cada uno reciba tu conocimiento a su medida.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4 pt-4">
                 {[
-                  { icon: BarChart3, text: "su nivel" },
-                  { icon: Clock, text: "su ritmo" },
-                  { icon: Brain, text: "su mentalidad" },
-                  { icon: Shield, text: "sus bloqueos" },
-                  { icon: Rocket, text: "su motivación" },
-                  { icon: TrendingUp, text: "sus fortalezas" },
-                  { icon: Target, text: "su propósito" },
-                  { icon: Trophy, text: "su capacidad real de avanzar" }
+                  { icon: Brain, text: "su personalidad y estilo de aprendizaje" },
+                  { icon: Target, text: "sus objetivos reales" },
+                  { icon: Rocket, text: "qué le motiva a avanzar" },
+                  { icon: Shield, text: "sus miedos y bloqueos" },
+                  { icon: Clock, text: "su ritmo y disponibilidad" },
+                  { icon: TrendingUp, text: "sus fortalezas ocultas" },
+                  { icon: BarChart3, text: "su nivel de compromiso" },
+                  { icon: Trophy, text: "su potencial de transformación" }
                 ].map((item, idx) => (
                   <Card key={idx} className="group/item bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                     <CardContent className="p-5 flex items-center gap-3">

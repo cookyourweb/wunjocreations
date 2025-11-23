@@ -179,10 +179,13 @@ const Colabora = () => {
       </div>
 
       <div className="max-w-4xl mx-auto space-y-12 relative z-10">
-        <div id="hero" className="text-center space-y-8 scroll-mt-32">
+        <div id="hero" className="text-center space-y-6 scroll-mt-32">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.2]">
             Inicia tu experiencia Wunjo.
           </h2>
+          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
+            Cuéntanos sobre tu curso o mentoría. Analizamos tu método, tu promesa y a tus alumnos para crear una experiencia personalizada que convierte más y retiene mejor.
+          </p>
         </div>
 
         {/* Separador decorativo - solo desktop */}
