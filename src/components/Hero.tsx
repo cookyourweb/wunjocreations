@@ -1,77 +1,93 @@
 // src/components/Hero.tsx
+import heroBg from "@/assets/hero-bg.jpg";
 import logoWunjo1 from "@/assets/logoWunjo1.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center justify-center px-6 py-20 pt-32 bg-gradient-to-b from-background to-muted/30">
-      <div className="max-w-6xl mx-auto text-center space-y-12">
-        <div className="inline-block mb-12 relative animate-fade-in">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-20 blur-[100px] scale-150" />
-          <img
-            src={logoWunjo1}
-            alt="Wunjo Creations Logo"
-            className="w-[1152px] h-auto mx-auto relative z-10 drop-shadow-[0_0_80px_hsl(var(--primary)/0.3)]"
-          />
-        </div>
+    <section
+      id="inicio"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="h-full w-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-background/50" />
+      </div>
 
-        <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2] animate-slide-up">
-          La experiencia que hace que tu comunidad avance, se transforme… y se quede contigo.
+      {/* Glow central animado */}
+      <div className="absolute inset-0 bg-glow animate-glow-pulse pointer-events-none" />
+
+      {/* Fade inferior */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 px-6 py-20 pt-32">
+
+        {/* Badge supratítulo */}
+        <p className="animate-fade-in text-xs md:text-sm tracking-[0.3em] uppercase font-body font-medium text-[hsl(38,75%,55%)]">
+          Experiencias con IA para Creadores
+        </p>
+
+        {/* Titular principal */}
+        <h1 className="animate-slide-up font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+          <span className="text-foreground">Tu comunidad avanza, </span>
+          <span className="text-gradient-warm italic">se transforma</span>
+          <br />
+          <span className="text-foreground">y se queda contigo</span>
         </h1>
 
-        <div className="space-y-6 max-w-4xl mx-auto animate-fade-in-delayed">
-          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Has construido algo valioso: una audiencia que te escucha, aprende de ti y confía en tu transformación.
-          </p>
+        {/* Subtítulo */}
+        <p className="animate-fade-in-delayed max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground font-body font-light leading-relaxed">
+          Convertimos tu curso, mentoría o contenido en una experiencia
+          personalizada con IA — adaptada al ritmo, mentalidad y bloqueos
+          de cada miembro.
+        </p>
 
-          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Tus embudos han funcionado. Has conseguido leads, alumnos, seguidores. Pero sin darte cuenta, los estás perdiendo poco a poco. Unos no tienen tiempo. Otros se desmotivan. Otros se bloquean y abandonan en silencio.
-          </p>
-
-          <div className="pt-6 space-y-5">
-            <h2 className="font-display text-xl md:text-2xl font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Psicología + Inteligencia Artificial al servicio de tu método.
-            </h2>
-
-            <div className="space-y-4 text-left">
-              <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
-                <span className="text-primary font-bold">Analizamos tu método y tu promesa.</span> Entendemos qué transformación ofreces y cómo la entregas.
-              </p>
-              <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
-                <span className="text-primary font-bold">Analizamos a cada alumno.</span> Quién es, qué le motiva, qué quiere conseguir, cuáles son sus miedos y bloqueos.
-              </p>
-              <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
-                <span className="text-primary font-bold">Personalizamos la experiencia.</span> Cada alumno recibe tu conocimiento adaptado a su perfil, su ritmo, su momento.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-3 pt-4">
-            <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
-              🌿 Tu comunidad vive tu transformación como si fuera creada solo para ellos.
-            </p>
-            <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
-              ✨ Más alumnos que completan. Más transformaciones reales. Más casos de éxito que venden por ti.
-            </p>
-          </div>
-
-          <p className="text-lg md:text-xl text-foreground font-bold pt-6">
-            No es magia. Es entender cómo funciona la mente humana y usar la tecnología para escalar esa comprensión.
-          </p>
+        {/* Prueba social rápida — TuVueltaAlSol */}
+        <div className="animate-fade-in-delayed flex items-center justify-center gap-2 text-sm text-muted-foreground font-body">
+          <span className="w-5 h-px bg-[hsl(38,75%,55%)]" />
+          <span>
+            Como{" "}
+            <a
+              href="https://tuvueltaalsol.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[hsl(38,75%,55%)] hover:text-[hsl(38,80%,70%)] transition-colors font-medium underline-offset-2 hover:underline"
+            >
+              TuVueltaAlSol
+            </a>
+            {" "}· 365 días de acompañamiento personalizado
+          </span>
+          <span className="w-5 h-px bg-[hsl(38,75%,55%)]" />
         </div>
 
-        <div className="pt-12 animate-fade-in-delayed">
+        {/* CTAs */}
+        <div className="animate-fade-in-delayed flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Link to="/contacto">
-            <Button size="lg" className="text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            <Button
+              size="lg"
+              className="w-full sm:w-auto rounded-full bg-gradient-warm px-8 py-6 font-body font-semibold text-[hsl(25,15%,8%)] shadow-warm hover:opacity-90 hover:scale-105 transition-all duration-300 border-0"
+            >
               👉 Inicia tu experiencia Wunjo
+            </Button>
+          </Link>
+          <Link to="/para-creadores">
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto rounded-full border border-[hsl(38,75%,55%,0.4)] px-8 py-6 font-body font-medium text-[hsl(38,75%,55%)] hover:border-[hsl(38,75%,55%)] hover:bg-[hsl(38,75%,55%,0.05)] transition-all duration-300 bg-transparent"
+            >
+              Descubre cómo
             </Button>
           </Link>
         </div>
 
-        <div className="pt-12">
-          <div className="w-32 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto opacity-50" />
-        </div>
       </div>
     </section>
   );

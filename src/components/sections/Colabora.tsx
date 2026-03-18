@@ -1,6 +1,5 @@
 // src/components/sections/Colabora.tsx
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -11,8 +10,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { supabase } from "@/lib/supabaseClient";
+import emailjs from "@emailjs/browser";
 import { useState, useEffect } from "react";
-import { Sparkles, User, Heart, TrendingUp, Users, Calendar } from "lucide-react";
+import { Sparkles, User, Heart, TrendingUp, Users, Calendar, Star } from "lucide-react";
 
 const formSchema = z.object({
   nombre: z.string().trim().min(2, "Por favor ingresa tu nombre completo").max(100),
@@ -37,6 +37,7 @@ const formSchema = z.object({
 const Colabora = () => {
   const { toast } = useToast();
   const [activeSection, setActiveSection] = useState("hero");
+  const [enviado, setEnviado] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -140,11 +141,30 @@ const Colabora = () => {
 
       // ✅ SUCCESS
       console.log('✅ Datos guardados exitosamente:', data);
-      toast({
-        title: "🌿 Gracias por compartir tu energía con nosotras.",
-        description: "En breve te contactaremos para guiarte en el siguiente paso de tu experiencia Wunjo. 💫",
-      });
+
+      // Enviar email de notificación
+      await emailjs.send(
+        "service_0pvpr0t",
+        "template_cx8k5nv",
+        {
+          nombre: values.nombre,
+          email: values.email,
+          telefono: values.telefono,
+          marca: values.marca,
+          sitio_web: values.sitioWeb || "—",
+          deseo_crear: values.deseoCrear,
+          sentimiento: values.sentimiento,
+          proposito: values.proposito,
+          etapa: values.etapa,
+          acompanamiento: values.acompanamiento,
+          llamada: values.llamada,
+        },
+        "YnbVYK3jntIgNZoih"
+      );
+
       form.reset();
+      setEnviado(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
 
     } catch (err) {
       console.error('❌ Error inesperado completo:', {
@@ -170,33 +190,68 @@ const Colabora = () => {
     return "Enviar formulario";
   };
 
+  if (enviado) {
+    return (
+      <section className="relative min-h-[70vh] flex items-center justify-center px-6 py-32 bg-gradient-to-b from-muted/30 to-background">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full" />
+          <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full" />
+        </div>
+        <div className="relative z-10 max-w-xl mx-auto text-center space-y-6">
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+            <Sparkles className="w-8 h-8 text-primary" />
+          </div>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
+            ¡Recibido!
+          </h2>
+          <p className="font-body text-lg text-muted-foreground leading-relaxed">
+            Gracias por contarnos sobre tu comunidad. En breve nos ponemos en contacto contigo para dar el siguiente paso.
+          </p>
+          <p className="font-body text-sm text-muted-foreground">
+            Revisa tu bandeja de entrada — te enviaremos un mensaje en las próximas 24–48 horas.
+          </p>
+          <a
+            href="/"
+            className="inline-block mt-4 font-body text-sm text-primary hover:text-[hsl(38,80%,70%)] transition-colors underline-offset-4 hover:underline"
+          >
+            Volver al inicio →
+          </a>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="colabora" className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-muted/30 to-background">
       {/* Fondo decorativo - contenedor separado para no afectar sticky */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-4xl mx-auto space-y-12 relative z-10">
         <div id="hero" className="text-center space-y-6 scroll-mt-32">
+          <p className="font-body text-sm font-medium uppercase tracking-[0.3em] text-primary">
+            Primer paso
+          </p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.2]">
-            Inicia tu experiencia Wunjo.
+            Cuéntanos sobre{" "}
+            <span className="text-gradient-warm">tu comunidad</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-            Cuéntanos sobre tu curso o mentoría. Analizamos tu método, tu promesa y a tus alumnos para crear una experiencia personalizada que convierte más y retiene mejor.
+          <p className="font-body text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
+            Analizamos tu método, tu promesa y el perfil de tus alumnos para diseñar una experiencia personalizada con IA que retiene más y convierte mejor.
           </p>
         </div>
 
         {/* Separador decorativo - solo desktop */}
-        <div className="hidden lg:flex items-center gap-4 max-w-3xl mx-auto py-2">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
-          <Star className="w-6 h-6 text-primary animate-pulse" />
-          <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+        <div className="flex items-center gap-4 max-w-sm mx-auto">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/40" />
+          <div className="w-2 h-2 rounded-full bg-primary" />
+          <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
         </div>
 
         {/* Menú de navegación sticky - Desktop */}
-        <nav className="hidden lg:block sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
+        <nav className="hidden lg:block sticky top-20 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg border-b border-border/30">
           <div className="flex gap-2 justify-center max-w-4xl mx-auto">
             {navItems.map(({ id, label, icon: Icon }) => (
               <button
@@ -204,7 +259,7 @@ const Colabora = () => {
                 onClick={() => scrollToSection(id)}
                 className={`group relative flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
                   activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
+                    ? "bg-gradient-warm text-[hsl(25,15%,8%)] scale-105"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
                 }`}
                 title={label}
@@ -238,23 +293,6 @@ const Colabora = () => {
             ))}
           </div>
         </nav>
-
-        <div className="text-center space-y-8 scroll-mt-24">
-          
-          <div className="space-y-4 text-lg text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-            <p>
-              Este es el primer paso para crear un espacio digital con alma.<br />
-              Queremos conocer tu energía, tu historia y lo que deseas manifestar.
-            </p>
-            <p>
-              Cuéntanos sobre ti y tu marca, y prepararemos una propuesta personalizada
-              para ayudarte a transformar tu visión en presencia.
-            </p>
-            <p className="text-foreground font-medium text-xl">
-              💫 La tecnología se convierte en arte cuando vibra con tu propósito.
-            </p>
-          </div>
-        </div>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12 bg-card/30 p-8 md:p-12 rounded-2xl border border-border">
@@ -336,18 +374,18 @@ const Colabora = () => {
             </div>
 
             {/* Resto del formulario igual... */}
-            {/* Conexión emocional */}
+            {/* Tu comunidad */}
             <div id="conexion" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">🧠 Conexión emocional</h3>
-              
+              <h3 className="font-display text-2xl font-medium text-foreground">Tu comunidad</h3>
+
               <FormField
                 control={form.control}
                 name="deseoCrear"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>¿Qué deseas crear o transformar con Wunjo Creations?</FormLabel>
+                    <FormLabel>¿Cuál es el formato de tu comunidad y cuántas personas tiene? 👥</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Ej. una web con propósito, un rediseño consciente, una app experiencial..." className="min-h-[100px]" {...field} />
+                      <Textarea placeholder="Ej. curso online de 200 alumnos, mentoría grupal de 50 personas, comunidad de suscripción con 500 miembros..." className="min-h-[100px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -359,9 +397,9 @@ const Colabora = () => {
                 name="sentimiento"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>¿Cómo te gustaría que se sintiera tu presencia digital?</FormLabel>
+                    <FormLabel>¿Cuál es tu mayor reto ahora mismo? 🎯</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Ej. cálida, poderosa, mística, minimalista, expansiva..." {...field} />
+                      <Textarea placeholder="Ej. abandono de alumnos, desmotivación, no puedo escalar sin agotarme, no sé quién está progresando..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -373,9 +411,9 @@ const Colabora = () => {
                 name="proposito"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>¿Cuál es la energía o propósito detrás de tu marca?</FormLabel>
+                    <FormLabel>¿Qué resultado concreto quieres conseguir? 🚀</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Comparte la historia que impulsa tu creación..." className="min-h-[100px]" {...field} />
+                      <Textarea placeholder="Ej. reducir el abandono a la mitad, escalar a 1.000 alumnos sin añadir horas de trabajo, mejorar la tasa de finalización..." className="min-h-[100px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -385,7 +423,7 @@ const Colabora = () => {
 
             {/* Nivel de desarrollo */}
             <div id="etapa" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">🔍 ¿En qué etapa estás?</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground">¿En qué etapa estás? 🔍</h3>
               
               <FormField
                 control={form.control}
@@ -401,19 +439,19 @@ const Colabora = () => {
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="sonando" id="sonando" />
                           <Label htmlFor="sonando" className="cursor-pointer flex-1">
-                            Soñando el proyecto ✨
+                            Estoy construyendo mi curso o mentoría ✨
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="tengo-marca" id="tengo-marca" />
                           <Label htmlFor="tengo-marca" className="cursor-pointer flex-1">
-                            Ya tengo mi marca, pero quiero coherencia y expansión 🌿
+                            Ya tengo comunidad activa y quiero mejorar la retención 🚀
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="redisenar" id="redisenar" />
                           <Label htmlFor="redisenar" className="cursor-pointer flex-1">
-                            Busco rediseñar mi universo digital completo 🌙
+                            Quiero escalar sin añadir más horas de trabajo 📈
                           </Label>
                         </div>
                       </RadioGroup>
@@ -426,7 +464,7 @@ const Colabora = () => {
 
             {/* Nivel de acompañamiento */}
             <div id="acompanamiento" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">🤝 Nivel de acompañamiento</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground">¿Qué tipo de colaboración buscas? 🤝</h3>
               
               <FormField
                 control={form.control}
@@ -442,19 +480,19 @@ const Colabora = () => {
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="experiencia-completa" id="experiencia-completa" />
                           <Label htmlFor="experiencia-completa" className="cursor-pointer flex-1">
-                            Quiero una experiencia completa (web, estrategia y acompañamiento)
+                            Diseño completo de experiencia personalizada con IA (estrategia + implementación)
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="colaboracion-puntual" id="colaboracion-puntual" />
                           <Label htmlFor="colaboracion-puntual" className="cursor-pointer flex-1">
-                            Busco una colaboración puntual (web o app)
+                            Proyecto puntual (automatización, app o sistema específico)
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="explorando" id="explorando" />
                           <Label htmlFor="explorando" className="cursor-pointer flex-1">
-                            Aún estoy explorando posibilidades
+                            Quiero entender primero qué es posible para mi caso
                           </Label>
                         </div>
                       </RadioGroup>
@@ -467,8 +505,8 @@ const Colabora = () => {
 
             {/* Llamada a la acción */}
             <div id="llamada" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">📅 ¿Te gustaría agendar una llamada?</h3>
-              <p className="text-muted-foreground">Para conocernos y sentir si Wunjo resuena contigo</p>
+              <h3 className="font-display text-2xl font-medium text-foreground">¿Siguiente paso? 📅</h3>
+              <p className="text-muted-foreground">Una llamada de 30 min para analizar tu caso y ver si tiene sentido trabajar juntos</p>
               
               <FormField
                 control={form.control}

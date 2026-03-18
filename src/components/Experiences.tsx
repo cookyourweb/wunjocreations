@@ -1,257 +1,211 @@
 // src/components/Experiences.tsx
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { useState, useEffect } from "react";
-import {
-  Sparkles, Target, Heart, Check,
-  Globe, Brain, Rocket, Shield, BarChart3, Clock, TrendingUp, Star
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Sun, Sparkles, Heart, ArrowRight } from "lucide-react";
+import TestimonialsSection from "@/components/TestimonialsSection";
+
+const solutionFeatures = [
+  "su nivel",
+  "su ritmo",
+  "su mentalidad",
+  "sus bloqueos",
+  "su motivación",
+  "sus fortalezas",
+];
+
+const results = [
+  "entienden mejor",
+  "se sienten guiados",
+  "superan bloqueos",
+  "mantienen la motivación",
+  "integran lo aprendido",
+  "consiguen transformación real",
+];
 
 const Experiences = () => {
-  const [activeSection, setActiveSection] = useState("hero");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "solucion", "resultados", "disponible"];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const navItems = [
-    { id: "hero", label: "Experiencias", icon: Sparkles },
-    { id: "solucion", label: "La Solución", icon: Target },
-    { id: "resultados", label: "Resultados", icon: Heart },
-    { id: "disponible", label: "Disponible", icon: Globe },
-  ];
-
   return (
-    <section className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Fondo decorativo - contenedor separado para no afectar sticky */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
-      </div>
+    <div>
 
-      <div className="max-w-5xl mx-auto space-y-12 relative z-10">
-        {/* HERO */}
-        <div id="hero" className="text-center space-y-10 scroll-mt-32">
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
-            Experiencias que transforman.<br />
-            Tecnología que acompaña.<br />
-            Energía que despierta.
-          </h1>
-          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
-            Wunjo Creations diseña experiencias digitales que ayudan a tu comunidad a avanzar, integrar y evolucionar.
-          </p>
+      {/* Hero */}
+      <section className="relative pt-32 pb-16 md:pb-24">
+        <div className="absolute inset-0 bg-glow opacity-20" />
+        <div className="container relative z-10 mx-auto px-6 text-center">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="mb-4 font-body text-sm font-medium uppercase tracking-[0.3em] text-primary"
+          >
+            Experiencias con IA
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto mb-6 max-w-4xl font-display text-3xl font-bold text-foreground md:text-5xl"
+          >
+            Diseñamos experiencias que{" "}
+            <span className="text-gradient-warm">transforman</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mx-auto max-w-2xl font-body text-lg text-muted-foreground md:text-xl"
+          >
+            Convertimos tu método en un sistema de acompañamiento inteligente —
+            adaptado al ritmo, mentalidad y bloqueos de cada persona.
+          </motion.p>
         </div>
+      </section>
 
-        {/* Separador decorativo - solo desktop */}
-        <div className="hidden lg:flex items-center gap-4 max-w-3xl mx-auto py-2">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
-          <Star className="w-6 h-6 text-primary animate-pulse" />
-          <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+      {/* La Solución Wunjo */}
+      <section className="relative py-20 md:py-28">
+        <div className="absolute inset-0 bg-muted/20" />
+        <div className="container relative z-10 mx-auto px-6">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="mb-3 font-body text-sm font-medium uppercase tracking-[0.3em] text-primary">
+                La Solución
+              </p>
+              <h2 className="mb-6 font-display text-3xl font-bold text-foreground md:text-4xl">
+                Convertimos tu contenido en una experiencia{" "}
+                <span className="text-gradient-warm">personalizada con IA</span>
+              </h2>
+              <p className="mb-8 font-body text-muted-foreground leading-relaxed">
+                Tu contenido se convierte en un proceso emocional y consciente,
+                adaptado a cada persona.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {solutionFeatures.map((f, i) => (
+                  <span
+                    key={i}
+                    className="rounded-full border border-primary/20 bg-primary/5 px-4 py-2 font-body text-sm text-primary"
+                  >
+                    {f}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="rounded-2xl border border-border/50 bg-card p-8">
+                <p className="mb-4 font-display text-lg font-bold text-foreground">
+                  Resultados para tu comunidad
+                </p>
+                <ul className="space-y-3">
+                  {results.map((r, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-3 font-body text-foreground/90"
+                    >
+                      <Sparkles className="h-4 w-4 flex-shrink-0 text-primary" />
+                      {r}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 rounded-xl bg-primary/5 p-4">
+                  <p className="font-body text-sm font-medium italic text-primary">
+                    No solo consumen tu contenido: lo viven.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
+      </section>
 
-        {/* Menú de navegación sticky - Desktop */}
-        <nav className="hidden lg:block sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
-          <div className="flex gap-2 justify-center max-w-5xl mx-auto">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-                }`}
-                title={label}
-              >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className="text-xs font-medium whitespace-nowrap">{label}</span>
-              </button>
-            ))}
-          </div>
-        </nav>
+      {/* TuVueltaAlSol */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+          >
+            <p className="mb-4 font-body text-sm font-medium uppercase tracking-[0.3em] text-primary">
+              Experiencia disponible
+            </p>
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
+              Descubre nuestras{" "}
+              <span className="text-gradient-warm">experiencias</span>
+            </h2>
+          </motion.div>
 
-        {/* Menú de navegación fijo inferior - Móvil */}
-        <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-t border-border/50 safe-area-inset-bottom">
-          <div className="flex items-center justify-around px-2 py-3 max-w-full overflow-x-auto">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all duration-300 min-w-0 flex-shrink-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-b from-primary to-accent text-primary-foreground scale-110"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                }`}
-                title={label}
-              >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className="text-[10px] font-medium truncate max-w-[60px]">
-                  {label}
-                </span>
-              </button>
-            ))}
-          </div>
-        </nav>
-
-        {/* LA SOLUCIÓN WUNJO */}
-        <div id="solucion" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
-              <Target className="w-5 h-5 text-primary" />
-              <span className="text-primary font-semibold">La Solución Wunjo</span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="group mx-auto max-w-3xl overflow-hidden rounded-3xl border border-border/50 bg-card transition-all hover:border-primary/40 hover:shadow-warm"
+          >
+            {/* Banner */}
+            <div className="relative flex items-center justify-center bg-gradient-warm px-8 py-16">
+              <div className="absolute inset-0 bg-black/10" />
+              <div className="relative text-center">
+                <Sun className="mx-auto mb-4 h-12 w-12 text-primary-foreground" />
+                <h3 className="font-display text-3xl font-bold text-primary-foreground md:text-4xl">
+                  TuVueltaAlSol
+                </h3>
+              </div>
             </div>
 
-            <h2 className="font-display text-3xl md:text-4xl text-primary font-bold pt-2">
-              Inteligencia Artificial que personaliza tu contenido
-            </h2>
-          </div>
-
-          <Card className="relative overflow-hidden border-2 border-primary/30 group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 group-hover:from-primary/10 group-hover:via-accent/10 group-hover:to-secondary/10 transition-all duration-500" />
-            <CardContent className="relative p-10 space-y-6">
-              <p className="text-lg text-foreground font-medium text-center">
-                Adaptada a:
+            <div className="p-8 md:p-10">
+              <p className="mb-4 font-display text-xl font-bold text-foreground md:text-2xl">
+                365 días de claridad, motivación y propósito personal
+              </p>
+              <p className="mb-6 font-body text-muted-foreground leading-relaxed">
+                Un viaje de transformación personal guiado por IA que se adapta a
+                tu estado emocional, tus metas y tu ritmo de vida. Cada día
+                recibes contenido, reflexiones y ejercicios diseñados
+                exclusivamente para ti.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="mb-8 grid gap-4 sm:grid-cols-3">
                 {[
-                  { icon: BarChart3, text: "su nivel" },
-                  { icon: Clock, text: "su ritmo" },
-                  { icon: Brain, text: "su mentalidad" },
-                  { icon: Shield, text: "sus bloqueos" },
-                  { icon: Rocket, text: "su motivación" },
-                  { icon: TrendingUp, text: "sus fortalezas" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-card/50 to-card hover:from-primary/5 hover:to-accent/5 hover:scale-105 transition-all duration-300 cursor-pointer group/item">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover/item:bg-primary/20 transition-colors">
-                      <item.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <p className="text-foreground font-medium">{item.text}</p>
+                  { icon: Sun,      label: "365 días",      desc: "Un año de acompañamiento" },
+                  { icon: Heart,    label: "Personalizado", desc: "Adaptado a tu perfil" },
+                  { icon: Sparkles, label: "Con IA",        desc: "Contenido inteligente" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-border/50 bg-background p-4 text-center"
+                  >
+                    <item.icon className="mx-auto mb-2 h-6 w-6 text-primary" />
+                    <p className="font-display text-sm font-bold text-foreground">{item.label}</p>
+                    <p className="font-body text-xs text-muted-foreground">{item.desc}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-xl text-primary font-bold text-center pt-6">
-                Tu contenido se convierte en un proceso emocional y consciente.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-secondary" />
-          <Heart className="w-6 h-6 text-accent" />
-          <div className="h-px flex-1 bg-gradient-to-r from-secondary via-primary to-transparent" />
-        </div>
-
-        {/* RESULTADOS PARA TU COMUNIDAD */}
-        <div id="resultados" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
-              <Heart className="w-5 h-5 text-accent" />
-              <span className="text-accent font-semibold">Resultados para tu comunidad</span>
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-8 py-3.5 font-body text-sm font-semibold text-primary-foreground shadow-warm transition-all hover:scale-105"
+              >
+                Descúbrela
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {[
-              "entienden mejor",
-              "se sienten guiados",
-              "superan bloqueos",
-              "mantienen la motivación",
-              "integran lo aprendido",
-              "consiguen transformación real"
-            ].map((text, idx) => (
-              <Card key={idx} className="group bg-gradient-to-br from-card to-card/50 border-accent/20 hover:border-accent/60 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <CardContent className="p-5 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                    <Check className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                  </div>
-                  <p className="text-foreground font-medium">{text}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <Card className="relative overflow-hidden border-2 border-primary/30 mt-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 animate-pulse" />
-            <CardContent className="relative p-10 space-y-6 text-center">
-              <p className="text-lg text-muted-foreground">
-                No solo consumen tu contenido:
-              </p>
-              <p className="text-3xl text-primary font-bold">
-                lo viven.
-              </p>
-            </CardContent>
-          </Card>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary to-primary" />
-          <Globe className="w-6 h-6 text-secondary" />
-          <div className="h-px flex-1 bg-gradient-to-r from-primary via-accent to-transparent" />
-        </div>
+      {/* Testimonios */}
+      <TestimonialsSection />
 
-        {/* EXPERIENCIA DISPONIBLE */}
-        <div id="disponible" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
-              <Globe className="w-5 h-5 text-secondary" />
-              <span className="text-secondary font-semibold">Experiencia disponible</span>
-            </div>
-          </div>
-
-          <Card className="group relative overflow-hidden border-2 border-secondary/30 hover:border-secondary/50 hover:shadow-2xl transition-all duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-primary/10 to-accent/10 opacity-50 group-hover:opacity-70 transition-opacity" />
-            <CardContent className="relative p-10 space-y-8">
-              <div className="text-center space-y-4">
-                <h3 className="font-display text-4xl text-foreground font-bold">
-                  TuVueltaAlSol
-                </h3>
-                <p className="text-xl text-muted-foreground font-light">
-                  365 días de claridad, motivación y propósito personal.
-                </p>
-              </div>
-
-              <div className="flex justify-center pt-6">
-                <Button
-                  onClick={() => window.open('https://tuvueltaalsol.es', '_blank')}
-                  className="group/btn bg-gradient-to-r from-secondary via-primary to-accent hover:scale-105 transition-all duration-300 shadow-xl text-lg px-8 py-6"
-                >
-                  <Globe className="w-5 h-5 mr-2 group-hover/btn:rotate-12 transition-transform" />
-                  Descúbrela
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 

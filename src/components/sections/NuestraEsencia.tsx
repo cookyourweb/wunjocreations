@@ -1,270 +1,163 @@
 // src/components/sections/NuestraEsencia.tsx
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { useState, useEffect } from "react";
-import {
-  Sparkles, Heart, Target,
-  Award, Star, Eye
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Target, Eye, Award, Star, X, Check } from "lucide-react";
 
-const Historia = () => {
-  const [activeSection, setActiveSection] = useState("hero");
+const diferencias = [
+  {
+    no: "Automatizaciones frías que disparan mensajes",
+    si: "Acompañamiento con psicología real detrás",
+  },
+  {
+    no: "Volumen por encima del impacto",
+    si: "Impacto real, persona a persona",
+  },
+  {
+    no: "Contenido para llamar la atención",
+    si: "Experiencias que generan transformación",
+  },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "ganas", "diferente", "energia"];
-      const scrollPosition = window.scrollY + 200;
+const ganas = [
+  {
+    icon: Target,
+    title: "Más coherencia",
+    desc: "Tu contenido, tu método y la experiencia del alumno alineados.",
+  },
+  {
+    icon: Eye,
+    title: "Más claridad",
+    desc: "Datos reales sobre quién avanza, quién se estanca y qué funciona.",
+  },
+  {
+    icon: Award,
+    title: "Más autoridad",
+    desc: "Una marca que se percibe innovadora y con estándares altos.",
+  },
+  {
+    icon: Star,
+    title: "Más diferenciación",
+    desc: "Lo que ofreces no se puede copiar: es tu método, amplificado por IA.",
+  },
+];
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const navItems = [
-    { id: "hero", label: "Nuestra Esencia", icon: Sparkles },
-    { id: "ganas", label: "Ganas", icon: Award },
-    { id: "diferente", label: "Diferente", icon: Star },
-    { id: "energia", label: "Energía", icon: Heart },
-  ];
-
+const NuestraEsencia = () => {
   return (
-    <section id="historia" className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Fondo decorativo - contenedor separado para no afectar sticky */}
+    <section className="relative pt-32 pb-20 px-6 bg-gradient-to-b from-muted/10 to-background">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-primary via-accent to-secondary opacity-10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary via-primary to-accent opacity-10 blur-[120px] rounded-full" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-5xl mx-auto space-y-12 relative z-10">
-        {/* HERO */}
-        <div id="hero" className="text-center space-y-10 scroll-mt-32">
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight leading-[1.2]">
-            Tecnología con alma.<br />
-            Transformación con propósito.
-          </h1>
-        </div>
+      <div className="max-w-4xl mx-auto space-y-16 relative z-10">
 
-        {/* Separador decorativo - solo desktop */}
-        <div className="hidden lg:flex items-center gap-4 max-w-3xl mx-auto py-2">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-primary/50" />
-          <Star className="w-6 h-6 text-primary animate-pulse" />
-          <div className="h-px flex-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
-        </div>
+        {/* INTRO */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-4"
+        >
+          <p className="font-body text-sm font-medium uppercase tracking-[0.3em] text-primary">
+            Nuestra esencia
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground leading-tight">
+            Tecnología con alma.{" "}
+            <span className="text-gradient-warm">Transformación con propósito.</span>
+          </h2>
+          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            No somos una agencia. Somos un equipo especializado que une psicología,
+            IA y estrategia para crear experiencias que transforman comunidades de verdad.
+          </p>
+        </motion.div>
 
-        {/* Menú de navegación sticky - Desktop */}
-        <nav className="hidden lg:block sticky top-28 z-40 -mx-6 px-6 py-4 bg-background/95 backdrop-blur-lg rounded-xl">
-          <div className="flex gap-2 justify-center max-w-5xl mx-auto">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`group relative flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all duration-300 flex-shrink-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground scale-105"
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105"
-                }`}
-                title={label}
+        {/* POR QUÉ SOMOS DIFERENTES */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6"
+        >
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground text-center">
+            Por qué <span className="text-gradient-warm">Wunjo es diferente</span>
+          </h3>
+
+          <div className="space-y-3">
+            {diferencias.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="grid md:grid-cols-2 gap-px rounded-xl overflow-hidden"
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className="text-xs font-medium whitespace-nowrap">{label}</span>
-              </button>
+                <div className="flex items-center gap-3 px-5 py-4 bg-muted/30 border border-border/40">
+                  <X className="w-4 h-4 text-muted-foreground shrink-0" />
+                  <p className="font-body text-sm text-muted-foreground line-through decoration-muted-foreground/40">
+                    {item.no}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 px-5 py-4 bg-primary/5 border border-primary/20">
+                  <Check className="w-4 h-4 text-primary shrink-0" />
+                  <p className="font-body text-sm text-foreground font-medium">
+                    {item.si}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
-        </nav>
+        </motion.div>
 
-        {/* Menú de navegación fijo inferior - Móvil */}
-        <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-t border-border/50 safe-area-inset-bottom">
-          <div className="flex items-center justify-around px-2 py-3 max-w-full overflow-x-auto">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all duration-300 min-w-0 flex-shrink-0 ${
-                  activeSection === id
-                    ? "bg-gradient-to-b from-primary to-accent text-primary-foreground scale-110"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                }`}
-                title={label}
+        {/* LO QUE GANAS */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-8"
+        >
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground text-center">
+            Lo que ganas como creador
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {ganas.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="flex gap-4 p-5 rounded-xl border border-border/50 bg-card/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className="text-[10px] font-medium truncate max-w-[60px]">
-                  {label}
-                </span>
-              </button>
+                <div className="p-2.5 rounded-lg bg-primary/10 h-fit shrink-0">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-display font-bold text-foreground">{item.title}</p>
+                  <p className="font-body text-sm text-muted-foreground mt-1 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
-        </nav>
 
-        <div className="text-center space-y-10 scroll-mt-24">
-
-          <div className="space-y-6 max-w-3xl mx-auto">
-            <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              Wunjo une:
+          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center space-y-2">
+            <p className="font-body text-lg text-muted-foreground">
+              Tu trabajo deja de ser contenido.
             </p>
-
-            <div className="grid md:grid-cols-2 gap-4 pt-4">
-              {[
-                'tecnología + emoción',
-                'estrategia + alma',
-                'datos + intuición',
-                'mente + energía'
-              ].map((text, idx) => (
-                <Card key={idx} className="group bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-5 flex items-center justify-center">
-                    <p className="text-foreground font-medium">{text}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="space-y-6 pt-8">
-              <p className="text-foreground font-semibold text-lg">No somos una agencia.</p>
-              <p className="text-2xl text-primary font-bold">Somos un espacio de creación consciente.</p>
-            </div>
-
-            <div className="space-y-4 pt-6">
-              <p className="text-lg text-foreground">Creamos experiencias que:</p>
-              <div className="flex flex-wrap items-center justify-center gap-2 text-lg text-primary font-medium">
-                <span>✨ acompañan</span>
-                <span>✨ transforman</span>
-                <span>✨ despiertan</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary to-accent" />
-          <Award className="w-6 h-6 text-primary" />
-          <div className="h-px flex-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
-        </div>
-
-        {/* LO QUE GANAS COMO CREADOR */}
-        <div id="ganas" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
-              <Award className="w-5 h-5 text-primary" />
-              <span className="text-primary font-semibold">Lo que ganas como creador</span>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {[
-              { icon: Target, text: "✔ más coherencia" },
-              { icon: Sparkles, text: "✔ más magia" },
-              { icon: Eye, text: "✔ más claridad" },
-              { icon: Heart, text: "✔ más conexión" },
-              { icon: Award, text: "✔ más excelencia" },
-              { icon: Star, text: "✔ más diferenciación" }
-            ].map((item, idx) => (
-              <Card key={idx} className="group bg-gradient-to-br from-card to-card/50 border-primary/20 hover:border-primary/60 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <CardContent className="p-5 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <p className="text-foreground font-medium">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center pt-8">
-            <Card className="bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10 border-primary/30 max-w-2xl mx-auto">
-              <CardContent className="p-8 space-y-4">
-                <p className="text-xl text-muted-foreground">
-                  Tu trabajo deja de ser contenido.
-                </p>
-                <p className="text-3xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                  Se convierte en experiencia.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-secondary" />
-          <Star className="w-6 h-6 text-accent" />
-          <div className="h-px flex-1 bg-gradient-to-r from-secondary via-primary to-transparent" />
-        </div>
-
-        {/* POR QUÉ WUNJO ES DIFERENTE */}
-        <div id="diferente" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
-              <Star className="w-5 h-5 text-accent" />
-              <span className="text-accent font-semibold">Por qué Wunjo es diferente</span>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              { text: 'No diseñamos para llamar la atención.' },
-              { text: 'Diseñamos para despertar transformación.' },
-              { text: 'No hacemos automatizaciones.' },
-              { text: 'Creamos acompañamientos.' },
-              { text: 'No pensamos en volumen.' },
-              { text: 'Pensamos en impacto real.' }
-            ].map((item, idx) => (
-              <Card key={idx} className="group border-l-4 border-l-accent hover:shadow-lg hover:-translate-x-1 transition-all duration-300">
-                <CardContent className="p-5">
-                  <p className="text-foreground font-medium">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Separador */}
-        <div className="flex items-center gap-4 max-w-xl mx-auto">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary to-primary" />
-          <Sparkles className="w-6 h-6 text-secondary" />
-          <div className="h-px flex-1 bg-gradient-to-r from-primary via-accent to-transparent" />
-        </div>
-
-        {/* NUESTRA ENERGÍA */}
-        <div id="energia" className="space-y-10 max-w-4xl mx-auto scroll-mt-24">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30">
-              <Sparkles className="w-5 h-5 text-secondary" />
-              <span className="text-secondary font-semibold">Nuestra energía</span>
-            </div>
-            <h3 className="font-display text-3xl md:text-4xl text-foreground">
-              La runa Wunjo (ᚹ)
-            </h3>
-            <p className="text-xl text-muted-foreground">
-              La energía de la alegría profunda y la conexión auténtica.
+            <p className="font-display text-2xl font-bold text-gradient-warm">
+              Se convierte en experiencia.
             </p>
           </div>
+        </motion.div>
 
-          <Card className="group relative overflow-hidden border-2 max-w-3xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-primary/10 to-accent/10 animate-pulse" />
-            <CardContent className="relative p-10 space-y-6 text-center">
-              <div className="text-8xl font-bold text-primary">ᚹ</div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
 };
 
-export default Historia;
+export default NuestraEsencia;

@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        'display': ['Julius Sans One', 'sans-serif'],
-        'sans': ['Inter', 'sans-serif'],
+        'display': ['Playfair Display', 'serif'],
+        'sans': ['DM Sans', 'sans-serif'],
+        'body': ['DM Sans', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -92,12 +93,22 @@ export default {
             transform: "translateY(-20px)",
           },
         },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
+        "scale": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.06)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-slow": "spin 20s linear infinite",
         "float": "float 6s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
+        "scale": "scale 3s ease-in-out infinite",
       },
     },
   },

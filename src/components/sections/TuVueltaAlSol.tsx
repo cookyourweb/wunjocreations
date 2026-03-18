@@ -1,6 +1,4 @@
 // src/components/sections/TuVueltaAlSol.tsx
-// src/components/sections/TuVueltaAlSol.tsx
-import ExperienceCard from "@/components/ExperienceCard";
 
 const TuVueltaAlSol = () => {
   return (
@@ -26,7 +24,7 @@ const TuVueltaAlSol = () => {
           <p>
             Creemos que cada persona, cada marca,
             <br />
-            tiene dentro la chispa de la runa Wunjo.
+            lleva dentro el potencial de su propia transformación.
           </p>
 
           <p className="text-foreground font-normal text-2xl">
