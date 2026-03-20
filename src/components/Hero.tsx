@@ -49,24 +49,6 @@ const Hero = () => {
           de cada miembro.
         </p>
 
-        {/* Prueba social rápida — TuVueltaAlSol */}
-        <div className="animate-fade-in-delayed flex items-center justify-center gap-2 text-sm text-muted-foreground font-body">
-          <span className="w-5 h-px bg-[hsl(38,75%,55%)]" />
-          <span>
-            Como{" "}
-            <a
-              href="https://tuvueltaalsol.es"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[hsl(38,75%,55%)] hover:text-[hsl(38,80%,70%)] transition-colors font-medium underline-offset-2 hover:underline"
-            >
-              TuVueltaAlSol
-            </a>
-            {" "}· 365 días de acompañamiento personalizado
-          </span>
-          <span className="w-5 h-px bg-[hsl(38,75%,55%)]" />
-        </div>
-
         {/* CTAs */}
         <div className="animate-fade-in-delayed flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Link to="/contacto">
