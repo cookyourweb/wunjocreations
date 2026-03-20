@@ -1,6 +1,7 @@
 // src/components/ServicesSection.tsx
 import { motion } from "framer-motion";
 import { Leaf, Zap, Heart } from "lucide-react";
+import heroBg from "@/assets/hero-servicios.jpg";
 
 const services = [
   {
@@ -29,6 +30,11 @@ const services = [
 const ServicesSection = () => {
   return (
     <section id="servicios" className="relative py-24 md:py-32">
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
       <div className="container relative z-10 mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

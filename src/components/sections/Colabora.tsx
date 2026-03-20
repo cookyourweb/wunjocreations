@@ -12,7 +12,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { supabase } from "@/lib/supabaseClient";
 import emailjs from "@emailjs/browser";
 import { useState, useEffect } from "react";
-import { Sparkles, User, Heart, TrendingUp, Users, Calendar, Star } from "lucide-react";
+import { Sparkles, User, Heart, TrendingUp, Users, Calendar, Briefcase, Globe, Target, Layers, Mail, Phone } from "lucide-react";
+import heroBg from "@/assets/hero-contacto.jpg";
 
 const formSchema = z.object({
   nombre: z.string().trim().min(2, "Por favor ingresa tu nombre completo").max(100),
@@ -222,7 +223,13 @@ const Colabora = () => {
   }
 
   return (
-    <section id="colabora" className="relative pt-32 pb-32 lg:pb-24 px-6 bg-gradient-to-b from-muted/30 to-background">
+    <section id="colabora" className="relative pt-32 pb-32 lg:pb-24 px-6">
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
+
       {/* Fondo decorativo - contenedor separado para no afectar sticky */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full" />
@@ -306,7 +313,7 @@ const Colabora = () => {
                 name="nombre"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu nombre completo 👤</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><User className="w-4 h-4 text-primary" />Tu nombre completo</FormLabel>
                     <FormControl>
                       <Input placeholder="Tu nombre" {...field} />
                     </FormControl>
@@ -321,7 +328,7 @@ const Colabora = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu email 📨</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" />Tu email</FormLabel>
                     <FormControl>
                       <Input type="email" placeholder="tu@email.com" {...field} />
                     </FormControl>
@@ -335,7 +342,7 @@ const Colabora = () => {
                 name="telefono"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu teléfono 📞</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" />Tu teléfono</FormLabel>
                     <FormControl>
                       <Input placeholder="+34 600 000 000" {...field} />
                     </FormControl>
@@ -349,7 +356,7 @@ const Colabora = () => {
                 name="marca"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu marca o proyecto actual 💫</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><Briefcase className="w-4 h-4 text-primary" />Tu marca o proyecto actual</FormLabel>
                     <FormControl>
                       <Input placeholder="Tu marca, empresa, proyecto" {...field} />
                     </FormControl>
@@ -363,7 +370,7 @@ const Colabora = () => {
                 name="sitioWeb"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tu sitio web o redes (si ya tienes) 🔗</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><Globe className="w-4 h-4 text-primary" />Tu sitio web o redes (si ya tienes)</FormLabel>
                     <FormControl>
                       <Input placeholder="https://www.tumarca.com o @tumarca" {...field} />
                     </FormControl>
@@ -383,7 +390,7 @@ const Colabora = () => {
                 name="deseoCrear"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>¿Cuál es el formato de tu comunidad y cuántas personas tiene? 👥</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><Users className="w-4 h-4 text-primary" />¿Cuál es el formato de tu comunidad y cuántas personas tiene?</FormLabel>
                     <FormControl>
                       <Textarea placeholder="Ej. curso online de 200 alumnos, mentoría grupal de 50 personas, comunidad de suscripción con 500 miembros..." className="min-h-[100px]" {...field} />
                     </FormControl>
@@ -397,7 +404,7 @@ const Colabora = () => {
                 name="sentimiento"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>¿Cuál es tu mayor reto ahora mismo? 🎯</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><Target className="w-4 h-4 text-primary" />¿Cuál es tu mayor reto ahora mismo?</FormLabel>
                     <FormControl>
                       <Textarea placeholder="Ej. abandono de alumnos, desmotivación, no puedo escalar sin agotarme, no sé quién está progresando..." {...field} />
                     </FormControl>
@@ -411,7 +418,7 @@ const Colabora = () => {
                 name="proposito"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>¿Qué resultado concreto quieres conseguir? 🚀</FormLabel>
+                    <FormLabel className="flex items-center gap-2"><TrendingUp className="w-4 h-4 text-primary" />¿Qué resultado concreto quieres conseguir?</FormLabel>
                     <FormControl>
                       <Textarea placeholder="Ej. reducir el abandono a la mitad, escalar a 1.000 alumnos sin añadir horas de trabajo, mejorar la tasa de finalización..." className="min-h-[100px]" {...field} />
                     </FormControl>
@@ -423,7 +430,7 @@ const Colabora = () => {
 
             {/* Nivel de desarrollo */}
             <div id="etapa" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">¿En qué etapa estás? 🔍</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground flex items-center gap-2"><Layers className="w-5 h-5 text-primary" />¿En qué etapa estás?</h3>
               
               <FormField
                 control={form.control}
@@ -439,19 +446,19 @@ const Colabora = () => {
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="sonando" id="sonando" />
                           <Label htmlFor="sonando" className="cursor-pointer flex-1">
-                            Estoy construyendo mi curso o mentoría ✨
+                            Estoy construyendo mi curso o mentoría
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="tengo-marca" id="tengo-marca" />
                           <Label htmlFor="tengo-marca" className="cursor-pointer flex-1">
-                            Ya tengo comunidad activa y quiero mejorar la retención 🚀
+                            Ya tengo comunidad activa y quiero mejorar la retención
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="redisenar" id="redisenar" />
                           <Label htmlFor="redisenar" className="cursor-pointer flex-1">
-                            Quiero escalar sin añadir más horas de trabajo 📈
+                            Quiero escalar sin añadir más horas de trabajo
                           </Label>
                         </div>
                       </RadioGroup>
@@ -464,7 +471,7 @@ const Colabora = () => {
 
             {/* Nivel de acompañamiento */}
             <div id="acompanamiento" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">¿Qué tipo de colaboración buscas? 🤝</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground flex items-center gap-2"><Heart className="w-5 h-5 text-primary" />¿Qué tipo de colaboración buscas?</h3>
               
               <FormField
                 control={form.control}
@@ -505,7 +512,7 @@ const Colabora = () => {
 
             {/* Llamada a la acción */}
             <div id="llamada" className="space-y-6 scroll-mt-24">
-              <h3 className="font-display text-2xl font-medium text-foreground">¿Siguiente paso? 📅</h3>
+              <h3 className="font-display text-2xl font-medium text-foreground flex items-center gap-2"><Calendar className="w-5 h-5 text-primary" />¿Siguiente paso?</h3>
               <p className="text-muted-foreground">Una llamada de 30 min para analizar tu caso y ver si tiene sentido trabajar juntos</p>
               
               <FormField
@@ -522,7 +529,7 @@ const Colabora = () => {
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
                           <RadioGroupItem value="si-llamada" id="si-llamada" />
                           <Label htmlFor="si-llamada" className="cursor-pointer flex-1">
-                            Sí, quiero reservar una llamada ✨
+                            Sí, quiero reservar una llamada
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
