@@ -2,6 +2,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
@@ -19,24 +20,26 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/para-creadores" element={<ParaCreadores />} />
-          <Route path="/experiencias" element={<ExperienciasPage />} />
-          <Route path="/nuestra-esencia" element={<NuestraEsenciaPage />} />
-          <Route path="/proceso" element={<ProcesoPage />} />
-          <Route path="/contacto" element={<ContactoPage />} />
-          <Route path="/crm" element={<CRM />} />
-          <Route path="/politicadeprivacidad" element={<PoliticaPrivacidadPage />} />
-          <Route path="/avisolegal" element={<AvisoLegalPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/para-creadores" element={<ParaCreadores />} />
+            <Route path="/experiencias" element={<ExperienciasPage />} />
+            <Route path="/nuestra-esencia" element={<NuestraEsenciaPage />} />
+            <Route path="/proceso" element={<ProcesoPage />} />
+            <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="/crm" element={<CRM />} />
+            <Route path="/politicadeprivacidad" element={<PoliticaPrivacidadPage />} />
+            <Route path="/avisolegal" element={<AvisoLegalPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 
