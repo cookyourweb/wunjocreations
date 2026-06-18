@@ -1,5 +1,6 @@
 // src/components/ProcessSection.tsx
 import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-proceso.jpg";
 
 const steps = [
   {
@@ -31,7 +32,11 @@ const steps = [
 const ProcessSection = () => {
   return (
     <section id="proceso" className="relative py-24 md:py-32">
-      <div className="absolute inset-0 bg-gradient-earth" />
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-background/80" />
+      </div>
       <div className="container relative z-10 mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
