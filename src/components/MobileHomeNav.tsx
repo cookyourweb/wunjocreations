@@ -1,8 +1,6 @@
 // src/components/MobileHomeNav.tsx
 import { Link, useLocation } from "react-router-dom";
-import {
-  Users, Star, Flame, Map, MessageCircle
-} from "lucide-react";
+import { Users, Map, Star, Flame, Sparkles } from "lucide-react";
 
 const MobileHomeNav = () => {
   const location = useLocation();
@@ -12,11 +10,11 @@ const MobileHomeNav = () => {
   };
 
   const navItems = [
-    { id: "para-creadores", label: "Creadores", path: "/para-creadores", icon: Users },
-    { id: "experiencias", label: "Experiencias", path: "/experiencias", icon: Star },
-    { id: "esencia", label: "Esencia", path: "/nuestra-esencia", icon: Flame },
-    { id: "proceso", label: "Proceso", path: "/proceso", icon: Map },
-    { id: "contacto", label: "Contacto", path: "/contacto", icon: MessageCircle },
+    { id: "para-creadores", label: "Creadores",   path: "/para-creadores",  icon: Users },
+    { id: "proceso",        label: "Proceso",     path: "/proceso",         icon: Map },
+    { id: "experiencias",   label: "Experiencias",path: "/experiencias",    icon: Star },
+    { id: "esencia",        label: "Esencia",     path: "/nuestra-esencia", icon: Flame },
+    { id: "contacto",       label: "Me apunto",   path: "/contacto",        icon: Sparkles },
   ];
 
   return (
