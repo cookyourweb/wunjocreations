@@ -38,25 +38,90 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Wunjo Creations",
-      "url": "https://www.wunjocreations.es",
-      "logo": "https://www.wunjocreations.es/logo.png",
-      "description": "Convertimos cursos y mentorías en experiencias personalizadas con IA para cada alumno, aumentando la participación y la retención de la comunidad.",
-      "founder": {
-        "@type": "Person",
-        "name": "Verónica Serna",
-        "jobTitle": "Tech Lead & AI Engineer",
-        "sameAs": "https://www.linkedin.com/in/wunjocreations/"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "wunjocreations@gmail.com",
-        "availableLanguage": "Spanish"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/wunjocreations/"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.wunjocreations.es/#organization",
+          "name": "Wunjo Creations",
+          "url": "https://www.wunjocreations.es",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.wunjocreations.es/logo.png"
+          },
+          "image": "https://www.wunjocreations.es/og-image.jpg",
+          "description": "Convertimos cursos y mentorías en experiencias personalizadas con IA para cada alumno, aumentando la participación y la retención de la comunidad.",
+          "founder": {
+            "@type": "Person",
+            "name": "Verónica Serna",
+            "jobTitle": "Tech Lead & AI Engineer",
+            "sameAs": "https://www.linkedin.com/in/wunjocreations/"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "wunjocreations@gmail.com",
+            "availableLanguage": "Spanish"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/wunjocreations/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.wunjocreations.es/#website",
+          "url": "https://www.wunjocreations.es",
+          "name": "Wunjo Creations",
+          "inLanguage": "es-ES",
+          "publisher": {
+            "@id": "https://www.wunjocreations.es/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.wunjocreations.es/#service",
+          "name": "Wunjo Creations",
+          "url": "https://www.wunjocreations.es",
+          "description": "Personalización de cursos y mentorías online con inteligencia artificial para aumentar la participación y la retención de los alumnos.",
+          "provider": {
+            "@id": "https://www.wunjocreations.es/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "España"
+          },
+          "availableLanguage": "Spanish",
+          "serviceType": "Personalización de cursos y mentorías con IA",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de Wunjo Creations",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Experiencias Personalizadas",
+                  "description": "Transformamos tu curso o mentoría en un viaje único para cada miembro, adaptado con IA a su perfil, ritmo y objetivos."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Automatización Inteligente",
+                  "description": "Sistemas que detectan bloqueos, motivan en el momento justo y escalan tu acompañamiento sin multiplicar tu tiempo."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Comunidad que Convierte",
+                  "description": "Convierte más alumnos en casos de éxito, clientes recurrentes y embajadores de tu marca personal."
+                }
+              }
+            ]
+          }
+        }
       ]
     }
     </script>
